@@ -1855,9 +1855,9 @@ hr { height: 1px; border-width: 0; }
                       <property name="styleSheet">
                        <string notr="true"/>
                       </property>
-                      <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="2,1,1">
+                      <layout class="QHBoxLayout" name="horizontalLayout_6">
                        <item>
-                        <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="0">
+                        <layout class="QHBoxLayout" name="picshow" stretch="0">
                          <property name="leftMargin">
                           <number>10</number>
                          </property>
@@ -1884,297 +1884,317 @@ hr { height: 1px; border-width: 0; }
                            <property name="text">
                             <string/>
                            </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </item>
-                       <item>
-                        <layout class="QVBoxLayout" name="verticalLayout_21" stretch="1,2,1,1,0,1,1">
-                         <item>
-                          <widget class="QLabel" name="home_info_label1">
-                           <property name="font">
-                            <font>
-                             <family>Segoe UI</family>
-                             <pointsize>-1</pointsize>
-                             <italic>false</italic>
-                             <bold>true</bold>
-                            </font>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">font: bold 14px;</string>
-                           </property>
-                           <property name="text">
-                            <string>请选择输入方式：</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLineEdit" name="home_file_io">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>30</height>
-                            </size>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">background-color: rgb(33, 37, 43);</string>
-                           </property>
-                           <property name="text">
-                            <string/>
-                           </property>
-                           <property name="placeholderText">
-                            <string>Type here</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_2">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
-                           <property name="text">
-                            <string/>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="home_info_label2">
-                           <property name="font">
-                            <font>
-                             <family>Segoe UI</family>
-                             <pointsize>-1</pointsize>
-                             <italic>false</italic>
-                             <bold>true</bold>
-                            </font>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">font: bold 14px;</string>
-                           </property>
-                           <property name="text">
-                            <string>图像信息</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="Line" name="line">
-                           <property name="enabled">
-                            <bool>false</bool>
-                           </property>
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
-                           <property name="frameShadow">
-                            <enum>QFrame::Plain</enum>
-                           </property>
-                           <property name="orientation">
-                            <enum>Qt::Horizontal</enum>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="home_info_label2_pix">
-                           <property name="font">
-                            <font>
-                             <family>Segoe UI</family>
-                             <pointsize>-1</pointsize>
-                             <italic>false</italic>
-                             <bold>true</bold>
-                            </font>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">font: bold 11px;</string>
-                           </property>
-                           <property name="text">
-                            <string>像素：</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="home_info_label2_size">
-                           <property name="font">
-                            <font>
-                             <family>Segoe UI</family>
-                             <pointsize>-1</pointsize>
-                             <italic>false</italic>
-                             <bold>true</bold>
-                            </font>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">font: bold 11px;</string>
-                           </property>
-                           <property name="text">
-                            <string>大小：</string>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
                            </property>
                           </widget>
                          </item>
                         </layout>
                        </item>
                        <item>
-                        <layout class="QVBoxLayout" name="verticalLayout_22" stretch="2,2,2,4,1,1">
-                         <property name="spacing">
-                          <number>32</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>10</number>
-                         </property>
-                         <property name="bottomMargin">
-                          <number>17</number>
-                         </property>
-                         <item>
-                          <widget class="QComboBox" name="home_combobox">
-                           <property name="font">
-                            <font>
-                             <family>Segoe UI</family>
-                             <pointsize>10</pointsize>
-                             <italic>false</italic>
-                             <bold>false</bold>
-                            </font>
-                           </property>
-                           <property name="autoFillBackground">
-                            <bool>false</bool>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">background-color: rgb(33, 37, 43);</string>
-                           </property>
-                           <property name="iconSize">
-                            <size>
-                             <width>16</width>
-                             <height>16</height>
-                            </size>
-                           </property>
-                           <property name="frame">
-                            <bool>true</bool>
-                           </property>
-                           <item>
-                            <property name="text">
-                             <string>从文件中导入</string>
-                            </property>
-                           </item>
-                           <item>
-                            <property name="text">
-                             <string>从摄像头拍摄</string>
-                            </property>
-                           </item>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QPushButton" name="home_fileopen_pushButton">
-                           <property name="minimumSize">
-                            <size>
-                             <width>150</width>
-                             <height>30</height>
-                            </size>
-                           </property>
-                           <property name="font">
-                            <font>
-                             <family>Segoe UI</family>
-                             <pointsize>10</pointsize>
-                             <italic>false</italic>
-                             <bold>false</bold>
-                            </font>
-                           </property>
-                           <property name="cursor">
-                            <cursorShape>PointingHandCursor</cursorShape>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">background-color: rgb(52, 59, 72);</string>
-                           </property>
-                           <property name="text">
-                            <string>Open</string>
-                           </property>
-                           <property name="icon">
-                            <iconset resource="resources.qrc">
-                             <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QPushButton" name="home_shot_pushButton">
-                           <property name="minimumSize">
-                            <size>
-                             <width>150</width>
-                             <height>30</height>
-                            </size>
-                           </property>
-                           <property name="font">
-                            <font>
-                             <family>Segoe UI</family>
-                             <pointsize>10</pointsize>
-                             <italic>false</italic>
-                             <bold>false</bold>
-                            </font>
-                           </property>
-                           <property name="cursor">
-                            <cursorShape>PointingHandCursor</cursorShape>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">background-color: rgb(52, 59, 72);</string>
-                           </property>
-                           <property name="text">
-                            <string>Open</string>
-                           </property>
-                           <property name="icon">
-                            <iconset resource="resources.qrc">
-                             <normaloff>:/icons/images/icons/cil-camera.png</normaloff>:/icons/images/icons/cil-camera.png</iconset>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_3">
-                           <property name="text">
-                            <string/>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="home_info_label2_pix_output">
-                           <property name="font">
-                            <font>
-                             <family>Segoe UI</family>
-                             <pointsize>-1</pointsize>
-                             <italic>false</italic>
-                             <bold>true</bold>
-                            </font>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">font: bold 11px;</string>
-                           </property>
-                           <property name="text">
-                            <string>未知</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="home_info_label2_size_output">
-                           <property name="font">
-                            <font>
-                             <family>Segoe UI</family>
-                             <pointsize>-1</pointsize>
-                             <italic>false</italic>
-                             <bold>true</bold>
-                            </font>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">font: bold 11px;</string>
-                           </property>
-                           <property name="text">
-                            <string>未知</string>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
+                        <widget class="QFrame" name="infolayout">
+                         <layout class="QFormLayout" name="formLayout">
+                          <property name="verticalSpacing">
+                           <number>60</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>20</number>
+                          </property>
+                          <item row="0" column="0" colspan="2">
+                           <widget class="QFrame" name="home_iputway">
+                            <layout class="QHBoxLayout" name="horizontalLayout_7">
+                             <property name="topMargin">
+                              <number>20</number>
+                             </property>
+                             <item>
+                              <widget class="QLabel" name="home_info_label1">
+                               <property name="font">
+                                <font>
+                                 <family>Segoe UI</family>
+                                 <pointsize>-1</pointsize>
+                                 <italic>false</italic>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">font: bold 14px;</string>
+                               </property>
+                               <property name="text">
+                                <string>请选择输入方式：</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QComboBox" name="home_combobox">
+                               <property name="font">
+                                <font>
+                                 <family>Segoe UI</family>
+                                 <pointsize>10</pointsize>
+                                 <italic>false</italic>
+                                 <bold>false</bold>
+                                </font>
+                               </property>
+                               <property name="autoFillBackground">
+                                <bool>false</bool>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background-color: rgb(33, 37, 43);</string>
+                               </property>
+                               <property name="iconSize">
+                                <size>
+                                 <width>16</width>
+                                 <height>16</height>
+                                </size>
+                               </property>
+                               <property name="frame">
+                                <bool>true</bool>
+                               </property>
+                               <item>
+                                <property name="text">
+                                 <string>从文件中导入</string>
+                                </property>
+                               </item>
+                               <item>
+                                <property name="text">
+                                 <string>从摄像头拍摄</string>
+                                </property>
+                               </item>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item row="1" column="0" colspan="2">
+                           <widget class="QFrame" name="home_open">
+                            <layout class="QHBoxLayout" name="horizontalLayout_13">
+                             <item>
+                              <widget class="QPushButton" name="home_fileopen_pushButton">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>150</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Segoe UI</family>
+                                 <pointsize>10</pointsize>
+                                 <italic>false</italic>
+                                 <bold>false</bold>
+                                </font>
+                               </property>
+                               <property name="cursor">
+                                <cursorShape>PointingHandCursor</cursorShape>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background-color: rgb(52, 59, 72);</string>
+                               </property>
+                               <property name="text">
+                                <string>Open</string>
+                               </property>
+                               <property name="icon">
+                                <iconset resource="resources.qrc">
+                                 <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="home_shot_pushButton">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>150</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Segoe UI</family>
+                                 <pointsize>10</pointsize>
+                                 <italic>false</italic>
+                                 <bold>false</bold>
+                                </font>
+                               </property>
+                               <property name="cursor">
+                                <cursorShape>PointingHandCursor</cursorShape>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background-color: rgb(52, 59, 72);</string>
+                               </property>
+                               <property name="text">
+                                <string>shot</string>
+                               </property>
+                               <property name="icon">
+                                <iconset resource="resources.qrc">
+                                 <normaloff>:/icons/images/icons/cil-camera.png</normaloff>:/icons/images/icons/cil-camera.png</iconset>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item row="2" column="0" colspan="2">
+                           <widget class="QFrame" name="home_image_info_frame">
+                            <layout class="QGridLayout" name="gridLayout_3">
+                             <property name="rightMargin">
+                              <number>9</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item row="0" column="0" colspan="2">
+                              <widget class="QLabel" name="label_2">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>60</height>
+                                </size>
+                               </property>
+                               <property name="text">
+                                <string/>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="5" column="1">
+                              <widget class="QLabel" name="home_info_label2_pix_output">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Segoe UI</family>
+                                 <pointsize>-1</pointsize>
+                                 <italic>false</italic>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">font: bold 13px;</string>
+                               </property>
+                               <property name="text">
+                                <string>未知</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="3" column="1">
+                              <widget class="QLabel" name="home_info_label2_size_output">
+                               <property name="enabled">
+                                <bool>true</bool>
+                               </property>
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Segoe UI</family>
+                                 <pointsize>-1</pointsize>
+                                 <italic>false</italic>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">font: bold 13px;</string>
+                               </property>
+                               <property name="text">
+                                <string>未知</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="1" column="0">
+                              <widget class="QLabel" name="home_info_label2">
+                               <property name="font">
+                                <font>
+                                 <family>Segoe UI</family>
+                                 <pointsize>-1</pointsize>
+                                 <italic>false</italic>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">font: bold 15px;</string>
+                               </property>
+                               <property name="text">
+                                <string>图像信息</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="2" column="0">
+                              <widget class="Line" name="line">
+                               <property name="enabled">
+                                <bool>false</bool>
+                               </property>
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="frameShadow">
+                                <enum>QFrame::Plain</enum>
+                               </property>
+                               <property name="orientation">
+                                <enum>Qt::Horizontal</enum>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="5" column="0">
+                              <widget class="QLabel" name="home_info_label2_size">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Segoe UI</family>
+                                 <pointsize>-1</pointsize>
+                                 <italic>false</italic>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">font: bold 13px;</string>
+                               </property>
+                               <property name="text">
+                                <string>大小：</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="3" column="0">
+                              <widget class="QLabel" name="home_info_label2_pix">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Segoe UI</family>
+                                 <pointsize>-1</pointsize>
+                                 <italic>false</italic>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">font: bold 13px;</string>
+                               </property>
+                               <property name="text">
+                                <string>像素：</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
                        </item>
                       </layout>
                      </widget>

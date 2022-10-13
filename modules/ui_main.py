@@ -16,13 +16,12 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplication, QCheckBox,
-    QComboBox, QCommandLinkButton, QFrame, QGridLayout,
-    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
-    QMainWindow, QPlainTextEdit, QPushButton, QRadioButton,
-    QScrollArea, QScrollBar, QSizePolicy, QSlider,
-    QStackedWidget, QTableWidget, QTableWidgetItem, QTextEdit,
-    QVBoxLayout, QWidget)
-
+    QComboBox, QCommandLinkButton, QFormLayout, QFrame,
+    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
+    QLineEdit, QMainWindow, QPlainTextEdit, QPushButton,
+    QRadioButton, QScrollArea, QScrollBar, QSizePolicy,
+    QSlider, QStackedWidget, QTableWidget, QTableWidgetItem,
+    QTextEdit, QVBoxLayout, QWidget)
 from . resources_rc import *
 
 class Ui_MainWindow(object):
@@ -1043,11 +1042,11 @@ class Ui_MainWindow(object):
         self.home.setObjectName(u"home")
         self.home.setLayoutDirection(Qt.LeftToRight)
         self.home.setStyleSheet(u"")
-        self.horizontalLayout_7 = QHBoxLayout(self.home)
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6 = QHBoxLayout(self.home)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.horizontalLayout_6.setContentsMargins(10, 10, 10, 10)
+        self.picshow = QHBoxLayout()
+        self.picshow.setObjectName(u"picshow")
+        self.picshow.setContentsMargins(10, 10, 10, 10)
         self.pic_preshow_label = QLabel(self.home)
         self.pic_preshow_label.setObjectName(u"pic_preshow_label")
         sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -1056,88 +1055,32 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.pic_preshow_label.sizePolicy().hasHeightForWidth())
         self.pic_preshow_label.setSizePolicy(sizePolicy3)
         self.pic_preshow_label.setStyleSheet(u"background:rgb(255, 255, 255)")
+        self.pic_preshow_label.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_6.addWidget(self.pic_preshow_label)
+        self.picshow.addWidget(self.pic_preshow_label)
 
 
-        self.horizontalLayout_7.addLayout(self.horizontalLayout_6)
+        self.horizontalLayout_6.addLayout(self.picshow)
 
-        self.verticalLayout_21 = QVBoxLayout()
-        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
-        self.home_info_label1 = QLabel(self.home)
+        self.infolayout = QFrame(self.home)
+        self.infolayout.setObjectName(u"infolayout")
+        self.formLayout = QFormLayout(self.infolayout)
+        self.formLayout.setObjectName(u"formLayout")
+        self.formLayout.setVerticalSpacing(60)
+        self.formLayout.setContentsMargins(-1, -1, -1, 20)
+        self.home_iputway = QFrame(self.infolayout)
+        self.home_iputway.setObjectName(u"home_iputway")
+        self.horizontalLayout_7 = QHBoxLayout(self.home_iputway)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(-1, 20, -1, -1)
+        self.home_info_label1 = QLabel(self.home_iputway)
         self.home_info_label1.setObjectName(u"home_info_label1")
         self.home_info_label1.setFont(font4)
         self.home_info_label1.setStyleSheet(u"font: bold 14px;")
 
-        self.verticalLayout_21.addWidget(self.home_info_label1)
+        self.horizontalLayout_7.addWidget(self.home_info_label1)
 
-        self.home_file_io = QLineEdit(self.home)
-        self.home_file_io.setObjectName(u"home_file_io")
-        sizePolicy3.setHeightForWidth(self.home_file_io.sizePolicy().hasHeightForWidth())
-        self.home_file_io.setSizePolicy(sizePolicy3)
-        self.home_file_io.setMinimumSize(QSize(0, 30))
-        self.home_file_io.setStyleSheet(u"background-color: rgb(33, 37, 43);")
-
-        self.verticalLayout_21.addWidget(self.home_file_io)
-
-        self.label_2 = QLabel(self.home)
-        self.label_2.setObjectName(u"label_2")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
-        self.label_2.setSizePolicy(sizePolicy4)
-
-        self.verticalLayout_21.addWidget(self.label_2)
-
-        self.home_info_label2 = QLabel(self.home)
-        self.home_info_label2.setObjectName(u"home_info_label2")
-        self.home_info_label2.setFont(font4)
-        self.home_info_label2.setStyleSheet(u"font: bold 14px;")
-
-        self.verticalLayout_21.addWidget(self.home_info_label2)
-
-        self.line = QFrame(self.home)
-        self.line.setObjectName(u"line")
-        self.line.setEnabled(False)
-        sizePolicy5 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
-        self.line.setSizePolicy(sizePolicy5)
-        self.line.setFrameShadow(QFrame.Plain)
-        self.line.setFrameShape(QFrame.HLine)
-
-        self.verticalLayout_21.addWidget(self.line)
-
-        self.home_info_label2_pix = QLabel(self.home)
-        self.home_info_label2_pix.setObjectName(u"home_info_label2_pix")
-        self.home_info_label2_pix.setFont(font4)
-        self.home_info_label2_pix.setStyleSheet(u"font: bold 11px;")
-
-        self.verticalLayout_21.addWidget(self.home_info_label2_pix)
-
-        self.home_info_label2_size = QLabel(self.home)
-        self.home_info_label2_size.setObjectName(u"home_info_label2_size")
-        self.home_info_label2_size.setFont(font4)
-        self.home_info_label2_size.setStyleSheet(u"font: bold 11px;")
-
-        self.verticalLayout_21.addWidget(self.home_info_label2_size)
-
-        self.verticalLayout_21.setStretch(0, 1)
-        self.verticalLayout_21.setStretch(1, 2)
-        self.verticalLayout_21.setStretch(2, 1)
-        self.verticalLayout_21.setStretch(3, 1)
-        self.verticalLayout_21.setStretch(5, 1)
-        self.verticalLayout_21.setStretch(6, 1)
-
-        self.horizontalLayout_7.addLayout(self.verticalLayout_21)
-
-        self.verticalLayout_22 = QVBoxLayout()
-        self.verticalLayout_22.setSpacing(32)
-        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
-        self.verticalLayout_22.setContentsMargins(-1, 10, -1, 17)
-        self.home_combobox = QComboBox(self.home)
+        self.home_combobox = QComboBox(self.home_iputway)
         self.home_combobox.addItem("")
         self.home_combobox.addItem("")
         self.home_combobox.setObjectName(u"home_combobox")
@@ -1147,9 +1090,16 @@ class Ui_MainWindow(object):
         self.home_combobox.setIconSize(QSize(16, 16))
         self.home_combobox.setFrame(True)
 
-        self.verticalLayout_22.addWidget(self.home_combobox)
+        self.horizontalLayout_7.addWidget(self.home_combobox)
 
-        self.home_fileopen_pushButton = QPushButton(self.home)
+
+        self.formLayout.setWidget(0, QFormLayout.SpanningRole, self.home_iputway)
+
+        self.home_open = QFrame(self.infolayout)
+        self.home_open.setObjectName(u"home_open")
+        self.horizontalLayout_13 = QHBoxLayout(self.home_open)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.home_fileopen_pushButton = QPushButton(self.home_open)
         self.home_fileopen_pushButton.setObjectName(u"home_fileopen_pushButton")
         self.home_fileopen_pushButton.setMinimumSize(QSize(150, 30))
         self.home_fileopen_pushButton.setFont(font1)
@@ -1159,9 +1109,9 @@ class Ui_MainWindow(object):
         icon3.addFile(u":/icons/images/icons/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
         self.home_fileopen_pushButton.setIcon(icon3)
 
-        self.verticalLayout_22.addWidget(self.home_fileopen_pushButton)
+        self.horizontalLayout_13.addWidget(self.home_fileopen_pushButton)
 
-        self.home_shot_pushButton = QPushButton(self.home)
+        self.home_shot_pushButton = QPushButton(self.home_open)
         self.home_shot_pushButton.setObjectName(u"home_shot_pushButton")
         self.home_shot_pushButton.setMinimumSize(QSize(150, 30))
         self.home_shot_pushButton.setFont(font1)
@@ -1171,39 +1121,81 @@ class Ui_MainWindow(object):
         icon4.addFile(u":/icons/images/icons/cil-camera.png", QSize(), QIcon.Normal, QIcon.Off)
         self.home_shot_pushButton.setIcon(icon4)
 
-        self.verticalLayout_22.addWidget(self.home_shot_pushButton)
+        self.horizontalLayout_13.addWidget(self.home_shot_pushButton)
 
-        self.label_3 = QLabel(self.home)
-        self.label_3.setObjectName(u"label_3")
 
-        self.verticalLayout_22.addWidget(self.label_3)
+        self.formLayout.setWidget(1, QFormLayout.SpanningRole, self.home_open)
 
-        self.home_info_label2_pix_output = QLabel(self.home)
+        self.home_image_info_frame = QFrame(self.infolayout)
+        self.home_image_info_frame.setObjectName(u"home_image_info_frame")
+        self.gridLayout_3 = QGridLayout(self.home_image_info_frame)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.gridLayout_3.setContentsMargins(-1, -1, 9, 0)
+        self.label_2 = QLabel(self.home_image_info_frame)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMinimumSize(QSize(0, 60))
+
+        self.gridLayout_3.addWidget(self.label_2, 0, 0, 1, 2)
+
+        self.home_info_label2_pix_output = QLabel(self.home_image_info_frame)
         self.home_info_label2_pix_output.setObjectName(u"home_info_label2_pix_output")
+        self.home_info_label2_pix_output.setMinimumSize(QSize(0, 30))
         self.home_info_label2_pix_output.setFont(font4)
-        self.home_info_label2_pix_output.setStyleSheet(u"font: bold 11px;")
+        self.home_info_label2_pix_output.setStyleSheet(u"font: bold 13px;")
 
-        self.verticalLayout_22.addWidget(self.home_info_label2_pix_output)
+        self.gridLayout_3.addWidget(self.home_info_label2_pix_output, 5, 1, 1, 1)
 
-        self.home_info_label2_size_output = QLabel(self.home)
+        self.home_info_label2_size_output = QLabel(self.home_image_info_frame)
         self.home_info_label2_size_output.setObjectName(u"home_info_label2_size_output")
+        self.home_info_label2_size_output.setEnabled(True)
+        self.home_info_label2_size_output.setMinimumSize(QSize(0, 30))
         self.home_info_label2_size_output.setFont(font4)
-        self.home_info_label2_size_output.setStyleSheet(u"font: bold 11px;")
+        self.home_info_label2_size_output.setStyleSheet(u"font: bold 13px;")
 
-        self.verticalLayout_22.addWidget(self.home_info_label2_size_output)
+        self.gridLayout_3.addWidget(self.home_info_label2_size_output, 3, 1, 1, 1)
 
-        self.verticalLayout_22.setStretch(0, 2)
-        self.verticalLayout_22.setStretch(1, 2)
-        self.verticalLayout_22.setStretch(2, 2)
-        self.verticalLayout_22.setStretch(3, 4)
-        self.verticalLayout_22.setStretch(4, 1)
-        self.verticalLayout_22.setStretch(5, 1)
+        self.home_info_label2 = QLabel(self.home_image_info_frame)
+        self.home_info_label2.setObjectName(u"home_info_label2")
+        self.home_info_label2.setFont(font4)
+        self.home_info_label2.setStyleSheet(u"font: bold 15px;")
 
-        self.horizontalLayout_7.addLayout(self.verticalLayout_22)
+        self.gridLayout_3.addWidget(self.home_info_label2, 1, 0, 1, 1)
 
-        self.horizontalLayout_7.setStretch(0, 2)
-        self.horizontalLayout_7.setStretch(1, 1)
-        self.horizontalLayout_7.setStretch(2, 1)
+        self.line = QFrame(self.home_image_info_frame)
+        self.line.setObjectName(u"line")
+        self.line.setEnabled(False)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
+        self.line.setSizePolicy(sizePolicy4)
+        self.line.setFrameShadow(QFrame.Plain)
+        self.line.setFrameShape(QFrame.HLine)
+
+        self.gridLayout_3.addWidget(self.line, 2, 0, 1, 1)
+
+        self.home_info_label2_size = QLabel(self.home_image_info_frame)
+        self.home_info_label2_size.setObjectName(u"home_info_label2_size")
+        self.home_info_label2_size.setMinimumSize(QSize(0, 30))
+        self.home_info_label2_size.setFont(font4)
+        self.home_info_label2_size.setStyleSheet(u"font: bold 13px;")
+
+        self.gridLayout_3.addWidget(self.home_info_label2_size, 5, 0, 1, 1)
+
+        self.home_info_label2_pix = QLabel(self.home_image_info_frame)
+        self.home_info_label2_pix.setObjectName(u"home_info_label2_pix")
+        self.home_info_label2_pix.setMinimumSize(QSize(0, 30))
+        self.home_info_label2_pix.setFont(font4)
+        self.home_info_label2_pix.setStyleSheet(u"font: bold 13px;")
+
+        self.gridLayout_3.addWidget(self.home_info_label2_pix, 3, 0, 1, 1)
+
+
+        self.formLayout.setWidget(2, QFormLayout.SpanningRole, self.home_image_info_frame)
+
+
+        self.horizontalLayout_6.addWidget(self.infolayout)
+
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -1736,20 +1728,17 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setText("")
         self.pic_preshow_label.setText("")
         self.home_info_label1.setText(QCoreApplication.translate("MainWindow", u"\u8bf7\u9009\u62e9\u8f93\u5165\u65b9\u5f0f\uff1a", None))
-        self.home_file_io.setText("")
-        self.home_file_io.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
-        self.label_2.setText("")
-        self.home_info_label2.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u50cf\u4fe1\u606f", None))
-        self.home_info_label2_pix.setText(QCoreApplication.translate("MainWindow", u"\u50cf\u7d20\uff1a", None))
-        self.home_info_label2_size.setText(QCoreApplication.translate("MainWindow", u"\u5927\u5c0f\uff1a", None))
         self.home_combobox.setItemText(0, QCoreApplication.translate("MainWindow", u"\u4ece\u6587\u4ef6\u4e2d\u5bfc\u5165", None))
         self.home_combobox.setItemText(1, QCoreApplication.translate("MainWindow", u"\u4ece\u6444\u50cf\u5934\u62cd\u6444", None))
 
         self.home_fileopen_pushButton.setText(QCoreApplication.translate("MainWindow", u"Open", None))
-        self.home_shot_pushButton.setText(QCoreApplication.translate("MainWindow", u"Open", None))
-        self.label_3.setText("")
+        self.home_shot_pushButton.setText(QCoreApplication.translate("MainWindow", u"shot", None))
+        self.label_2.setText("")
         self.home_info_label2_pix_output.setText(QCoreApplication.translate("MainWindow", u"\u672a\u77e5", None))
         self.home_info_label2_size_output.setText(QCoreApplication.translate("MainWindow", u"\u672a\u77e5", None))
+        self.home_info_label2.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u50cf\u4fe1\u606f", None))
+        self.home_info_label2_size.setText(QCoreApplication.translate("MainWindow", u"\u5927\u5c0f\uff1a", None))
+        self.home_info_label2_pix.setText(QCoreApplication.translate("MainWindow", u"\u50cf\u7d20\uff1a", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
