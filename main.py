@@ -74,6 +74,10 @@ class MainWindow(QMainWindow):
         widgets.btn_new.clicked.connect(self.buttonClick)
         widgets.btn_save.clicked.connect(self.buttonClick)
 
+        # LEFT BUTTON
+        widgets.btn_home_open.clicked.connect(self.buttonClick)
+        widgets.btn_home_shot.clicked.connect(self.buttonClick)
+
         # EXTRA LEFT BOX
         def openCloseLeftBox():
             UIFunctions.toggleLeftBox(self, True)
