@@ -21,6 +21,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QGroupBox,
     QTextEdit, QVBoxLayout, QWidget)
 from . resources_rc import *
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -1052,14 +1053,14 @@ class Ui_MainWindow(object):
         self.verticalLayout_22.setObjectName(u"verticalLayout_22")
         self.input_way = QGroupBox(self.home_info)
         self.input_way.setObjectName(u"input_way")
-        self.verticalLayout_21 = QVBoxLayout(self.input_way)
-        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.verticalLayout = QVBoxLayout(self.input_way)
+        self.verticalLayout.setObjectName(u"verticalLayout")
         self.filePathlineEdit = QLineEdit(self.input_way)
         self.filePathlineEdit.setObjectName(u"filePathlineEdit")
         self.filePathlineEdit.setMinimumSize(QSize(0, 30))
         self.filePathlineEdit.setStyleSheet(u"background-color: rgb(33, 37, 43);")
 
-        self.verticalLayout_21.addWidget(self.filePathlineEdit)
+        self.verticalLayout.addWidget(self.filePathlineEdit)
 
         self.btn_home_open = QPushButton(self.input_way)
         self.btn_home_open.setObjectName(u"btn_home_open")
@@ -1071,7 +1072,7 @@ class Ui_MainWindow(object):
         icon3.addFile(u":/icons/images/icons/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_home_open.setIcon(icon3)
 
-        self.verticalLayout_21.addWidget(self.btn_home_open)
+        self.verticalLayout.addWidget(self.btn_home_open)
 
         self.btn_home_shot = QPushButton(self.input_way)
         self.btn_home_shot.setObjectName(u"btn_home_shot")
@@ -1083,7 +1084,19 @@ class Ui_MainWindow(object):
         icon4.addFile(u":/icons/images/icons/cil-camera.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_home_shot.setIcon(icon4)
 
-        self.verticalLayout_21.addWidget(self.btn_home_shot)
+        self.verticalLayout.addWidget(self.btn_home_shot)
+
+        self.btn_home_show = QPushButton(self.input_way)
+        self.btn_home_show.setObjectName(u"btn_home_show")
+        self.btn_home_show.setMinimumSize(QSize(150, 30))
+        self.btn_home_show.setFont(font1)
+        self.btn_home_show.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_home_show.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        icon5 = QIcon()
+        icon5.addFile(u":/icons/images/icons/cil-satelite.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_home_show.setIcon(icon5)
+
+        self.verticalLayout.addWidget(self.btn_home_show)
 
 
         self.verticalLayout_22.addWidget(self.input_way)
@@ -1311,7 +1324,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1366,7 +1379,8 @@ class Ui_MainWindow(object):
         self.filePathlineEdit.setText("")
         self.filePathlineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u6587\u4ef6\u8def\u5f84\u5c55\u793a", None))
         self.btn_home_open.setText(QCoreApplication.translate("MainWindow", u"Open", None))
-        self.btn_home_shot.setText(QCoreApplication.translate("MainWindow", u"shot", None))
+        self.btn_home_shot.setText(QCoreApplication.translate("MainWindow", u"Shot ", None))
+        self.btn_home_show.setText(QCoreApplication.translate("MainWindow", u"Show", None))
         self.pic_info.setTitle(QCoreApplication.translate("MainWindow", u"\u56fe\u50cf\u4fe1\u606f", None))
         self.home_info_label2_pix.setText(QCoreApplication.translate("MainWindow", u"\u50cf\u7d20\uff1a", None))
         self.home_info_label2_pix_output.setText(QCoreApplication.translate("MainWindow", u"\u672a\u77e5", None))

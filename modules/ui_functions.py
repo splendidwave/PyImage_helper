@@ -288,7 +288,8 @@ class UIFunctions(MainWindow):
     # 显示图片参数
     def show_image_info(self,path=None):
         if path:
-            self.image = cv2.imread(path)
+            # self.image = cv2.imread(path)
+            self.image = cv2.imdecode(np.fromfile(path, dtype=np.uint8), -1)
             imageSize = os.path.getsize(path)
             imageSize /= 1024 # 除以1024是代表Kb
             self.ui.home_info_label2_size_output.setText(str(imageSize)+" KB")
@@ -323,6 +324,12 @@ class UIFunctions(MainWindow):
             self.camera_timer.start(30)
         self.camera_open = ~self.camera_open
 
+    # 打开一个窗口展示当前预览
+    def home_page_show(self):
+        win_name = "home_preview"
+        cv2.namedWindow(win_name,cv2.WINDOW_AUTOSIZE)
+        cv2.imshow(win_name,self.image)
+        UIFunctions.wait_key(self,self.image,win_name)
     # ///////////////////////////////////////////////////////////////
     # END - 主界面按钮功能实现
 

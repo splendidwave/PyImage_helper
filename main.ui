@@ -1796,7 +1796,7 @@ hr { height: 1px; border-width: 0; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="layoutDirection">
@@ -1858,7 +1858,7 @@ hr { height: 1px; border-width: 0; }
                             <property name="title">
                              <string>输入方式</string>
                             </property>
-                            <layout class="QVBoxLayout" name="verticalLayout_21">
+                            <layout class="QVBoxLayout" name="verticalLayout">
                              <item>
                               <widget class="QLineEdit" name="filePathlineEdit">
                                <property name="minimumSize">
@@ -1932,11 +1932,42 @@ hr { height: 1px; border-width: 0; }
                                 <string notr="true">background-color: rgb(52, 59, 72);</string>
                                </property>
                                <property name="text">
-                                <string>shot</string>
+                                <string>Shot </string>
                                </property>
                                <property name="icon">
                                 <iconset resource="resources.qrc">
                                  <normaloff>:/icons/images/icons/cil-camera.png</normaloff>:/icons/images/icons/cil-camera.png</iconset>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_home_show">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>150</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Segoe UI</family>
+                                 <pointsize>10</pointsize>
+                                 <italic>false</italic>
+                                 <bold>false</bold>
+                                </font>
+                               </property>
+                               <property name="cursor">
+                                <cursorShape>PointingHandCursor</cursorShape>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background-color: rgb(52, 59, 72);</string>
+                               </property>
+                               <property name="text">
+                                <string>Show</string>
+                               </property>
+                               <property name="icon">
+                                <iconset resource="resources.qrc">
+                                 <normaloff>:/icons/images/icons/cil-satelite.png</normaloff>:/icons/images/icons/cil-satelite.png</iconset>
                                </property>
                               </widget>
                              </item>

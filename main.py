@@ -86,6 +86,7 @@ class MainWindow(QMainWindow):
         # Home page Button
         widgets.btn_home_open.clicked.connect(self.buttonClick)
         widgets.btn_home_shot.clicked.connect(self.buttonClick)
+        widgets.btn_home_show.clicked.connect(self.buttonClick)
 
         # Widgets page Button
         widgets.btn_widgets_resize.clicked.connect(self.widgets_buttonClick)
@@ -159,6 +160,9 @@ class MainWindow(QMainWindow):
             
         if btnName == "btn_home_shot":
             UIFunctions.open_camera(self)
+
+        if btnName == "btn_home_show":
+            UIFunctions.home_page_show(self)
 
 
         # PRINT BTN NAME
