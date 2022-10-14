@@ -280,3 +280,44 @@ class UIFunctions(MainWindow):
 
     # ///////////////////////////////////////////////////////////////
     # END - GUI DEFINITIONS
+
+    # START - Home_page_btn_function
+    # 主页面按钮功能实现
+
+    # 显示图片参数
+    def show_image_info(self,path=None):
+        if path:
+            self.image = cv2.imread(path)
+            imageSize = os.path.getsize(path)
+            imageSize /= 1024 # 除以1024是代表Kb
+            self.ui.home_info_label2_size_output.setText(str(imageSize)+" KB")
+        else:
+            self.ui.home_info_label2_size_output.setText("未保存")
+        self.ui.home_info_label2_pix_output.setText(str(self.image.shape[1])+" * "+str(self.image.shape[0]))
+
+
+    # 从文件中打开图片
+    def open_image_file(self):
+        if self.camera_open:
+            QMessageBox.information(None, '提示', '请先点击shot关闭摄像头',QMessageBox.Ok)
+            return None
+        get_filename_path, ok = QFileDialog.getOpenFileName(self,"选取图片")
+        if ok:
+            UIFunctions.show_image_info(self,get_filename_path)
+            self.ui.filePathlineEdit.setText(str(get_filename_path))
+            image = QPixmap(get_filename_path).scaled(self.ui.pic_preshow_label.width(), self.ui.pic_preshow_label.height())
+            self.ui.pic_preshow_label.setPixmap(image)
+            self.ui.pic_preshow_label.setScaledContents(True)
+        
+    # 从摄像头中拍摄图片
+    def open_camera(self):
+        if self.camera_open:
+            ret, self.image = self.vid.read()
+            self.ui.pic_preshow_label.setScaledContents(True)
+            self.camera_timer.stop()
+            self.vid.release()
+            UIFunctions.show_image_info(self)
+        else:
+            self.vid = cv2.VideoCapture(0)
+            self.camera_timer.start(30)
+        self.camera_open = ~self.camera_open

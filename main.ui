@@ -1909,9 +1909,25 @@ hr { height: 1px; border-width: 0; }
                              <string>输入方式</string>
                             </property>
                             <layout class="QVBoxLayout" name="verticalLayout_21">
-                             <property name="spacing">
-                              <number>20</number>
-                             </property>
+                             <item>
+                              <widget class="QLineEdit" name="filePathlineEdit">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background-color: rgb(33, 37, 43);</string>
+                               </property>
+                               <property name="text">
+                                <string/>
+                               </property>
+                               <property name="placeholderText">
+                                <string>文件路径展示</string>
+                               </property>
+                              </widget>
+                             </item>
                              <item>
                               <widget class="QPushButton" name="btn_home_open">
                                <property name="minimumSize">

@@ -17,6 +17,7 @@
 import sys
 import os
 import platform
+import cv2
 
 # IMPORT / GUI AND MODULES AND WIDGETS 导入高清模组
 # ///////////////////////////////////////////////////////////////
@@ -51,6 +52,13 @@ class MainWindow(QMainWindow):
         # APPLY TEXTS
         self.setWindowTitle(title)
         # widgets.titleRightInfo.setText(description)
+
+        # 图片变量
+        self.iamge = None
+        # 摄像头变量
+        self.camera_open = False # 摄像头是否打开
+        self.camera_timer = QTimer() # 摄像头定时器
+        self.camera_timer.timeout.connect(self.update_frame)
 
         # TOGGLE MENU
         # 触发菜单
@@ -141,6 +149,13 @@ class MainWindow(QMainWindow):
         if btnName == "btn_save":
             print("Save BTN clicked!")
 
+        if btnName == "btn_home_open":
+            UIFunctions.open_image_file(self)
+            
+        if btnName == "btn_home_shot":
+            UIFunctions.open_camera(self)
+
+
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
 
@@ -163,8 +178,17 @@ class MainWindow(QMainWindow):
         if event.buttons() == Qt.RightButton:
             print('Mouse click: RIGHT CLICK')
 
+    # 摄像头定时中断
+    def update_frame(self):
+        ret, frame = self.vid.read()
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        image = QImage(frame, frame.shape[1],frame.shape[0],frame.strides[0], QImage.Format_RGB888)
+        self.ui.pic_preshow_label.setPixmap(QPixmap.fromImage(image))
+        
+
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
