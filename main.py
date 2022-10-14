@@ -18,6 +18,7 @@ import sys
 import os
 import platform
 import cv2
+import numpy as np
 
 # IMPORT / GUI AND MODULES AND WIDGETS 导入高清模组
 # ///////////////////////////////////////////////////////////////
@@ -54,7 +55,7 @@ class MainWindow(QMainWindow):
         # widgets.titleRightInfo.setText(description)
 
         # 图片变量
-        self.iamge = None
+        self.image = None
         # 摄像头变量
         self.camera_open = False # 摄像头是否打开
         self.camera_timer = QTimer() # 摄像头定时器
@@ -71,7 +72,7 @@ class MainWindow(QMainWindow):
 
         # QTableWidget PARAMETERS
         # ///////////////////////////////////////////////////////////////
-        widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        #widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         # BUTTONS CLICK
         # ///////////////////////////////////////////////////////////////
@@ -80,11 +81,14 @@ class MainWindow(QMainWindow):
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_widgets.clicked.connect(self.buttonClick)
         widgets.btn_new.clicked.connect(self.buttonClick)
-        widgets.btn_save.clicked.connect(self.buttonClick)
+        # widgets.btn_save.clicked.connect(self.buttonClick)
 
-        # LEFT BUTTON
+        # Home page Button
         widgets.btn_home_open.clicked.connect(self.buttonClick)
         widgets.btn_home_shot.clicked.connect(self.buttonClick)
+
+        # Widgets page Button
+        widgets.btn_widgets_resize.clicked.connect(self.widgets_buttonClick)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -149,6 +153,7 @@ class MainWindow(QMainWindow):
         if btnName == "btn_save":
             print("Save BTN clicked!")
 
+        # home page botton
         if btnName == "btn_home_open":
             UIFunctions.open_image_file(self)
             
@@ -158,6 +163,27 @@ class MainWindow(QMainWindow):
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
+
+    # widgets page button clicked
+    # 
+    def widgets_buttonClick(self):
+        # GET BUTTON CLICKED
+        btn = self.sender()
+        btnName = btn.objectName()
+
+        if not isinstance(self.image, np.ndarray):
+            QMessageBox.information(None, '提示', '请先打开一副图吧!  ',QMessageBox.Ok)
+            return None
+
+        # widgets page botton
+        # 缩放
+        if btnName == "btn_widgets_resize":
+            UIFunctions.resize_image(self)
+
+        # PRINT BTN NAME
+        print(f'Button "{btnName}" pressed!')
+
+
 
 
     # RESIZE EVENTS

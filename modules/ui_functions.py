@@ -283,6 +283,7 @@ class UIFunctions(MainWindow):
 
     # START - Home_page_btn_function
     # 主页面按钮功能实现
+    # ///////////////////////////////////////////////////////////////
 
     # 显示图片参数
     def show_image_info(self,path=None):
@@ -292,7 +293,7 @@ class UIFunctions(MainWindow):
             imageSize /= 1024 # 除以1024是代表Kb
             self.ui.home_info_label2_size_output.setText(str(imageSize)+" KB")
         else:
-            self.ui.home_info_label2_size_output.setText("未保存")
+            self.ui.home_info_label2_size_output.setText("还未保存，未知大小")
         self.ui.home_info_label2_pix_output.setText(str(self.image.shape[1])+" * "+str(self.image.shape[0]))
 
 
@@ -321,3 +322,78 @@ class UIFunctions(MainWindow):
             self.vid = cv2.VideoCapture(0)
             self.camera_timer.start(30)
         self.camera_open = ~self.camera_open
+
+    # ///////////////////////////////////////////////////////////////
+    # END - 主界面按钮功能实现
+
+    # START - widgets_page_btn_function
+    # 功能页面按钮功能实现
+    # ///////////////////////////////////////////////////////////////
+    # 通用等待函数
+    def wait_key(self,img,win_name):
+        k = cv2.waitKey(0)
+        if k == 27: #esc
+            cv2.destroyAllWindows()
+        elif k == ord('q'):
+            cv2.destroyWindow(win_name)
+        elif k == ord('s'):
+            pass
+        elif k == ord('l'):
+            pass
+        elif k == ord('h'):
+            image = UIFunctions.cvToQImage(self,img)
+            self.ui.pic_preshow_label.setPixmap(QPixmap.fromImage(image))
+            self.image = img
+            UIFunctions.show_image_info(self)
+            cv2.destroyWindow(win_name)
+
+    # 缩放功能
+    def resize_image(self):
+        size,ok = QInputDialog.getText(self,"输入窗口","请输入缩放的宽高，使用英文逗号分隔",QLineEdit.Normal,"580,580")
+        if ok and size != "":
+            width,height = map(int,size.split(','))
+            size = (width,height)
+            win_name = "resize"+str(size)
+            img = cv2.resize(self.image,size)
+            cv2.namedWindow(win_name,cv2.WINDOW_AUTOSIZE)
+            cv2.imshow(win_name,img)
+            UIFunctions.wait_key(self,img,win_name)
+            
+    # ///////////////////////////////////////////////////////////////
+    # END  功能页面按钮功能实现
+
+    # START - 其他功能
+    # ///////////////////////////////////////////////////////////////
+    # CV 和 qimage互换
+    def cvToQImage(self,data):
+        # 8-bits unsigned, NO. OF CHANNELS=1
+        if data.dtype == np.uint8:
+            channels = 1 if len(data.shape) == 2 else data.shape[2]
+        if channels == 3: # CV_8UC3
+            # Copy input Mat
+            # Create QImage with same dimensions as input Mat
+            img = QImage(data, data.shape[1], data.shape[0], data.strides[0], QImage.Format_RGB888)
+            return img.rgbSwapped()
+        elif channels == 1:
+            # Copy input Mat
+            # Create QImage with same dimensions as input Mat
+            img = QImage(data, data.shape[1], data.shape[0], data.strides[0], QImage.Format_Indexed8)
+            return img
+        else:
+            qDebug("ERROR: numpy.ndarray could not be converted to QImage. Channels = %d" % data.shape[2])
+            return QImage()
+
+ 
+    def QImage2CV(self,qtpixmap):
+
+        qimg = qtpixmap.toImage()
+        temp_shape = (qimg.height(), qimg.bytesPerLine() * 8 // qimg.depth())
+        temp_shape += (4,)
+        ptr = qimg.bits()
+        ptr.setsize(qimg.byteCount())
+        result = np.array(ptr, dtype=np.uint8).reshape(temp_shape)
+        result = result[..., :3]
+
+        return result
+
+    # END 其他功能
