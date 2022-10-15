@@ -355,10 +355,10 @@ class UIFunctions(MainWindow):
             cv2.destroyWindow(win_name)
 
     # 缩放功能
-    def resize_image(self):
-        size,ok = QInputDialog.getText(self,"输入窗口","请输入缩放的宽高，使用英文逗号分隔",QLineEdit.Normal,"580,580")
+    def resize_image(self,s="1920*1080"):
+        size,ok = QInputDialog.getText(self,"输入窗口","请输入缩放的宽高，使用*分隔",QLineEdit.Normal,s)
         if ok and size != "":
-            width,height = map(int,size.split(','))
+            width,height = map(int,size.split('*'))
             size = (width,height)
             win_name = "resize"+str(size)
             img = cv2.resize(self.image,size)
