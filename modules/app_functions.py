@@ -1,3 +1,9 @@
+'''
+Author: splendidwave 1578399592@qq.com
+Date: 2022-10-13 15:35:40
+Description: 应用函数
+Copyright (c) 2022 by splendidwave, This project can be used freely for all uses. 
+'''
 # ///////////////////////////////////////////////////////////////
 #
 # BY: WANDERSON M.PIMENTA
@@ -45,6 +51,7 @@ class AppFunctions(MainWindow):
         if self.config.get('General','init') == 'False':
             # 设立初始值
             self.config.set("General","file_save_path",os.getcwd()+'\\save')
+            self.config.set("General","file_open_path",os.getcwd())
         else:
             # 有内容读取
             pass

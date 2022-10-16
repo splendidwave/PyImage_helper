@@ -1,3 +1,9 @@
+'''
+Author: splendidwave 1578399592@qq.com
+Date: 2022-10-13 15:35:40
+Description: 主函数
+Copyright (c) 2022 by splendidwave, This project can be used freely for all uses. 
+'''
 # ///////////////////////////////////////////////////////////////
 #
 # BY: WANDERSON M.PIMENTA
@@ -42,7 +48,7 @@ class MainWindow(QMainWindow):
         global widgets
         widgets = self.ui
 
-        # 默认配置载入
+        # 默认配置载入 修改需要改3个地方，1读取设置初始值（app_functions），2显示到ui(show_settings),3.保存按钮（save_settings）
         self.config = configparser.ConfigParser()
         AppFunctions.read_settings_file(self)
         
@@ -95,7 +101,23 @@ class MainWindow(QMainWindow):
         widgets.btn_home_show.clicked.connect(self.buttonClick)
 
         # Widgets page Button
+        # 基础操作
         widgets.btn_widgets_resize.clicked.connect(self.widgets_buttonClick)
+        widgets.btn_widgets_gray.clicked.connect(self.widgets_buttonClick) # 灰度化 未完成
+        widgets.btn_widgets_Thresholding.clicked.connect(self.widgets_buttonClick) # 二值化 未完成
+        # 灰度变换
+        widgets.btn_widgets_flip.clicked.connect(self.widgets_buttonClick) # 反转 未完成
+        widgets.btn_widgets_log.clicked.connect(self.widgets_buttonClick) # 对数 未完成
+        widgets.btn_widgets_gamma.clicked.connect(self.widgets_buttonClick) # 伽马 未完成 
+        widgets.btn_widgets_contrast_stretch.clicked.connect(self.widgets_buttonClick) # 对比度拉伸 未完成
+        
+        widgets.btn_widgets_grayscale_layering.clicked.connect(self.widgets_buttonClick) # 灰度分层 未完成
+        
+        # 滤波
+        widgets.btn_widgets_mean_filtering.clicked.connect(self.widgets_buttonClick) # 均值 未完成
+        widgets.btn_widgets_gauss_filtering.clicked.connect(self.widgets_buttonClick)   # 高斯 未完成
+        widgets.btn_widgets_median_filtering.clicked.connect(self.widgets_buttonClick) # 中值 未完成
+        widgets.btn_widgets_add_noise.clicked.connect(self.widgets_buttonClick) # 加噪 未完成 
 
         # Setting page(new page) Button
         widgets.btn_settings_save.clicked.connect(self.buttonClick)
@@ -175,7 +197,7 @@ class MainWindow(QMainWindow):
             UIFunctions.home_page_show(self)
 
         if btnName == "btn_settings_save":
-            UIFunctions.save_the_settings(self)
+            UIFunctions.save_settings(self)
 
 
         # PRINT BTN NAME
@@ -196,6 +218,10 @@ class MainWindow(QMainWindow):
         # 缩放
         if btnName == "btn_widgets_resize":
             UIFunctions.resize_image(self)
+
+        # 灰度化
+        if btnName == "btn_widgets_gray":
+            UIFunctions.gray_image(self)
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')

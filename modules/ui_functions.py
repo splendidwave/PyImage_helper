@@ -1,3 +1,9 @@
+'''
+Author: splendidwave 1578399592@qq.com
+Date: 2022-10-13 15:35:40
+Description: ui功能函数
+Copyright (c) 2022 by splendidwave, This project can be used freely for all uses. 
+'''
 # ///////////////////////////////////////////////////////////////
 #
 # BY: WANDERSON M.PIMENTA
@@ -305,7 +311,7 @@ class UIFunctions(MainWindow):
         if self.camera_open:
             QMessageBox.information(None, '提示', '请先点击shot关闭摄像头',QMessageBox.Ok)
             return None
-        get_filename_path, ok = QFileDialog.getOpenFileName(self,"选取图片")
+        get_filename_path, ok = QFileDialog.getOpenFileName(self,"选取图片",self.config.get('General','file_open_path'))
         if ok:
             UIFunctions.show_image_info(self,get_filename_path)
             self.ui.filePathlineEdit.setText(str(get_filename_path))
@@ -340,15 +346,20 @@ class UIFunctions(MainWindow):
     # ///////////////////////////////////////////////////////////////
     # 通用等待函数
     def wait_key(self,img,win_name):
+        cv2.namedWindow(win_name,cv2.WINDOW_AUTOSIZE)
+        cv2.imshow(win_name,img)
         k = cv2.waitKey(0)
         if k == 27: #esc
             cv2.destroyAllWindows()
         elif k == ord('q'):
             cv2.destroyWindow(win_name)
         elif k == ord('s'):
-            pass
-        elif k == ord('l'):
-            pass
+            save_name,ok = QInputDialog.getText(self,"输入窗口","请输入文件名，需要后缀",QLineEdit.Normal,win_name)
+            if ok and save_name != "":
+                save_name = self.config.get('General','file_open_path') + '\\' + save_name + '.png'
+                cv2.imwrite(save_name,img)
+                QMessageBox.information(None, '提示', '保存成功',QMessageBox.Ok)
+                cv2.destroyWindow(win_name)
         elif k == ord('h'):
             image = UIFunctions.cvToQImage(self,img)
             self.ui.pic_preshow_label.setPixmap(QPixmap.fromImage(image))
@@ -364,10 +375,19 @@ class UIFunctions(MainWindow):
             size = (width,height)
             win_name = "resize"+str(size)
             img = cv2.resize(self.image,size)
-            cv2.namedWindow(win_name,cv2.WINDOW_AUTOSIZE)
-            cv2.imshow(win_name,img)
             UIFunctions.wait_key(self,img,win_name)
-            
+
+    # 灰度化
+    def gray_image(self):
+        try:
+            gray = cv2.cvtColor(self.image,cv2.COLOR_BGR2GRAY)
+        except:
+            QMessageBox.information(None, '提示', '无法灰度化或者已是灰度图',QMessageBox.Ok)
+            gray = self.image
+        win_name = "gray"
+        UIFunctions.wait_key(self,gray,win_name)
+
+
     # ///////////////////////////////////////////////////////////////
     # END  功能页面按钮功能实现
 
@@ -379,11 +399,13 @@ class UIFunctions(MainWindow):
     # 设置页面初始化展示
     def show_settings(self):
         self.ui.set_file_svae_path.setText(self.config.get('General','file_save_path'))
+        self.ui.set_file_open_path.setText(self.config.get('General','file_open_path'))
 
     # 保存
-    def save_the_settings(self):
+    def save_settings(self):
         # 读取
         self.config.set("General","file_save_path",self.ui.set_file_svae_path.text())
+        self.config.set("General","file_open_path",self.ui.set_file_open_path.text())
 
 
         # 写入

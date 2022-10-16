@@ -1813,7 +1813,7 @@ hr { height: 1px; border-width: 0; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="layoutDirection">
@@ -2439,8 +2439,8 @@ border: 0px;</string>
                             <rect>
                              <x>50</x>
                              <y>40</y>
-                             <width>701</width>
-                             <height>80</height>
+                             <width>691</width>
+                             <height>48</height>
                             </rect>
                            </property>
                            <property name="styleSheet">
@@ -2452,55 +2452,54 @@ border: 0px;</string>
                            <property name="frameShadow">
                             <enum>QFrame::Raised</enum>
                            </property>
-                           <widget class="QLabel" name="set_label_1">
-                            <property name="geometry">
-                             <rect>
-                              <x>30</x>
-                              <y>20</y>
-                              <width>131</width>
-                              <height>31</height>
-                             </rect>
+                           <layout class="QHBoxLayout" name="horizontalLayout_12">
+                            <property name="spacing">
+                             <number>12</number>
                             </property>
-                            <property name="font">
-                             <font>
-                              <family>Segoe UI</family>
-                              <pointsize>-1</pointsize>
-                              <italic>false</italic>
-                              <bold>true</bold>
-                             </font>
+                            <property name="leftMargin">
+                             <number>20</number>
                             </property>
-                            <property name="styleSheet">
-                             <string notr="true">font: bold 15px;</string>
+                            <property name="rightMargin">
+                             <number>20</number>
                             </property>
-                            <property name="text">
-                             <string>图片保存路径：</string>
-                            </property>
-                           </widget>
-                           <widget class="QLineEdit" name="set_file_svae_path">
-                            <property name="geometry">
-                             <rect>
-                              <x>160</x>
-                              <y>20</y>
-                              <width>451</width>
-                              <height>30</height>
-                             </rect>
-                            </property>
-                            <property name="minimumSize">
-                             <size>
-                              <width>0</width>
-                              <height>30</height>
-                             </size>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">background-color: rgb(33, 37, 43);</string>
-                            </property>
-                            <property name="text">
-                             <string/>
-                            </property>
-                            <property name="placeholderText">
-                             <string/>
-                            </property>
-                           </widget>
+                            <item>
+                             <widget class="QLabel" name="set_label_1">
+                              <property name="font">
+                               <font>
+                                <family>Segoe UI</family>
+                                <pointsize>-1</pointsize>
+                                <italic>false</italic>
+                                <bold>true</bold>
+                               </font>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">font: bold 15px;</string>
+                              </property>
+                              <property name="text">
+                               <string>图片默认保存路径：</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLineEdit" name="set_file_svae_path">
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>30</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">background-color: rgb(33, 37, 43);</string>
+                              </property>
+                              <property name="text">
+                               <string/>
+                              </property>
+                              <property name="placeholderText">
+                               <string/>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
                           </widget>
                           <widget class="QPushButton" name="btn_settings_save">
                            <property name="geometry">
@@ -2522,6 +2521,73 @@ background-color: rgb(52, 59, 72);
                            <property name="text">
                             <string>保存设置</string>
                            </property>
+                          </widget>
+                          <widget class="QFrame" name="frame_2">
+                           <property name="geometry">
+                            <rect>
+                             <x>50</x>
+                             <y>120</y>
+                             <width>691</width>
+                             <height>48</height>
+                            </rect>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background: transparent</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_13">
+                            <property name="spacing">
+                             <number>12</number>
+                            </property>
+                            <property name="leftMargin">
+                             <number>20</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>20</number>
+                            </property>
+                            <item>
+                             <widget class="QLabel" name="set_label_2">
+                              <property name="font">
+                               <font>
+                                <family>Segoe UI</family>
+                                <pointsize>-1</pointsize>
+                                <italic>false</italic>
+                                <bold>true</bold>
+                               </font>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">font: bold 15px;</string>
+                              </property>
+                              <property name="text">
+                               <string>图片默认打开路径：</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLineEdit" name="set_file_open_path">
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>30</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">background-color: rgb(33, 37, 43);</string>
+                              </property>
+                              <property name="text">
+                               <string/>
+                              </property>
+                              <property name="placeholderText">
+                               <string/>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
                           </widget>
                          </widget>
                          <widget class="QWidget" name="tab_2">

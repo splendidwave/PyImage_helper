@@ -1281,20 +1281,28 @@ class Ui_MainWindow(object):
 "border: 0px;")
         self.frame = QFrame(self.tab_general)
         self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(50, 40, 701, 80))
+        self.frame.setGeometry(QRect(50, 40, 691, 48))
         self.frame.setStyleSheet(u"background: transparent")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_12 = QHBoxLayout(self.frame)
+        self.horizontalLayout_12.setSpacing(12)
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.horizontalLayout_12.setContentsMargins(20, -1, 20, -1)
         self.set_label_1 = QLabel(self.frame)
         self.set_label_1.setObjectName(u"set_label_1")
-        self.set_label_1.setGeometry(QRect(30, 20, 131, 31))
         self.set_label_1.setFont(font4)
         self.set_label_1.setStyleSheet(u"font: bold 15px;")
+
+        self.horizontalLayout_12.addWidget(self.set_label_1)
+
         self.set_file_svae_path = QLineEdit(self.frame)
         self.set_file_svae_path.setObjectName(u"set_file_svae_path")
-        self.set_file_svae_path.setGeometry(QRect(160, 20, 451, 30))
         self.set_file_svae_path.setMinimumSize(QSize(0, 30))
         self.set_file_svae_path.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_12.addWidget(self.set_file_svae_path)
+
         self.btn_settings_save = QPushButton(self.tab_general)
         self.btn_settings_save.setObjectName(u"btn_settings_save")
         self.btn_settings_save.setGeometry(QRect(710, 360, 91, 31))
@@ -1302,6 +1310,30 @@ class Ui_MainWindow(object):
         self.btn_settings_save.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
+        self.frame_2 = QFrame(self.tab_general)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setGeometry(QRect(50, 120, 691, 48))
+        self.frame_2.setStyleSheet(u"background: transparent")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_13 = QHBoxLayout(self.frame_2)
+        self.horizontalLayout_13.setSpacing(12)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalLayout_13.setContentsMargins(20, -1, 20, -1)
+        self.set_label_2 = QLabel(self.frame_2)
+        self.set_label_2.setObjectName(u"set_label_2")
+        self.set_label_2.setFont(font4)
+        self.set_label_2.setStyleSheet(u"font: bold 15px;")
+
+        self.horizontalLayout_13.addWidget(self.set_label_2)
+
+        self.set_file_open_path = QLineEdit(self.frame_2)
+        self.set_file_open_path.setObjectName(u"set_file_open_path")
+        self.set_file_open_path.setMinimumSize(QSize(0, 30))
+        self.set_file_open_path.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_13.addWidget(self.set_file_open_path)
+
         self.tabWidget.addTab(self.tab_general, "")
         self.tab_2 = QWidget()
         self.tab_2.setObjectName(u"tab_2")
@@ -1441,7 +1473,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
         self.tabWidget.setCurrentIndex(0)
 
 
@@ -1519,10 +1551,13 @@ class Ui_MainWindow(object):
         self.btn_widgets_gamma.setText(QCoreApplication.translate("MainWindow", u"\u4f3d\u9a6c\u77eb\u6b63", None))
         self.btn_widgets_contrast_stretch.setText(QCoreApplication.translate("MainWindow", u"\u5bf9\u6bd4\u5ea6\u62c9\u4f38", None))
         self.btn_widgets_grayscale_layering.setText(QCoreApplication.translate("MainWindow", u"\u7070\u5ea6\u5206\u5c42", None))
-        self.set_label_1.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u4fdd\u5b58\u8def\u5f84\uff1a", None))
+        self.set_label_1.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u9ed8\u8ba4\u4fdd\u5b58\u8def\u5f84\uff1a", None))
         self.set_file_svae_path.setText("")
         self.set_file_svae_path.setPlaceholderText("")
         self.btn_settings_save.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58\u8bbe\u7f6e", None))
+        self.set_label_2.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u9ed8\u8ba4\u6253\u5f00\u8def\u5f84\uff1a", None))
+        self.set_file_open_path.setText("")
+        self.set_file_open_path.setPlaceholderText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_general), QCoreApplication.translate("MainWindow", u"\u901a\u7528\u8bbe\u7f6e", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Tab 2", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
