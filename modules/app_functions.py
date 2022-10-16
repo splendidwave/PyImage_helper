@@ -39,3 +39,12 @@ class AppFunctions(MainWindow):
         self.ui.horizontalScrollBar.setStyleSheet("background-color: #6272a4;")
         self.ui.verticalScrollBar.setStyleSheet("background-color: #6272a4;")
         self.ui.commandLinkButton.setStyleSheet("color: #ff79c6;")
+
+    def read_settings_file(self):
+        self.config.read('settings.ini',encoding='utf-8')
+        if self.config.get('General','init') == 'False':
+            # 设立初始值
+            self.config.set("General","file_save_path",os.getcwd()+'\\save')
+        else:
+            # 有内容读取
+            pass

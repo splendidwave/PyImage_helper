@@ -281,6 +281,8 @@ class UIFunctions(MainWindow):
     # ///////////////////////////////////////////////////////////////
     # END - GUI DEFINITIONS
 
+
+
     # START - Home_page_btn_function
     # 主页面按钮功能实现
     # ///////////////////////////////////////////////////////////////
@@ -368,6 +370,35 @@ class UIFunctions(MainWindow):
             
     # ///////////////////////////////////////////////////////////////
     # END  功能页面按钮功能实现
+
+
+
+    # START - 初始设置页面功能
+    # ///////////////////////////////////////////////////////////////
+
+    # 设置页面初始化展示
+    def show_settings(self):
+        self.ui.set_file_svae_path.setText(self.config.get('General','file_save_path'))
+
+    # 保存
+    def save_the_settings(self):
+        # 读取
+        self.config.set("General","file_save_path",self.ui.set_file_svae_path.text())
+
+
+        # 写入
+        self.config.set("General","init","True")
+
+        with open("settings.ini","w") as f:
+            self.config.write(f)
+
+        QMessageBox.information(None, '提示', '保存成功',QMessageBox.Ok)
+
+
+    # ///////////////////////////////////////////////////////////////
+    # END - 初始设置页面功能
+
+
 
     # START - 其他功能
     # ///////////////////////////////////////////////////////////////

@@ -19,6 +19,7 @@ import os
 import platform
 import cv2
 import numpy as np
+import configparser
 
 # IMPORT / GUI AND MODULES AND WIDGETS 导入高清模组
 # ///////////////////////////////////////////////////////////////
@@ -41,6 +42,11 @@ class MainWindow(QMainWindow):
         global widgets
         widgets = self.ui
 
+        # 默认配置载入
+        self.config = configparser.ConfigParser()
+        AppFunctions.read_settings_file(self)
+        
+
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX 
         # 是否使用title bar 针对windows系统
         # ///////////////////////////////////////////////////////////////
@@ -48,7 +54,7 @@ class MainWindow(QMainWindow):
 
         # APP NAME 不予显示副标题
         # ///////////////////////////////////////////////////////////////
-        title = "Image Helper"
+        title = "PyImage Helper"
         # description = "PyDracula APP - Theme with colors based on Dracula for Python."
         # APPLY TEXTS
         self.setWindowTitle(title)
@@ -91,6 +97,9 @@ class MainWindow(QMainWindow):
         # Widgets page Button
         widgets.btn_widgets_resize.clicked.connect(self.widgets_buttonClick)
 
+        # Setting page(new page) Button
+        widgets.btn_settings_save.clicked.connect(self.buttonClick)
+
         # EXTRA LEFT BOX
         def openCloseLeftBox():
             UIFunctions.toggleLeftBox(self, True)
@@ -123,6 +132,7 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+        UIFunctions.show_settings(self)
 
 
     # BUTTONS CLICK
@@ -163,6 +173,9 @@ class MainWindow(QMainWindow):
 
         if btnName == "btn_home_show":
             UIFunctions.home_page_show(self)
+
+        if btnName == "btn_settings_save":
+            UIFunctions.save_the_settings(self)
 
 
         # PRINT BTN NAME
@@ -218,6 +231,7 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
+    QCoreApplication.setAttribute(Qt.AA_EnableHighDpiScaling)
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()

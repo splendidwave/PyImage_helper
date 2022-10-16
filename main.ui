@@ -1039,6 +1039,15 @@ Button */
            <height>16777215</height>
           </size>
          </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
          </property>
@@ -1188,6 +1197,15 @@ Button */
           </item>
           <item>
            <widget class="QFrame" name="extraContent">
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
             </property>
@@ -1347,6 +1365,9 @@ Button */
              </item>
              <item>
               <widget class="QFrame" name="extraCenter">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
                <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
                </property>
@@ -1355,21 +1376,14 @@ Button */
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_10">
                 <item>
-                 <widget class="QScrollArea" name="scrollArea_2">
+                 <widget class="QScrollArea" name="scrollArea">
                   <property name="styleSheet">
-                   <string notr="true">background: transparent;
-</string>
-                  </property>
-                  <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAsNeeded</enum>
-                  </property>
-                  <property name="horizontalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAsNeeded</enum>
+                   <string notr="true">background-color:rgb(40,44,52);</string>
                   </property>
                   <property name="widgetResizable">
                    <bool>true</bool>
                   </property>
-                  <widget class="QWidget" name="scrollAreaWidgetContents_3">
+                  <widget class="QWidget" name="scrollAreaWidgetContents">
                    <property name="geometry">
                     <rect>
                      <x>0</x>
@@ -1379,9 +1393,12 @@ Button */
                     </rect>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background: transparent;</string>
+                    <string notr="true"/>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_13">
+                   <layout class="QHBoxLayout" name="horizontalLayout_11">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
                     <property name="leftMargin">
                      <number>0</number>
                     </property>
@@ -1397,7 +1414,7 @@ Button */
                     <item>
                      <widget class="QTextEdit" name="textEdit">
                       <property name="styleSheet">
-                       <string notr="true">background: transparent;</string>
+                       <string notr="true"/>
                       </property>
                       <property name="html">
                        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -1411,7 +1428,7 @@ hr { height: 1px; border-width: 0; }
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; color:#ffaaff;&quot;&gt;Widget Page&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;可以对图像进行操作，结果会以弹窗的形式显示&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;在弹窗的窗口下按&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffaaff;&quot;&gt;ESC&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;可以关闭所有窗口，按&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffaaff;&quot;&gt;s&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;可以保存图片,按&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffaaff;&quot;&gt;h&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;可以将当前图片转移到home page预览上，按&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffaaff;&quot;&gt;L&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;可以保存并同步到home page&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;在弹窗的窗口下按&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffaaff;&quot;&gt;ESC&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;可以关闭所有窗口，按&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffaaff;&quot;&gt;q&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;可以关闭当前窗口，按&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffaaff;&quot;&gt;s&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;可以保存图片,按&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffaaff;&quot;&gt;h&lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;可以将当前图片转移到home page预览上并关闭当前窗口&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
                      </widget>
                     </item>
@@ -1796,7 +1813,7 @@ hr { height: 1px; border-width: 0; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="layoutDirection">
@@ -2124,35 +2141,398 @@ hr { height: 1px; border-width: 0; }
                       <property name="styleSheet">
                        <string notr="true">b</string>
                       </property>
-                      <widget class="QPushButton" name="btn_widgets_resize">
+                      <widget class="QGroupBox" name="groupBox">
                        <property name="geometry">
                         <rect>
-                         <x>50</x>
-                         <y>30</y>
-                         <width>91</width>
-                         <height>31</height>
+                         <x>30</x>
+                         <y>10</y>
+                         <width>110</width>
+                         <height>200</height>
                         </rect>
                        </property>
-                       <property name="styleSheet">
-                        <string notr="true">border-radius:7px;
+                       <property name="title">
+                        <string>基础变换</string>
+                       </property>
+                       <widget class="QPushButton" name="btn_widgets_resize">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>30</y>
+                          <width>91</width>
+                          <height>31</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
+                        </property>
+                        <property name="text">
+                         <string>缩放</string>
+                        </property>
+                       </widget>
+                       <widget class="QPushButton" name="btn_widgets_gray">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>70</y>
+                          <width>91</width>
+                          <height>31</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                        </property>
+                        <property name="text">
+                         <string>灰度化</string>
+                        </property>
+                       </widget>
+                       <widget class="QPushButton" name="btn_widgets_Thresholding">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>110</y>
+                          <width>91</width>
+                          <height>31</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                        </property>
+                        <property name="text">
+                         <string>二值化</string>
+                        </property>
+                       </widget>
+                      </widget>
+                      <widget class="QGroupBox" name="groupBox_2">
+                       <property name="geometry">
+                        <rect>
+                         <x>30</x>
+                         <y>230</y>
+                         <width>110</width>
+                         <height>200</height>
+                        </rect>
                        </property>
-                       <property name="text">
-                        <string>缩放</string>
+                       <property name="title">
+                        <string>空间滤波</string>
                        </property>
+                       <widget class="QPushButton" name="btn_widgets_mean_filtering">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>30</y>
+                          <width>91</width>
+                          <height>31</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                        </property>
+                        <property name="text">
+                         <string>均值滤波</string>
+                        </property>
+                       </widget>
+                       <widget class="QPushButton" name="btn_widgets_gauss_filtering">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>70</y>
+                          <width>91</width>
+                          <height>31</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                        </property>
+                        <property name="text">
+                         <string>高斯滤波</string>
+                        </property>
+                       </widget>
+                       <widget class="QPushButton" name="btn_widgets_median_filtering">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>110</y>
+                          <width>91</width>
+                          <height>31</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                        </property>
+                        <property name="text">
+                         <string>中值滤波</string>
+                        </property>
+                       </widget>
+                       <widget class="QPushButton" name="btn_widgets_add_noise">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>150</y>
+                          <width>91</width>
+                          <height>31</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                        </property>
+                        <property name="text">
+                         <string>添加椒盐</string>
+                        </property>
+                       </widget>
+                      </widget>
+                      <widget class="QGroupBox" name="groupBox_3">
+                       <property name="geometry">
+                        <rect>
+                         <x>160</x>
+                         <y>10</y>
+                         <width>110</width>
+                         <height>271</height>
+                        </rect>
+                       </property>
+                       <property name="title">
+                        <string>灰度变换</string>
+                       </property>
+                       <widget class="QPushButton" name="btn_widgets_flip">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>30</y>
+                          <width>91</width>
+                          <height>31</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                        </property>
+                        <property name="text">
+                         <string>灰度反转</string>
+                        </property>
+                       </widget>
+                       <widget class="QPushButton" name="btn_widgets_log">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>80</y>
+                          <width>91</width>
+                          <height>31</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                        </property>
+                        <property name="text">
+                         <string>对数变换</string>
+                        </property>
+                       </widget>
+                       <widget class="QPushButton" name="btn_widgets_gamma">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>130</y>
+                          <width>91</width>
+                          <height>31</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                        </property>
+                        <property name="text">
+                         <string>伽马矫正</string>
+                        </property>
+                       </widget>
+                       <widget class="QPushButton" name="btn_widgets_contrast_stretch">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>180</y>
+                          <width>91</width>
+                          <height>31</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                        </property>
+                        <property name="text">
+                         <string>对比度拉伸</string>
+                        </property>
+                       </widget>
+                       <widget class="QPushButton" name="btn_widgets_grayscale_layering">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>230</y>
+                          <width>91</width>
+                          <height>31</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                        </property>
+                        <property name="text">
+                         <string>灰度分层</string>
+                        </property>
+                       </widget>
                       </widget>
                      </widget>
                      <widget class="QWidget" name="new_page">
-                      <layout class="QVBoxLayout" name="verticalLayout_20">
+                      <layout class="QHBoxLayout" name="horizontalLayout_9">
                        <item>
-                        <widget class="QLabel" name="label">
-                         <property name="text">
-                          <string>NEW PAGE TEST</string>
+                        <widget class="QTabWidget" name="tabWidget">
+                         <property name="styleSheet">
+                          <string notr="true">background: rgb(40,44,52);
+border: 0px;</string>
                          </property>
-                         <property name="alignment">
-                          <set>Qt::AlignCenter</set>
+                         <property name="tabShape">
+                          <enum>QTabWidget::Triangular</enum>
                          </property>
+                         <property name="currentIndex">
+                          <number>0</number>
+                         </property>
+                         <property name="usesScrollButtons">
+                          <bool>false</bool>
+                         </property>
+                         <property name="documentMode">
+                          <bool>true</bool>
+                         </property>
+                         <property name="tabsClosable">
+                          <bool>false</bool>
+                         </property>
+                         <property name="movable">
+                          <bool>false</bool>
+                         </property>
+                         <property name="tabBarAutoHide">
+                          <bool>false</bool>
+                         </property>
+                         <widget class="QWidget" name="tab_general">
+                          <property name="styleSheet">
+                           <string notr="true">background: rgb(40,44,52);
+border: 0px;</string>
+                          </property>
+                          <attribute name="title">
+                           <string>通用设置</string>
+                          </attribute>
+                          <widget class="QFrame" name="frame">
+                           <property name="geometry">
+                            <rect>
+                             <x>50</x>
+                             <y>40</y>
+                             <width>701</width>
+                             <height>80</height>
+                            </rect>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background: transparent</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <widget class="QLabel" name="set_label_1">
+                            <property name="geometry">
+                             <rect>
+                              <x>30</x>
+                              <y>20</y>
+                              <width>131</width>
+                              <height>31</height>
+                             </rect>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Segoe UI</family>
+                              <pointsize>-1</pointsize>
+                              <italic>false</italic>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">font: bold 15px;</string>
+                            </property>
+                            <property name="text">
+                             <string>图片保存路径：</string>
+                            </property>
+                           </widget>
+                           <widget class="QLineEdit" name="set_file_svae_path">
+                            <property name="geometry">
+                             <rect>
+                              <x>160</x>
+                              <y>20</y>
+                              <width>451</width>
+                              <height>30</height>
+                             </rect>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(33, 37, 43);</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="placeholderText">
+                             <string/>
+                            </property>
+                           </widget>
+                          </widget>
+                          <widget class="QPushButton" name="btn_settings_save">
+                           <property name="geometry">
+                            <rect>
+                             <x>710</x>
+                             <y>360</y>
+                             <width>91</width>
+                             <height>31</height>
+                            </rect>
+                           </property>
+                           <property name="cursor">
+                            <cursorShape>PointingHandCursor</cursorShape>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                           </property>
+                           <property name="text">
+                            <string>保存设置</string>
+                           </property>
+                          </widget>
+                         </widget>
+                         <widget class="QWidget" name="tab_2">
+                          <property name="styleSheet">
+                           <string notr="true">background: rgb(40,44,52);
+border: 0px;</string>
+                          </property>
+                          <attribute name="title">
+                           <string>Tab 2</string>
+                          </attribute>
+                         </widget>
                         </widget>
                        </item>
                       </layout>
