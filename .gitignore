@@ -2,3 +2,4 @@ __pycache__/
 .git/
 .pyc
 settings_start.ini
+.vscode/

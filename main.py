@@ -87,6 +87,7 @@ class MainWindow(QMainWindow):
         #widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         # BUTTONS CLICK
+        # 添加功能需要改3个地方 1按钮槽绑定功能函数 2判断按钮类型 3添加对应的ui_function
         # ///////////////////////////////////////////////////////////////
 
         # LEFT MENUS
@@ -102,15 +103,14 @@ class MainWindow(QMainWindow):
 
         # Widgets page Button
         # 基础操作
-        widgets.btn_widgets_resize.clicked.connect(self.widgets_buttonClick)
-        widgets.btn_widgets_gray.clicked.connect(self.widgets_buttonClick) # 灰度化 未完成
-        widgets.btn_widgets_Thresholding.clicked.connect(self.widgets_buttonClick) # 二值化 未完成
+        widgets.btn_widgets_resize.clicked.connect(self.widgets_buttonClick) # 缩放 完成
+        widgets.btn_widgets_gray.clicked.connect(self.widgets_buttonClick) # 灰度化 完成
+        widgets.btn_widgets_Thresholding.clicked.connect(self.widgets_buttonClick) # 二值化 完成
         # 灰度变换
-        widgets.btn_widgets_flip.clicked.connect(self.widgets_buttonClick) # 反转 未完成
-        widgets.btn_widgets_log.clicked.connect(self.widgets_buttonClick) # 对数 未完成
-        widgets.btn_widgets_gamma.clicked.connect(self.widgets_buttonClick) # 伽马 未完成 
-        widgets.btn_widgets_contrast_stretch.clicked.connect(self.widgets_buttonClick) # 对比度拉伸 未完成
-        
+        widgets.btn_widgets_flip.clicked.connect(self.widgets_buttonClick) # 反转 完成
+        widgets.btn_widgets_log.clicked.connect(self.widgets_buttonClick) # 对数 完成
+        widgets.btn_widgets_gamma.clicked.connect(self.widgets_buttonClick) # 伽马 完成 
+        widgets.btn_widgets_contrast_stretch.clicked.connect(self.widgets_buttonClick) # 对比度拉伸 完成
         widgets.btn_widgets_grayscale_layering.clicked.connect(self.widgets_buttonClick) # 灰度分层 未完成
         
         # 滤波
@@ -222,6 +222,30 @@ class MainWindow(QMainWindow):
         # 灰度化
         if btnName == "btn_widgets_gray":
             UIFunctions.gray_image(self)
+
+        # 二值化 利用OTSU算法
+        if btnName == "btn_widgets_Thresholding":
+            UIFunctions.thresholding_image(self)
+
+        # 图像反转
+        if btnName == "btn_widgets_flip":
+            UIFunctions.inverse_image(self)
+
+        # 对数变换
+        if btnName == "btn_widgets_log":
+            UIFunctions.log_image(self)
+        
+        # 伽马变换
+        if btnName == "btn_widgets_gamma":
+            UIFunctions.gamma_image(self)
+
+        # 对比度拉伸
+        if btnName == "btn_widgets_contrast_stretch":
+            UIFunctions.contrast_stretch_image(self)
+
+        # 灰度级分层
+        if btnName == "btn_widgets_grayscale_layering":
+            UIFunctions.grayscale_layering_image(self)
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')

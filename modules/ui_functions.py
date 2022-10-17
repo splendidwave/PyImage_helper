@@ -1,4 +1,29 @@
 '''
+
+   ┏┓　　　┏┓
+ ┏┛┻━━━┛┻┓
+ ┃　　　　　　　┃
+ ┃　　　━　　　┃
+ ┃　＞　　　＜　┃
+ ┃　　　　　　　┃
+ ┃...　⌒　...　┃
+ ┃　　　　　　　┃
+ ┗━┓　　　┏━┛
+     ┃　　　┃　
+     ┃　　　┃
+     ┃　　　┃
+     ┃　　　┃  神兽保佑
+     ┃　　　┃  代码无bug　　
+     ┃　　　┃
+     ┃　　　┗━━━┓
+     ┃　　　　　　　┣┓
+     ┃　　　　　　　┏┛
+     ┗┓┓┏━┳┓┏┛
+       ┃┫┫　┃┫┫
+       ┗┻┛　┗┻┛
+'''
+
+'''
 Author: splendidwave 1578399592@qq.com
 Date: 2022-10-13 15:35:40
 Description: ui功能函数
@@ -354,18 +379,31 @@ class UIFunctions(MainWindow):
         elif k == ord('q'):
             cv2.destroyWindow(win_name)
         elif k == ord('s'):
-            save_name,ok = QInputDialog.getText(self,"输入窗口","请输入文件名，需要后缀",QLineEdit.Normal,win_name)
+            save_name,ok = QInputDialog.getText(self,"输入窗口","请输入文件名，需要后缀",QLineEdit.Normal,win_name+'.png')
             if ok and save_name != "":
-                save_name = self.config.get('General','file_open_path') + '\\' + save_name + '.png'
+                save_name = self.config.get('General','file_open_path') + '\\' + save_name 
                 cv2.imwrite(save_name,img)
                 QMessageBox.information(None, '提示', '保存成功',QMessageBox.Ok)
-                cv2.destroyWindow(win_name)
+                UIFunctions.wait_key(self,img,win_name)
         elif k == ord('h'):
             image = UIFunctions.cvToQImage(self,img)
             self.ui.pic_preshow_label.setPixmap(QPixmap.fromImage(image))
             self.image = img
             UIFunctions.show_image_info(self)
-            cv2.destroyWindow(win_name)
+            UIFunctions.wait_key(self,img,win_name)
+
+    # 通用返回灰度图
+    def trun_gray(self,img):
+        try:
+            depth = img.shape[2]
+            if depth == 3:
+                return cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+        except IndexError:
+            return img
+    
+    # 通用归一化映射函数
+    def normImg(self,x):
+        return  cv2.normalize(x,None,0,255,cv2.NORM_MINMAX)
 
     # 缩放功能
     def resize_image(self,s="1920*1080"):
@@ -379,13 +417,56 @@ class UIFunctions(MainWindow):
 
     # 灰度化
     def gray_image(self):
-        try:
-            gray = cv2.cvtColor(self.image,cv2.COLOR_BGR2GRAY)
-        except:
-            QMessageBox.information(None, '提示', '无法灰度化或者已是灰度图',QMessageBox.Ok)
-            gray = self.image
+        gray = UIFunctions.trun_gray(self,self.image)
         win_name = "gray"
         UIFunctions.wait_key(self,gray,win_name)
+
+    # 二值化
+    def thresholding_image(self):
+        img = UIFunctions.trun_gray(self,self.image)
+        # value, ok = QInputDialog.getInt(self, "输入窗口", "请输入阈值(整数):", 100, 0, 255, 1)
+        ret,binary = cv2.threshold(img,0,255,cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        win_name = "thresholding"
+        UIFunctions.wait_key(self,binary,win_name)
+        
+    # 灰度反转
+    def inverse_image(self):
+        img = UIFunctions.trun_gray(self,self.image)
+        value_max = np.max(img)
+        inverse = value_max - img
+        win_name = "inverse"
+        UIFunctions.wait_key(self,inverse,win_name)
+
+    # 对数变换
+    def log_image(self):
+        img = UIFunctions.trun_gray(self,self.image)
+        log = np.uint8(UIFunctions.normImg(self,np.log(1.0 + img)))
+        win_name = "log"
+        UIFunctions.wait_key(self,log,win_name)
+
+    # 伽马变换
+    def gamma_image(self):
+        img = UIFunctions.trun_gray(self,self.image)
+        items = ('0.125', '0.25', '0.5', '1.0', '2.0', '4.0')
+        item,ok = QInputDialog.getItem(self,"gamma值","选择gamma值",items,3,True)
+        if ok:
+            win_name = "gamma=" + item
+            item = float(item)
+            gamma = np.power(img, item)
+            gamma = np.uint8(UIFunctions.normImg(self,gamma))
+            UIFunctions.wait_key(self,gamma,win_name)
+
+    # 对比度拉伸
+    def contrast_stretch_image(self):
+        img = UIFunctions.trun_gray(self,self.image)
+        cs = np.uint8(UIFunctions.normImg(self,img))
+        win_name = "contrast_stretch"
+        UIFunctions.wait_key(self,cs,win_name)
+
+    # 灰度分层
+    def grayscale_layering_image(self):
+        img = UIFunctions.trun_gray(self,self.image)
+        pass # 2022.10.17
 
 
     # ///////////////////////////////////////////////////////////////
