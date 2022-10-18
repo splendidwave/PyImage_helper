@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QGroupBox,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow,
     QPushButton, QScrollArea, QSizePolicy, QStackedWidget,
-    QTabWidget, QTextEdit, QVBoxLayout, QWidget)
+    QTabWidget, QTextBrowser, QVBoxLayout, QWidget)
 from . resources_rc import *
 
 class Ui_MainWindow(object):
@@ -855,21 +855,23 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
         self.scrollArea = QScrollArea(self.extraCenter)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setStyleSheet(u"background-color:rgb(40,44,52);")
+        self.scrollArea.setAutoFillBackground(False)
+        self.scrollArea.setStyleSheet(u"background: transparent;")
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
         self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 51, 322))
-        self.scrollAreaWidgetContents.setStyleSheet(u"")
+        self.scrollAreaWidgetContents.setAutoFillBackground(False)
+        self.scrollAreaWidgetContents.setStyleSheet(u"background: transparent;")
         self.horizontalLayout_11 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_11.setSpacing(0)
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.horizontalLayout_11.setContentsMargins(0, 0, 0, 0)
-        self.textEdit = QTextEdit(self.scrollAreaWidgetContents)
-        self.textEdit.setObjectName(u"textEdit")
-        self.textEdit.setStyleSheet(u"")
+        self.textBrowser = QTextBrowser(self.scrollAreaWidgetContents)
+        self.textBrowser.setObjectName(u"textBrowser")
+        self.textBrowser.setStyleSheet(u"background: transparent;")
 
-        self.horizontalLayout_11.addWidget(self.textEdit)
+        self.horizontalLayout_11.addWidget(self.textBrowser)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
@@ -1026,12 +1028,19 @@ class Ui_MainWindow(object):
         self.home.setObjectName(u"home")
         self.home.setLayoutDirection(Qt.LeftToRight)
         self.home.setStyleSheet(u"")
-        self.horizontalLayout_7 = QHBoxLayout(self.home)
+        self.horizontalLayout_14 = QHBoxLayout(self.home)
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.scrollArea_2 = QScrollArea(self.home)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 28, 17))
+        self.horizontalLayout_7 = QHBoxLayout(self.scrollAreaWidgetContents_2)
+        self.horizontalLayout_7.setSpacing(0)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.picshow = QHBoxLayout()
-        self.picshow.setObjectName(u"picshow")
-        self.picshow.setContentsMargins(10, 10, 10, 10)
-        self.pic_preshow_label = QLabel(self.home)
+        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.pic_preshow_label = QLabel(self.scrollAreaWidgetContents_2)
         self.pic_preshow_label.setObjectName(u"pic_preshow_label")
         sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy3.setHorizontalStretch(0)
@@ -1041,10 +1050,11 @@ class Ui_MainWindow(object):
         self.pic_preshow_label.setStyleSheet(u"background:rgb(255, 255, 255)")
         self.pic_preshow_label.setAlignment(Qt.AlignCenter)
 
-        self.picshow.addWidget(self.pic_preshow_label)
+        self.horizontalLayout_7.addWidget(self.pic_preshow_label)
 
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
 
-        self.horizontalLayout_7.addLayout(self.picshow)
+        self.horizontalLayout_14.addWidget(self.scrollArea_2)
 
         self.home_info = QFrame(self.home)
         self.home_info.setObjectName(u"home_info")
@@ -1171,93 +1181,148 @@ class Ui_MainWindow(object):
         self.verticalLayout_22.setStretch(0, 1)
         self.verticalLayout_22.setStretch(1, 1)
 
-        self.horizontalLayout_7.addWidget(self.home_info)
+        self.horizontalLayout_14.addWidget(self.home_info)
 
-        self.horizontalLayout_7.setStretch(0, 2)
-        self.horizontalLayout_7.setStretch(1, 1)
+        self.horizontalLayout_14.setStretch(0, 2)
+        self.horizontalLayout_14.setStretch(1, 1)
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
         self.widgets.setStyleSheet(u"b")
         self.groupBox = QGroupBox(self.widgets)
         self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setGeometry(QRect(30, 10, 110, 200))
+        self.groupBox.setGeometry(QRect(20, 10, 111, 201))
+        self.verticalLayout_17 = QVBoxLayout(self.groupBox)
+        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
         self.btn_widgets_resize = QPushButton(self.groupBox)
         self.btn_widgets_resize.setObjectName(u"btn_widgets_resize")
-        self.btn_widgets_resize.setGeometry(QRect(10, 30, 91, 31))
         self.btn_widgets_resize.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
-        self.btn_widgets_gray = QPushButton(self.groupBox)
-        self.btn_widgets_gray.setObjectName(u"btn_widgets_gray")
-        self.btn_widgets_gray.setGeometry(QRect(10, 70, 91, 31))
-        self.btn_widgets_gray.setStyleSheet(u"border-radius:7px;\n"
+
+        self.verticalLayout_17.addWidget(self.btn_widgets_resize)
+
+        self.btn_widgets_hist = QPushButton(self.groupBox)
+        self.btn_widgets_hist.setObjectName(u"btn_widgets_hist")
+        self.btn_widgets_hist.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
-        self.btn_widgets_Thresholding = QPushButton(self.groupBox)
-        self.btn_widgets_Thresholding.setObjectName(u"btn_widgets_Thresholding")
-        self.btn_widgets_Thresholding.setGeometry(QRect(10, 110, 91, 31))
-        self.btn_widgets_Thresholding.setStyleSheet(u"border-radius:7px;\n"
+
+        self.verticalLayout_17.addWidget(self.btn_widgets_hist)
+
+        self.btn_widgets_histequal = QPushButton(self.groupBox)
+        self.btn_widgets_histequal.setObjectName(u"btn_widgets_histequal")
+        self.btn_widgets_histequal.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
+
+        self.verticalLayout_17.addWidget(self.btn_widgets_histequal)
+
         self.groupBox_2 = QGroupBox(self.widgets)
         self.groupBox_2.setObjectName(u"groupBox_2")
-        self.groupBox_2.setGeometry(QRect(30, 230, 110, 200))
+        self.groupBox_2.setGeometry(QRect(20, 230, 111, 201))
+        self.verticalLayout_16 = QVBoxLayout(self.groupBox_2)
+        self.verticalLayout_16.setSpacing(15)
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.verticalLayout_16.setContentsMargins(-1, -1, -1, 9)
         self.btn_widgets_mean_filtering = QPushButton(self.groupBox_2)
         self.btn_widgets_mean_filtering.setObjectName(u"btn_widgets_mean_filtering")
-        self.btn_widgets_mean_filtering.setGeometry(QRect(10, 30, 91, 31))
         self.btn_widgets_mean_filtering.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
+
+        self.verticalLayout_16.addWidget(self.btn_widgets_mean_filtering)
+
         self.btn_widgets_gauss_filtering = QPushButton(self.groupBox_2)
         self.btn_widgets_gauss_filtering.setObjectName(u"btn_widgets_gauss_filtering")
-        self.btn_widgets_gauss_filtering.setGeometry(QRect(10, 70, 91, 31))
         self.btn_widgets_gauss_filtering.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
+
+        self.verticalLayout_16.addWidget(self.btn_widgets_gauss_filtering)
+
         self.btn_widgets_median_filtering = QPushButton(self.groupBox_2)
         self.btn_widgets_median_filtering.setObjectName(u"btn_widgets_median_filtering")
-        self.btn_widgets_median_filtering.setGeometry(QRect(10, 110, 91, 31))
         self.btn_widgets_median_filtering.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
+
+        self.verticalLayout_16.addWidget(self.btn_widgets_median_filtering)
+
         self.btn_widgets_add_noise = QPushButton(self.groupBox_2)
         self.btn_widgets_add_noise.setObjectName(u"btn_widgets_add_noise")
-        self.btn_widgets_add_noise.setGeometry(QRect(10, 150, 91, 31))
         self.btn_widgets_add_noise.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
+
+        self.verticalLayout_16.addWidget(self.btn_widgets_add_noise)
+
         self.groupBox_3 = QGroupBox(self.widgets)
         self.groupBox_3.setObjectName(u"groupBox_3")
-        self.groupBox_3.setGeometry(QRect(160, 10, 110, 271))
+        self.groupBox_3.setGeometry(QRect(160, 10, 131, 421))
+        self.verticalLayout_10 = QVBoxLayout(self.groupBox_3)
+        self.verticalLayout_10.setSpacing(15)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.btn_widgets_gray = QPushButton(self.groupBox_3)
+        self.btn_widgets_gray.setObjectName(u"btn_widgets_gray")
+        self.btn_widgets_gray.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_10.addWidget(self.btn_widgets_gray)
+
+        self.btn_widgets_Thresholding = QPushButton(self.groupBox_3)
+        self.btn_widgets_Thresholding.setObjectName(u"btn_widgets_Thresholding")
+        self.btn_widgets_Thresholding.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_10.addWidget(self.btn_widgets_Thresholding)
+
         self.btn_widgets_flip = QPushButton(self.groupBox_3)
         self.btn_widgets_flip.setObjectName(u"btn_widgets_flip")
-        self.btn_widgets_flip.setGeometry(QRect(10, 30, 91, 31))
         self.btn_widgets_flip.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
+
+        self.verticalLayout_10.addWidget(self.btn_widgets_flip)
+
         self.btn_widgets_log = QPushButton(self.groupBox_3)
         self.btn_widgets_log.setObjectName(u"btn_widgets_log")
-        self.btn_widgets_log.setGeometry(QRect(10, 80, 91, 31))
         self.btn_widgets_log.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
+
+        self.verticalLayout_10.addWidget(self.btn_widgets_log)
+
         self.btn_widgets_gamma = QPushButton(self.groupBox_3)
         self.btn_widgets_gamma.setObjectName(u"btn_widgets_gamma")
-        self.btn_widgets_gamma.setGeometry(QRect(10, 130, 91, 31))
         self.btn_widgets_gamma.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
+
+        self.verticalLayout_10.addWidget(self.btn_widgets_gamma)
+
         self.btn_widgets_contrast_stretch = QPushButton(self.groupBox_3)
         self.btn_widgets_contrast_stretch.setObjectName(u"btn_widgets_contrast_stretch")
-        self.btn_widgets_contrast_stretch.setGeometry(QRect(10, 180, 91, 31))
         self.btn_widgets_contrast_stretch.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
-        self.btn_widgets_grayscale_layering = QPushButton(self.groupBox_3)
-        self.btn_widgets_grayscale_layering.setObjectName(u"btn_widgets_grayscale_layering")
-        self.btn_widgets_grayscale_layering.setGeometry(QRect(10, 230, 91, 31))
-        self.btn_widgets_grayscale_layering.setStyleSheet(u"border-radius:7px;\n"
+
+        self.verticalLayout_10.addWidget(self.btn_widgets_contrast_stretch)
+
+        self.btn_widgets_8bits_layering = QPushButton(self.groupBox_3)
+        self.btn_widgets_8bits_layering.setObjectName(u"btn_widgets_8bits_layering")
+        self.btn_widgets_8bits_layering.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_10.addWidget(self.btn_widgets_8bits_layering)
+
+        self.btn_widgets_test = QPushButton(self.widgets)
+        self.btn_widgets_test.setObjectName(u"btn_widgets_test")
+        self.btn_widgets_test.setGeometry(QRect(730, 370, 91, 31))
+        self.btn_widgets_test.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
         self.stackedWidget.addWidget(self.widgets)
@@ -1473,7 +1538,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(0)
 
 
@@ -1497,20 +1562,24 @@ class Ui_MainWindow(object):
         self.btn_share.setText(QCoreApplication.translate("MainWindow", u"\u5f85\u5b9a", None))
         self.btn_adjustments.setText(QCoreApplication.translate("MainWindow", u"\u5f85\u5b9a", None))
         self.btn_more.setText(QCoreApplication.translate("MainWindow", u"\u5f85\u5b9a", None))
-        self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.textBrowser.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "hr { height: 1px; border-width: 0; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\" bgcolor=\"#2c313a\">\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">PyIamge Helper</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:600; color:#ff79c6;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font"
-                        "-size:11pt; color:#ffaaff;\">Home Page</span><span style=\" font-size:11pt; color:#ffffff;\">\u53ef\u4ee5\u9884\u89c8\u56fe\u7247\uff0c\u9009\u62e9\u6587\u4ef6\u6216\u8005\u4f7f\u7528\u6444\u50cf\u5934\u62cd\u6444</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:600; color:#ff79c6;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+                        "size:11pt; color:#ffffff;\">\u5de6\u4fa7\u4e3a\u5207\u6362\u9875\u9762\u680f\uff0c\u4ece\u4e0a\u5230\u4e0b\u5206\u522b\u4e3a\u663e\u793a\u540d\u79f0(</span><span style=\" font-size:11pt; color:#ffaaff;\">Hide</span><span style=\" font-size:11pt; color:#ffffff;\">)\uff0c\u4e3b\u9875(</span><span style=\" font-size:11pt; color:#ffaaff;\">Home Page</span><span style=\" font-size:11pt; color:#ffffff;\">)\uff0c\u529f\u80fd\u9875(</span><span style=\" font-size:11pt; color:#ffaaff;\">Widget Page</span><span style=\" font-size:11pt; color:#ffffff;\">)\uff0c\u8bbe\u7f6e\u9875(</span><span style=\" font-size:11pt; color:#ffaaff;\">Setting Page</span><span style=\" font-size:11pt; color:#ffffff;\">)</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; color:#ffffff;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -"
+                        "qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; color:#ffaaff;\">Home Page</span><span style=\" font-size:11pt; color:#ffffff;\">\u53ef\u4ee5\u9884\u89c8\u56fe\u7247\uff0c\u9009\u62e9\u6587\u4ef6\u6216\u8005\u4f7f\u7528\u6444\u50cf\u5934\u62cd\u6444</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; color:#ffffff;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; color:#ffaaff;\">Widget Page</span><span style=\" font-size:11pt; color:#ffffff;\">\u53ef\u4ee5\u5bf9\u56fe\u50cf\u8fdb\u884c\u64cd\u4f5c\uff0c\u7ed3\u679c\u4f1a\u4ee5\u5f39\u7a97\u7684\u5f62\u5f0f\u663e\u793a</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; color:#fff"
-                        "fff;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; color:#ffffff;\">\u5728\u5f39\u7a97\u7684\u7a97\u53e3\u4e0b\u6309</span><span style=\" font-size:11pt; color:#ffaaff;\">ESC</span><span style=\" font-size:11pt; color:#ffffff;\">\u53ef\u4ee5\u5173\u95ed\u6240\u6709\u7a97\u53e3\uff0c\u6309</span><span style=\" font-size:11pt; color:#ffaaff;\">q</span><span style=\" font-size:11pt; color:#ffffff;\">\u53ef\u4ee5\u5173\u95ed\u5f53\u524d\u7a97\u53e3\uff0c\u6309</span><span style=\" font-size:11pt; color:#ffaaff;\">s</span><span style=\" font-size:11pt; color:#ffffff;\">\u53ef\u4ee5\u4fdd\u5b58\u56fe\u7247,\u6309</span><span style=\" font-size:11pt; color:#ffaaff;\">h</span><span style=\" font-size:11pt; color:#ffffff;\">\u53ef\u4ee5\u5c06\u5f53\u524d\u56fe\u7247\u8f6c\u79fb\u5230home page\u9884\u89c8\u4e0a\u5e76\u5173\u95ed\u5f53\u524d\u7a97\u53e3</span></p></body></html>", None))
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-bl"
+                        "ock-indent:0; text-indent:0px; font-size:11pt; color:#ffffff;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; color:#ffffff;\">\u5728\u5f39\u7a97\u7684\u7a97\u53e3\u4e0b\u6309</span><span style=\" font-size:11pt; color:#ffaaff;\">ESC</span><span style=\" font-size:11pt; color:#ffffff;\">\u53ef\u4ee5\u5173\u95ed\u6240\u6709\u7a97\u53e3\uff0c\u6309</span><span style=\" font-size:11pt; color:#ffaaff;\">q</span><span style=\" font-size:11pt; color:#ffffff;\">\u53ef\u4ee5\u5173\u95ed\u5f53\u524d\u7a97\u53e3\uff0c\u6309</span><span style=\" font-size:11pt; color:#ffaaff;\">s</span><span style=\" font-size:11pt; color:#ffffff;\">\u53ef\u4ee5\u4fdd\u5b58\u56fe\u7247,\u6309</span><span style=\" font-size:11pt; color:#ffaaff;\">h</span><span style=\" font-size:11pt; color:#ffffff;\">\u53ef\u4ee5\u5c06\u5f53\u524d\u56fe\u7247\u8f6c\u79fb\u5230home page\u9884\u89c8</span></p></body></"
+                        "html>", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"PyImage Helper", None))
 #if QT_CONFIG(tooltip)
         self.minimizeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Minimize", None))
@@ -1538,19 +1607,22 @@ class Ui_MainWindow(object):
         self.home_info_label2_size_output.setText(QCoreApplication.translate("MainWindow", u"\u672a\u77e5", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"\u57fa\u7840\u53d8\u6362", None))
         self.btn_widgets_resize.setText(QCoreApplication.translate("MainWindow", u"\u7f29\u653e", None))
-        self.btn_widgets_gray.setText(QCoreApplication.translate("MainWindow", u"\u7070\u5ea6\u5316", None))
-        self.btn_widgets_Thresholding.setText(QCoreApplication.translate("MainWindow", u"\u4e8c\u503c\u5316", None))
+        self.btn_widgets_hist.setText(QCoreApplication.translate("MainWindow", u"\u67e5\u770b\u76f4\u65b9\u56fe", None))
+        self.btn_widgets_histequal.setText(QCoreApplication.translate("MainWindow", u"\u76f4\u65b9\u56fe\u5747\u8861\u5316", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"\u7a7a\u95f4\u6ee4\u6ce2", None))
         self.btn_widgets_mean_filtering.setText(QCoreApplication.translate("MainWindow", u"\u5747\u503c\u6ee4\u6ce2", None))
         self.btn_widgets_gauss_filtering.setText(QCoreApplication.translate("MainWindow", u"\u9ad8\u65af\u6ee4\u6ce2", None))
         self.btn_widgets_median_filtering.setText(QCoreApplication.translate("MainWindow", u"\u4e2d\u503c\u6ee4\u6ce2", None))
         self.btn_widgets_add_noise.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0\u6912\u76d0", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"\u7070\u5ea6\u53d8\u6362", None))
+        self.btn_widgets_gray.setText(QCoreApplication.translate("MainWindow", u"\u7070\u5ea6\u5316", None))
+        self.btn_widgets_Thresholding.setText(QCoreApplication.translate("MainWindow", u"\u4e8c\u503c\u5316", None))
         self.btn_widgets_flip.setText(QCoreApplication.translate("MainWindow", u"\u7070\u5ea6\u53cd\u8f6c", None))
         self.btn_widgets_log.setText(QCoreApplication.translate("MainWindow", u"\u5bf9\u6570\u53d8\u6362", None))
         self.btn_widgets_gamma.setText(QCoreApplication.translate("MainWindow", u"\u4f3d\u9a6c\u77eb\u6b63", None))
         self.btn_widgets_contrast_stretch.setText(QCoreApplication.translate("MainWindow", u"\u5bf9\u6bd4\u5ea6\u62c9\u4f38", None))
-        self.btn_widgets_grayscale_layering.setText(QCoreApplication.translate("MainWindow", u"\u7070\u5ea6\u5206\u5c42", None))
+        self.btn_widgets_8bits_layering.setText(QCoreApplication.translate("MainWindow", u"8\u6bd4\u7279\u5206\u5c42", None))
+        self.btn_widgets_test.setText(QCoreApplication.translate("MainWindow", u"\u6d4b\u8bd5\u6309\u94ae", None))
         self.set_label_1.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u9ed8\u8ba4\u4fdd\u5b58\u8def\u5f84\uff1a", None))
         self.set_file_svae_path.setText("")
         self.set_file_svae_path.setPlaceholderText("")

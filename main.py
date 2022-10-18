@@ -26,6 +26,7 @@ import platform
 import cv2
 import numpy as np
 import configparser
+import matplotlib.pyplot as plt;
 
 # IMPORT / GUI AND MODULES AND WIDGETS 导入高清模组
 # ///////////////////////////////////////////////////////////////
@@ -104,15 +105,18 @@ class MainWindow(QMainWindow):
         # Widgets page Button
         # 基础操作
         widgets.btn_widgets_resize.clicked.connect(self.widgets_buttonClick) # 缩放 完成
+        widgets.btn_widgets_hist.clicked.connect(self.widgets_buttonClick) # 直方图 完成
+        widgets.btn_widgets_histequal.clicked.connect(self.widgets_buttonClick) # 直方图均衡化 未完成
+
+        # 灰度变换
         widgets.btn_widgets_gray.clicked.connect(self.widgets_buttonClick) # 灰度化 完成
         widgets.btn_widgets_Thresholding.clicked.connect(self.widgets_buttonClick) # 二值化 完成
-        # 灰度变换
         widgets.btn_widgets_flip.clicked.connect(self.widgets_buttonClick) # 反转 完成
         widgets.btn_widgets_log.clicked.connect(self.widgets_buttonClick) # 对数 完成
         widgets.btn_widgets_gamma.clicked.connect(self.widgets_buttonClick) # 伽马 完成 
         widgets.btn_widgets_contrast_stretch.clicked.connect(self.widgets_buttonClick) # 对比度拉伸 完成
-        widgets.btn_widgets_grayscale_layering.clicked.connect(self.widgets_buttonClick) # 灰度分层 未完成
-        
+        widgets.btn_widgets_8bits_layering.clicked.connect(self.widgets_buttonClick) # 8bit 完成
+
         # 滤波
         widgets.btn_widgets_mean_filtering.clicked.connect(self.widgets_buttonClick) # 均值 未完成
         widgets.btn_widgets_gauss_filtering.clicked.connect(self.widgets_buttonClick)   # 高斯 未完成
@@ -219,6 +223,15 @@ class MainWindow(QMainWindow):
         if btnName == "btn_widgets_resize":
             UIFunctions.resize_image(self)
 
+        # 直方图
+        if btnName == "btn_widgets_hist":
+            UIFunctions.show_image_hist(self)
+
+        # 直方图均衡
+        if btnName == "btn_widgets_histequal":
+            UIFunctions.histequal_image(self)
+
+
         # 灰度化
         if btnName == "btn_widgets_gray":
             UIFunctions.gray_image(self)
@@ -243,9 +256,9 @@ class MainWindow(QMainWindow):
         if btnName == "btn_widgets_contrast_stretch":
             UIFunctions.contrast_stretch_image(self)
 
-        # 灰度级分层
-        if btnName == "btn_widgets_grayscale_layering":
-            UIFunctions.grayscale_layering_image(self)
+        # 8比特分层
+        if btnName == "btn_widgets_8bits_layering":
+            UIFunctions.bits_layering_image(self)
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')

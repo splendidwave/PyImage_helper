@@ -1,29 +1,4 @@
 '''
-
-   ┏┓　　　┏┓
- ┏┛┻━━━┛┻┓
- ┃　　　　　　　┃
- ┃　　　━　　　┃
- ┃　＞　　　＜　┃
- ┃　　　　　　　┃
- ┃...　⌒　...　┃
- ┃　　　　　　　┃
- ┗━┓　　　┏━┛
-     ┃　　　┃　
-     ┃　　　┃
-     ┃　　　┃
-     ┃　　　┃  神兽保佑
-     ┃　　　┃  代码无bug　　
-     ┃　　　┃
-     ┃　　　┗━━━┓
-     ┃　　　　　　　┣┓
-     ┃　　　　　　　┏┛
-     ┗┓┓┏━┳┓┏┛
-       ┃┫┫　┃┫┫
-       ┗┻┛　┗┻┛
-'''
-
-'''
 Author: splendidwave 1578399592@qq.com
 Date: 2022-10-13 15:35:40
 Description: ui功能函数
@@ -327,7 +302,8 @@ class UIFunctions(MainWindow):
             imageSize /= 1024 # 除以1024是代表Kb
             self.ui.home_info_label2_size_output.setText(str(imageSize)+" KB")
         else:
-            self.ui.home_info_label2_size_output.setText("还未保存，未知大小")
+            self.ui.home_info_label2_size_output.setText("未选择保存格式，未知大小")
+            self.ui.filePathlineEdit.setText("来自内存")
         self.ui.home_info_label2_pix_output.setText(str(self.image.shape[1])+" * "+str(self.image.shape[0]))
 
 
@@ -340,9 +316,10 @@ class UIFunctions(MainWindow):
         if ok:
             UIFunctions.show_image_info(self,get_filename_path)
             self.ui.filePathlineEdit.setText(str(get_filename_path))
-            image = QPixmap(get_filename_path).scaled(self.ui.pic_preshow_label.width(), self.ui.pic_preshow_label.height())
+            #image = QPixmap(get_filename_path).scaled(self.ui.pic_preshow_label.width(), self.ui.pic_preshow_label.height())
+            image = QPixmap(get_filename_path)
             self.ui.pic_preshow_label.setPixmap(image)
-            self.ui.pic_preshow_label.setScaledContents(True)
+            self.ui.pic_preshow_label.setScaledContents(False)
         
     # 从摄像头中拍摄图片
     def open_camera(self):
@@ -369,7 +346,7 @@ class UIFunctions(MainWindow):
     # START - widgets_page_btn_function
     # 功能页面按钮功能实现
     # ///////////////////////////////////////////////////////////////
-    # 通用等待函数
+    # 通用:等待函数
     def wait_key(self,img,win_name):
         cv2.namedWindow(win_name,cv2.WINDOW_AUTOSIZE)
         cv2.imshow(win_name,img)
@@ -392,7 +369,7 @@ class UIFunctions(MainWindow):
             UIFunctions.show_image_info(self)
             UIFunctions.wait_key(self,img,win_name)
 
-    # 通用返回灰度图
+    # 通用:返回灰度图
     def trun_gray(self,img):
         try:
             depth = img.shape[2]
@@ -401,7 +378,7 @@ class UIFunctions(MainWindow):
         except IndexError:
             return img
     
-    # 通用归一化映射函数
+    # 通用:归一化映射函数
     def normImg(self,x):
         return  cv2.normalize(x,None,0,255,cv2.NORM_MINMAX)
 
@@ -414,6 +391,40 @@ class UIFunctions(MainWindow):
             win_name = "resize"+str(size)
             img = cv2.resize(self.image,size)
             UIFunctions.wait_key(self,img,win_name)
+
+    # 展示直方图
+    def show_image_hist(self):
+        if len(self.image.shape) == 2:
+            # hist = cv2.calcHist([self.image],[0],None,[256],[0,256])
+            plt.hist(self.image.ravel(),256); 
+        else:
+            color = ('b','g','r')
+            for i,col in enumerate(color): 
+                histr = cv2.calcHist([self.image],[i],None,[256],[0,256]) 
+                plt.plot(histr,color = col) 
+                plt.xlim([0,256])
+        plt.show()
+
+    # 自适应直方图均衡化
+    def histequal_image(self):
+        # 创建一个自适应均衡化的对象，并应用于图像
+        claheg = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
+        if len(self.image.shape) == 2:
+            cl = claheg.apply(self.image)
+        else:
+            imgr = self.image[:,:,0]
+            imgg = self.image[:,:,1]
+            imgb = self.image[:,:,2]
+            claher = cv2.createCLAHE(clipLimit=3, tileGridSize=(8,8))
+            claheb = cv2.createCLAHE(clipLimit=1, tileGridSize=(8,8))
+            cllr = claher.apply(imgr)
+            cllg = claheg.apply(imgg)
+            cllb = claheb.apply(imgb)
+            cl = np.dstack((cllr,cllg,cllb))
+        win_name = "histequal"
+        UIFunctions.wait_key(self,cl,win_name)
+
+
 
     # 灰度化
     def gray_image(self):
@@ -463,10 +474,35 @@ class UIFunctions(MainWindow):
         win_name = "contrast_stretch"
         UIFunctions.wait_key(self,cs,win_name)
 
-    # 灰度分层
-    def grayscale_layering_image(self):
+    # 8bit分层
+    def bits_layering_image(self):
         img = UIFunctions.trun_gray(self,self.image)
-        pass # 2022.10.17
+        height, width = img.shape[:2]
+        height, width = int(height/max(height,width)*300),int(width/max(height,width)*300)
+        size = (width,height)
+        # origin = cv2.resize(img,size)
+        # blls = [origin]
+        img = cv2.resize(img,size)
+        blls = [img]
+        for i in range(8):
+            layer = np.copy(img)
+            era1 = 2**i
+            era2 = 2 ** (i+1)
+            for row in range(layer.shape[0]):
+                for col in range(layer.shape[1]):
+                    layer[row][col]=np.where((layer[row][col]>=era1) and (layer[row][col]<era2),255,0)
+            # layer = np.where((layer>=era1) and (layer<era2),255,0)
+            layer = cv2.resize(layer,size)
+            blls.append(layer)
+        for i in range(3):
+            for j in range(2):
+                vs1 = np.hstack((blls[0],blls[1],blls[2]))
+                vs2 = np.hstack((blls[3],blls[4],blls[5]))
+                vs3 = np.hstack((blls[6],blls[7],blls[8]))
+            bl = np.vstack((vs1,vs2,vs3))
+        win_name = "8bitslayering"
+        UIFunctions.wait_key(self,bl,win_name)
+
 
 
     # ///////////////////////////////////////////////////////////////
