@@ -1821,7 +1821,7 @@ hr { height: 1px; border-width: 0; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="layoutDirection">
@@ -2177,7 +2177,7 @@ hr { height: 1px; border-width: 0; }
                         </rect>
                        </property>
                        <property name="title">
-                        <string>基础变换</string>
+                        <string>基础操作</string>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_17">
                         <item>
@@ -2221,8 +2221,8 @@ background-color: rgb(52, 59, 72);
                       <widget class="QGroupBox" name="groupBox_2">
                        <property name="geometry">
                         <rect>
-                         <x>20</x>
-                         <y>230</y>
+                         <x>340</x>
+                         <y>10</y>
                          <width>111</width>
                          <height>201</height>
                         </rect>
@@ -2270,18 +2270,6 @@ background-color: rgb(52, 59, 72);
                           </property>
                           <property name="text">
                            <string>中值滤波</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_add_noise">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
-background-color: rgb(52, 59, 72);
-</string>
-                          </property>
-                          <property name="text">
-                           <string>添加椒盐</string>
                           </property>
                          </widget>
                         </item>
@@ -2407,6 +2395,69 @@ background-color: rgb(52, 59, 72);
                         <string>测试按钮</string>
                        </property>
                       </widget>
+                      <widget class="QGroupBox" name="groupBox_4">
+                       <property name="geometry">
+                        <rect>
+                         <x>20</x>
+                         <y>220</y>
+                         <width>111</width>
+                         <height>211</height>
+                        </rect>
+                       </property>
+                       <property name="title">
+                        <string>添加噪声</string>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_18">
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_pepper_and_salt">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>椒盐噪声</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_gauss_noisy">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>高斯噪声</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_poisson_noisy">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>泊松噪声</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_speckle_noisy">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>散斑噪声</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
                      </widget>
                      <widget class="QWidget" name="new_page">
                       <layout class="QHBoxLayout" name="horizontalLayout_9">
@@ -2420,7 +2471,7 @@ border: 0px;</string>
                           <enum>QTabWidget::Triangular</enum>
                          </property>
                          <property name="currentIndex">
-                          <number>0</number>
+                          <number>1</number>
                          </property>
                          <property name="usesScrollButtons">
                           <bool>false</bool>
@@ -2600,6 +2651,27 @@ background-color: rgb(52, 59, 72);
                             </item>
                            </layout>
                           </widget>
+                          <widget class="QPushButton" name="btn_settings_reset_1">
+                           <property name="geometry">
+                            <rect>
+                             <x>600</x>
+                             <y>360</y>
+                             <width>91</width>
+                             <height>31</height>
+                            </rect>
+                           </property>
+                           <property name="cursor">
+                            <cursorShape>PointingHandCursor</cursorShape>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                           </property>
+                           <property name="text">
+                            <string>重置</string>
+                           </property>
+                          </widget>
                          </widget>
                          <widget class="QWidget" name="tab_2">
                           <property name="styleSheet">
@@ -2607,8 +2679,418 @@ background-color: rgb(52, 59, 72);
 border: 0px;</string>
                           </property>
                           <attribute name="title">
-                           <string>Tab 2</string>
+                           <string>噪声设置</string>
                           </attribute>
+                          <widget class="QPushButton" name="btn_settings_save_2">
+                           <property name="geometry">
+                            <rect>
+                             <x>710</x>
+                             <y>360</y>
+                             <width>91</width>
+                             <height>31</height>
+                            </rect>
+                           </property>
+                           <property name="cursor">
+                            <cursorShape>PointingHandCursor</cursorShape>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                           </property>
+                           <property name="text">
+                            <string>保存设置</string>
+                           </property>
+                          </widget>
+                          <widget class="QPushButton" name="btn_settings_reset_2">
+                           <property name="geometry">
+                            <rect>
+                             <x>600</x>
+                             <y>360</y>
+                             <width>91</width>
+                             <height>31</height>
+                            </rect>
+                           </property>
+                           <property name="cursor">
+                            <cursorShape>PointingHandCursor</cursorShape>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                           </property>
+                           <property name="text">
+                            <string>重置</string>
+                           </property>
+                          </widget>
+                          <widget class="QFrame" name="frame_4">
+                           <property name="geometry">
+                            <rect>
+                             <x>50</x>
+                             <y>90</y>
+                             <width>341</width>
+                             <height>48</height>
+                            </rect>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background: transparent</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="1,1">
+                            <property name="spacing">
+                             <number>12</number>
+                            </property>
+                            <property name="leftMargin">
+                             <number>20</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>20</number>
+                            </property>
+                            <item>
+                             <widget class="QLabel" name="set_pepper_vs_salt_label">
+                              <property name="font">
+                               <font>
+                                <family>Segoe UI</family>
+                                <pointsize>-1</pointsize>
+                                <italic>false</italic>
+                                <bold>true</bold>
+                               </font>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">font: bold 15px;</string>
+                              </property>
+                              <property name="text">
+                               <string>椒噪/盐噪(椒盐)：</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLineEdit" name="set_pepper_vs_salt">
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>30</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">background-color: rgb(33, 37, 43);</string>
+                              </property>
+                              <property name="text">
+                               <string/>
+                              </property>
+                              <property name="placeholderText">
+                               <string/>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                          <widget class="QFrame" name="frame_5">
+                           <property name="geometry">
+                            <rect>
+                             <x>30</x>
+                             <y>240</y>
+                             <width>341</width>
+                             <height>48</height>
+                            </rect>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background: transparent</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="1,1">
+                            <property name="spacing">
+                             <number>12</number>
+                            </property>
+                            <property name="leftMargin">
+                             <number>20</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>20</number>
+                            </property>
+                            <item>
+                             <widget class="QLabel" name="set_guass_mean_label">
+                              <property name="font">
+                               <font>
+                                <family>Segoe UI</family>
+                                <pointsize>-1</pointsize>
+                                <italic>false</italic>
+                                <bold>true</bold>
+                               </font>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">font: bold 15px;</string>
+                              </property>
+                              <property name="text">
+                               <string>高斯均值(高斯)：</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLineEdit" name="set_guass_mean">
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>30</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">background-color: rgb(33, 37, 43);</string>
+                              </property>
+                              <property name="text">
+                               <string/>
+                              </property>
+                              <property name="placeholderText">
+                               <string/>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                          <widget class="QFrame" name="frame_6">
+                           <property name="geometry">
+                            <rect>
+                             <x>30</x>
+                             <y>290</y>
+                             <width>341</width>
+                             <height>48</height>
+                            </rect>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background: transparent</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_18" stretch="1,1">
+                            <property name="spacing">
+                             <number>12</number>
+                            </property>
+                            <property name="leftMargin">
+                             <number>20</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>20</number>
+                            </property>
+                            <item>
+                             <widget class="QLabel" name="set_guass_sigma_label">
+                              <property name="font">
+                               <font>
+                                <family>Segoe UI</family>
+                                <pointsize>-1</pointsize>
+                                <italic>false</italic>
+                                <bold>true</bold>
+                               </font>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">font: bold 15px;</string>
+                              </property>
+                              <property name="text">
+                               <string>高斯标准差(高斯)：</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLineEdit" name="set_guass_sigma">
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>30</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">background-color: rgb(33, 37, 43);</string>
+                              </property>
+                              <property name="text">
+                               <string/>
+                              </property>
+                              <property name="placeholderText">
+                               <string/>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                          <widget class="QFrame" name="frame_3">
+                           <property name="geometry">
+                            <rect>
+                             <x>50</x>
+                             <y>20</y>
+                             <width>341</width>
+                             <height>48</height>
+                            </rect>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background: transparent</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_15" stretch="1,1">
+                            <property name="spacing">
+                             <number>12</number>
+                            </property>
+                            <property name="leftMargin">
+                             <number>20</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>20</number>
+                            </property>
+                            <item>
+                             <widget class="QLabel" name="set_noisy_ratio_label">
+                              <property name="font">
+                               <font>
+                                <family>Segoe UI</family>
+                                <pointsize>-1</pointsize>
+                                <italic>false</italic>
+                                <bold>true</bold>
+                               </font>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">font: bold 15px;</string>
+                              </property>
+                              <property name="text">
+                               <string>噪声像素比例(椒盐)：</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLineEdit" name="set_noisy_ratio">
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>30</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">background-color: rgb(33, 37, 43);</string>
+                              </property>
+                              <property name="text">
+                               <string/>
+                              </property>
+                              <property name="placeholderText">
+                               <string/>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                          <widget class="QFrame" name="frame_7">
+                           <property name="geometry">
+                            <rect>
+                             <x>440</x>
+                             <y>20</y>
+                             <width>341</width>
+                             <height>48</height>
+                            </rect>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background: transparent</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_19" stretch="1,1">
+                            <property name="spacing">
+                             <number>12</number>
+                            </property>
+                            <property name="leftMargin">
+                             <number>20</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>20</number>
+                            </property>
+                            <item>
+                             <widget class="QLabel" name="set_poisson_lambda_label">
+                              <property name="font">
+                               <font>
+                                <family>Segoe UI</family>
+                                <pointsize>-1</pointsize>
+                                <italic>false</italic>
+                                <bold>true</bold>
+                               </font>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">font: bold 15px;</string>
+                              </property>
+                              <property name="text">
+                               <string>lambda(泊松):</string>
+                              </property>
+                              <property name="textFormat">
+                               <enum>Qt::AutoText</enum>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLineEdit" name="set_poisson_lambda">
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>30</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">background-color: rgb(33, 37, 43);</string>
+                              </property>
+                              <property name="text">
+                               <string/>
+                              </property>
+                              <property name="placeholderText">
+                               <string/>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                          <widget class="QFrame" name="frame_8">
+                           <property name="geometry">
+                            <rect>
+                             <x>440</x>
+                             <y>70</y>
+                             <width>341</width>
+                             <height>48</height>
+                            </rect>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background: transparent</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_20">
+                            <property name="spacing">
+                             <number>12</number>
+                            </property>
+                            <property name="leftMargin">
+                             <number>20</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>20</number>
+                            </property>
+                           </layout>
+                          </widget>
                          </widget>
                         </widget>
                        </item>

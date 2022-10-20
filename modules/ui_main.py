@@ -1220,7 +1220,7 @@ class Ui_MainWindow(object):
 
         self.groupBox_2 = QGroupBox(self.widgets)
         self.groupBox_2.setObjectName(u"groupBox_2")
-        self.groupBox_2.setGeometry(QRect(20, 230, 111, 201))
+        self.groupBox_2.setGeometry(QRect(340, 10, 111, 201))
         self.verticalLayout_16 = QVBoxLayout(self.groupBox_2)
         self.verticalLayout_16.setSpacing(15)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
@@ -1248,14 +1248,6 @@ class Ui_MainWindow(object):
 "")
 
         self.verticalLayout_16.addWidget(self.btn_widgets_median_filtering)
-
-        self.btn_widgets_add_noise = QPushButton(self.groupBox_2)
-        self.btn_widgets_add_noise.setObjectName(u"btn_widgets_add_noise")
-        self.btn_widgets_add_noise.setStyleSheet(u"border-radius:7px;\n"
-"background-color: rgb(52, 59, 72);\n"
-"")
-
-        self.verticalLayout_16.addWidget(self.btn_widgets_add_noise)
 
         self.groupBox_3 = QGroupBox(self.widgets)
         self.groupBox_3.setObjectName(u"groupBox_3")
@@ -1325,6 +1317,43 @@ class Ui_MainWindow(object):
         self.btn_widgets_test.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
+        self.groupBox_4 = QGroupBox(self.widgets)
+        self.groupBox_4.setObjectName(u"groupBox_4")
+        self.groupBox_4.setGeometry(QRect(20, 220, 111, 211))
+        self.verticalLayout_18 = QVBoxLayout(self.groupBox_4)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.btn_widgets_pepper_and_salt = QPushButton(self.groupBox_4)
+        self.btn_widgets_pepper_and_salt.setObjectName(u"btn_widgets_pepper_and_salt")
+        self.btn_widgets_pepper_and_salt.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_18.addWidget(self.btn_widgets_pepper_and_salt)
+
+        self.btn_widgets_gauss_noisy = QPushButton(self.groupBox_4)
+        self.btn_widgets_gauss_noisy.setObjectName(u"btn_widgets_gauss_noisy")
+        self.btn_widgets_gauss_noisy.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_18.addWidget(self.btn_widgets_gauss_noisy)
+
+        self.btn_widgets_poisson_noisy = QPushButton(self.groupBox_4)
+        self.btn_widgets_poisson_noisy.setObjectName(u"btn_widgets_poisson_noisy")
+        self.btn_widgets_poisson_noisy.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_18.addWidget(self.btn_widgets_poisson_noisy)
+
+        self.btn_widgets_speckle_noisy = QPushButton(self.groupBox_4)
+        self.btn_widgets_speckle_noisy.setObjectName(u"btn_widgets_speckle_noisy")
+        self.btn_widgets_speckle_noisy.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_18.addWidget(self.btn_widgets_speckle_noisy)
+
         self.stackedWidget.addWidget(self.widgets)
         self.new_page = QWidget()
         self.new_page.setObjectName(u"new_page")
@@ -1399,11 +1428,173 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13.addWidget(self.set_file_open_path)
 
+        self.btn_settings_reset_1 = QPushButton(self.tab_general)
+        self.btn_settings_reset_1.setObjectName(u"btn_settings_reset_1")
+        self.btn_settings_reset_1.setGeometry(QRect(600, 360, 91, 31))
+        self.btn_settings_reset_1.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_settings_reset_1.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
         self.tabWidget.addTab(self.tab_general, "")
         self.tab_2 = QWidget()
         self.tab_2.setObjectName(u"tab_2")
         self.tab_2.setStyleSheet(u"background: rgb(40,44,52);\n"
 "border: 0px;")
+        self.btn_settings_save_2 = QPushButton(self.tab_2)
+        self.btn_settings_save_2.setObjectName(u"btn_settings_save_2")
+        self.btn_settings_save_2.setGeometry(QRect(710, 360, 91, 31))
+        self.btn_settings_save_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_settings_save_2.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+        self.btn_settings_reset_2 = QPushButton(self.tab_2)
+        self.btn_settings_reset_2.setObjectName(u"btn_settings_reset_2")
+        self.btn_settings_reset_2.setGeometry(QRect(600, 360, 91, 31))
+        self.btn_settings_reset_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_settings_reset_2.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+        self.frame_4 = QFrame(self.tab_2)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setGeometry(QRect(50, 90, 341, 48))
+        self.frame_4.setStyleSheet(u"background: transparent")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_16 = QHBoxLayout(self.frame_4)
+        self.horizontalLayout_16.setSpacing(12)
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.horizontalLayout_16.setContentsMargins(20, -1, 20, -1)
+        self.set_pepper_vs_salt_label = QLabel(self.frame_4)
+        self.set_pepper_vs_salt_label.setObjectName(u"set_pepper_vs_salt_label")
+        self.set_pepper_vs_salt_label.setFont(font4)
+        self.set_pepper_vs_salt_label.setStyleSheet(u"font: bold 15px;")
+
+        self.horizontalLayout_16.addWidget(self.set_pepper_vs_salt_label)
+
+        self.set_pepper_vs_salt = QLineEdit(self.frame_4)
+        self.set_pepper_vs_salt.setObjectName(u"set_pepper_vs_salt")
+        self.set_pepper_vs_salt.setMinimumSize(QSize(0, 30))
+        self.set_pepper_vs_salt.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_16.addWidget(self.set_pepper_vs_salt)
+
+        self.horizontalLayout_16.setStretch(0, 1)
+        self.horizontalLayout_16.setStretch(1, 1)
+        self.frame_5 = QFrame(self.tab_2)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setGeometry(QRect(30, 240, 341, 48))
+        self.frame_5.setStyleSheet(u"background: transparent")
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_17 = QHBoxLayout(self.frame_5)
+        self.horizontalLayout_17.setSpacing(12)
+        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
+        self.horizontalLayout_17.setContentsMargins(20, -1, 20, -1)
+        self.set_guass_mean_label = QLabel(self.frame_5)
+        self.set_guass_mean_label.setObjectName(u"set_guass_mean_label")
+        self.set_guass_mean_label.setFont(font4)
+        self.set_guass_mean_label.setStyleSheet(u"font: bold 15px;")
+
+        self.horizontalLayout_17.addWidget(self.set_guass_mean_label)
+
+        self.set_guass_mean = QLineEdit(self.frame_5)
+        self.set_guass_mean.setObjectName(u"set_guass_mean")
+        self.set_guass_mean.setMinimumSize(QSize(0, 30))
+        self.set_guass_mean.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_17.addWidget(self.set_guass_mean)
+
+        self.horizontalLayout_17.setStretch(0, 1)
+        self.horizontalLayout_17.setStretch(1, 1)
+        self.frame_6 = QFrame(self.tab_2)
+        self.frame_6.setObjectName(u"frame_6")
+        self.frame_6.setGeometry(QRect(30, 290, 341, 48))
+        self.frame_6.setStyleSheet(u"background: transparent")
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_18 = QHBoxLayout(self.frame_6)
+        self.horizontalLayout_18.setSpacing(12)
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.horizontalLayout_18.setContentsMargins(20, -1, 20, -1)
+        self.set_guass_sigma_label = QLabel(self.frame_6)
+        self.set_guass_sigma_label.setObjectName(u"set_guass_sigma_label")
+        self.set_guass_sigma_label.setFont(font4)
+        self.set_guass_sigma_label.setStyleSheet(u"font: bold 15px;")
+
+        self.horizontalLayout_18.addWidget(self.set_guass_sigma_label)
+
+        self.set_guass_sigma = QLineEdit(self.frame_6)
+        self.set_guass_sigma.setObjectName(u"set_guass_sigma")
+        self.set_guass_sigma.setMinimumSize(QSize(0, 30))
+        self.set_guass_sigma.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_18.addWidget(self.set_guass_sigma)
+
+        self.horizontalLayout_18.setStretch(0, 1)
+        self.horizontalLayout_18.setStretch(1, 1)
+        self.frame_3 = QFrame(self.tab_2)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setGeometry(QRect(50, 20, 341, 48))
+        self.frame_3.setStyleSheet(u"background: transparent")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_15 = QHBoxLayout(self.frame_3)
+        self.horizontalLayout_15.setSpacing(12)
+        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.horizontalLayout_15.setContentsMargins(20, -1, 20, -1)
+        self.set_noisy_ratio_label = QLabel(self.frame_3)
+        self.set_noisy_ratio_label.setObjectName(u"set_noisy_ratio_label")
+        self.set_noisy_ratio_label.setFont(font4)
+        self.set_noisy_ratio_label.setStyleSheet(u"font: bold 15px;")
+
+        self.horizontalLayout_15.addWidget(self.set_noisy_ratio_label)
+
+        self.set_noisy_ratio = QLineEdit(self.frame_3)
+        self.set_noisy_ratio.setObjectName(u"set_noisy_ratio")
+        self.set_noisy_ratio.setMinimumSize(QSize(0, 30))
+        self.set_noisy_ratio.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_15.addWidget(self.set_noisy_ratio)
+
+        self.horizontalLayout_15.setStretch(0, 1)
+        self.horizontalLayout_15.setStretch(1, 1)
+        self.frame_7 = QFrame(self.tab_2)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setGeometry(QRect(440, 20, 341, 48))
+        self.frame_7.setStyleSheet(u"background: transparent")
+        self.frame_7.setFrameShape(QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_19 = QHBoxLayout(self.frame_7)
+        self.horizontalLayout_19.setSpacing(12)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.horizontalLayout_19.setContentsMargins(20, -1, 20, -1)
+        self.set_poisson_lambda_label = QLabel(self.frame_7)
+        self.set_poisson_lambda_label.setObjectName(u"set_poisson_lambda_label")
+        self.set_poisson_lambda_label.setFont(font4)
+        self.set_poisson_lambda_label.setStyleSheet(u"font: bold 15px;")
+        self.set_poisson_lambda_label.setTextFormat(Qt.AutoText)
+
+        self.horizontalLayout_19.addWidget(self.set_poisson_lambda_label)
+
+        self.set_poisson_lambda = QLineEdit(self.frame_7)
+        self.set_poisson_lambda.setObjectName(u"set_poisson_lambda")
+        self.set_poisson_lambda.setMinimumSize(QSize(0, 30))
+        self.set_poisson_lambda.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_19.addWidget(self.set_poisson_lambda)
+
+        self.horizontalLayout_19.setStretch(0, 1)
+        self.horizontalLayout_19.setStretch(1, 1)
+        self.frame_8 = QFrame(self.tab_2)
+        self.frame_8.setObjectName(u"frame_8")
+        self.frame_8.setGeometry(QRect(440, 70, 341, 48))
+        self.frame_8.setStyleSheet(u"background: transparent")
+        self.frame_8.setFrameShape(QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_20 = QHBoxLayout(self.frame_8)
+        self.horizontalLayout_20.setSpacing(12)
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.horizontalLayout_20.setContentsMargins(20, -1, 20, -1)
         self.tabWidget.addTab(self.tab_2, "")
 
         self.horizontalLayout_9.addWidget(self.tabWidget)
@@ -1538,8 +1729,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
-        self.tabWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1605,7 +1796,7 @@ class Ui_MainWindow(object):
         self.home_info_label2_pix_output.setText(QCoreApplication.translate("MainWindow", u"\u672a\u77e5", None))
         self.home_info_label2_size.setText(QCoreApplication.translate("MainWindow", u"\u5927\u5c0f\uff1a", None))
         self.home_info_label2_size_output.setText(QCoreApplication.translate("MainWindow", u"\u672a\u77e5", None))
-        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"\u57fa\u7840\u53d8\u6362", None))
+        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"\u57fa\u7840\u64cd\u4f5c", None))
         self.btn_widgets_resize.setText(QCoreApplication.translate("MainWindow", u"\u7f29\u653e", None))
         self.btn_widgets_hist.setText(QCoreApplication.translate("MainWindow", u"\u67e5\u770b\u76f4\u65b9\u56fe", None))
         self.btn_widgets_histequal.setText(QCoreApplication.translate("MainWindow", u"\u76f4\u65b9\u56fe\u5747\u8861\u5316", None))
@@ -1613,7 +1804,6 @@ class Ui_MainWindow(object):
         self.btn_widgets_mean_filtering.setText(QCoreApplication.translate("MainWindow", u"\u5747\u503c\u6ee4\u6ce2", None))
         self.btn_widgets_gauss_filtering.setText(QCoreApplication.translate("MainWindow", u"\u9ad8\u65af\u6ee4\u6ce2", None))
         self.btn_widgets_median_filtering.setText(QCoreApplication.translate("MainWindow", u"\u4e2d\u503c\u6ee4\u6ce2", None))
-        self.btn_widgets_add_noise.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0\u6912\u76d0", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"\u7070\u5ea6\u53d8\u6362", None))
         self.btn_widgets_gray.setText(QCoreApplication.translate("MainWindow", u"\u7070\u5ea6\u5316", None))
         self.btn_widgets_Thresholding.setText(QCoreApplication.translate("MainWindow", u"\u4e8c\u503c\u5316", None))
@@ -1623,6 +1813,11 @@ class Ui_MainWindow(object):
         self.btn_widgets_contrast_stretch.setText(QCoreApplication.translate("MainWindow", u"\u5bf9\u6bd4\u5ea6\u62c9\u4f38", None))
         self.btn_widgets_8bits_layering.setText(QCoreApplication.translate("MainWindow", u"8\u6bd4\u7279\u5206\u5c42", None))
         self.btn_widgets_test.setText(QCoreApplication.translate("MainWindow", u"\u6d4b\u8bd5\u6309\u94ae", None))
+        self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0\u566a\u58f0", None))
+        self.btn_widgets_pepper_and_salt.setText(QCoreApplication.translate("MainWindow", u"\u6912\u76d0\u566a\u58f0", None))
+        self.btn_widgets_gauss_noisy.setText(QCoreApplication.translate("MainWindow", u"\u9ad8\u65af\u566a\u58f0", None))
+        self.btn_widgets_poisson_noisy.setText(QCoreApplication.translate("MainWindow", u"\u6cca\u677e\u566a\u58f0", None))
+        self.btn_widgets_speckle_noisy.setText(QCoreApplication.translate("MainWindow", u"\u6563\u6591\u566a\u58f0", None))
         self.set_label_1.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u9ed8\u8ba4\u4fdd\u5b58\u8def\u5f84\uff1a", None))
         self.set_file_svae_path.setText("")
         self.set_file_svae_path.setPlaceholderText("")
@@ -1630,8 +1825,26 @@ class Ui_MainWindow(object):
         self.set_label_2.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u9ed8\u8ba4\u6253\u5f00\u8def\u5f84\uff1a", None))
         self.set_file_open_path.setText("")
         self.set_file_open_path.setPlaceholderText("")
+        self.btn_settings_reset_1.setText(QCoreApplication.translate("MainWindow", u"\u91cd\u7f6e", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_general), QCoreApplication.translate("MainWindow", u"\u901a\u7528\u8bbe\u7f6e", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Tab 2", None))
+        self.btn_settings_save_2.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58\u8bbe\u7f6e", None))
+        self.btn_settings_reset_2.setText(QCoreApplication.translate("MainWindow", u"\u91cd\u7f6e", None))
+        self.set_pepper_vs_salt_label.setText(QCoreApplication.translate("MainWindow", u"\u6912\u566a/\u76d0\u566a(\u6912\u76d0)\uff1a", None))
+        self.set_pepper_vs_salt.setText("")
+        self.set_pepper_vs_salt.setPlaceholderText("")
+        self.set_guass_mean_label.setText(QCoreApplication.translate("MainWindow", u"\u9ad8\u65af\u5747\u503c(\u9ad8\u65af)\uff1a", None))
+        self.set_guass_mean.setText("")
+        self.set_guass_mean.setPlaceholderText("")
+        self.set_guass_sigma_label.setText(QCoreApplication.translate("MainWindow", u"\u9ad8\u65af\u6807\u51c6\u5dee(\u9ad8\u65af)\uff1a", None))
+        self.set_guass_sigma.setText("")
+        self.set_guass_sigma.setPlaceholderText("")
+        self.set_noisy_ratio_label.setText(QCoreApplication.translate("MainWindow", u"\u566a\u58f0\u50cf\u7d20\u6bd4\u4f8b(\u6912\u76d0)\uff1a", None))
+        self.set_noisy_ratio.setText("")
+        self.set_noisy_ratio.setPlaceholderText("")
+        self.set_poisson_lambda_label.setText(QCoreApplication.translate("MainWindow", u"lambda(\u6cca\u677e):", None))
+        self.set_poisson_lambda.setText("")
+        self.set_poisson_lambda.setPlaceholderText("")
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"\u566a\u58f0\u8bbe\u7f6e", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))

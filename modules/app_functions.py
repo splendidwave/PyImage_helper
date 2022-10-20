@@ -46,12 +46,25 @@ class AppFunctions(MainWindow):
         self.ui.verticalScrollBar.setStyleSheet("background-color: #6272a4;")
         self.ui.commandLinkButton.setStyleSheet("color: #ff79c6;")
 
+    # 设立初始值
+    def set_general(self):
+        self.config.set("General","file_save_path",os.getcwd()+'\\save')
+        self.config.set("General","file_open_path",os.getcwd())
+
+    # 噪声设置初始值
+    def set_nosiy(self):
+        self.config.set("Noisy","noise_ratio","0.04")
+        self.config.set("Noisy","pepper_vs_salt","0.5")
+        self.config.set("Noisy","guass_mean","0")
+        self.config.set("Noisy","guass_sigma","25")
+        self.config.set("Noisy","poisson_lambda","0.5")
+
+    # 阅读配置文件
     def read_settings_file(self):
         self.config.read('settings.ini',encoding='utf-8')
         if self.config.get('General','init') == 'False':
-            # 设立初始值
-            self.config.set("General","file_save_path",os.getcwd()+'\\save')
-            self.config.set("General","file_open_path",os.getcwd())
+            AppFunctions.set_general(self)
+            AppFunctions.set_nosiy(self)
         else:
             # 有内容读取
             pass

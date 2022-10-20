@@ -22,6 +22,7 @@ Copyright (c) 2022 by splendidwave, This project can be used freely for all uses
 
 # MAIN FILE
 # ///////////////////////////////////////////////////////////////
+from re import L
 from main import *
 
 # GLOBALS
@@ -424,7 +425,63 @@ class UIFunctions(MainWindow):
         win_name = "histequal"
         UIFunctions.wait_key(self,cl,win_name)
 
+    # 加椒盐噪声
+    def add_pepper_and_salt(self):
+        # 获取数量和椒盐比
+        amount = float(self.config.get("Noisy","noise_ratio"))
+        p_vs_s = float(self.config.get("Noisy","pepper_vs_salt"))
+        noisy_img = np.copy(self.image)
+        num_pepper = np.ceil(amount * noisy_img.size * p_vs_s)
+        num_salt = np.ceil(amount * noisy_img.size * (1. - p_vs_s))
+        #设置添加pepper噪声
+        coords = [np.random.randint(0, i - 1, int(num_pepper)) for i in self.image.shape]
+        noisy_img[tuple(coords)] = 0
+        #设置添加salt噪声
+        coords = [np.random.randint(0, i - 1, int(num_salt)) for i in self.image.shape]
+        noisy_img[tuple(coords)] = 255
+        # 展示
+        win_name = "pepper&salt"
+        UIFunctions.wait_key(self,noisy_img,win_name)
 
+    # 加高斯噪声
+    def add_gauss_noisy(self):
+        img = self.image
+        #获取均值和标准差
+        mean = float(self.config.get("Noisy","guass_mean"))
+        sigma = float(self.config.get("Noisy","guass_sigma"))
+        #生成高斯分布的噪声
+        gauss = np.random.normal(mean,sigma,img.shape)
+        #给图片添加高斯噪声
+        noisy_img = img + gauss
+        #设置图片添加高斯噪声之后的像素值的范围
+        noisy_img = np.uint8(np.clip(noisy_img,a_min=0,a_max=255))
+        # 展示
+        win_name = "gauss_noisy"
+        UIFunctions.wait_key(self,noisy_img,win_name)
+
+    # 加泊松噪声
+    def add_poisson_noisy(self):
+        img = self.image
+        lam = float(self.config.get("Noisy","poisson_lambda"))
+        # 生成泊松分布的噪声
+        poisson = np.random.poisson(lam=lam,size=img.shape).astype(dtype='uint8')
+        noisy_img = img + poisson
+        noisy_img = np.uint8(np.clip(noisy_img,a_min=0,a_max=255))
+        # 展示
+        win_name = "poisson_noisy"
+        UIFunctions.wait_key(self,noisy_img,win_name)
+
+    # 加散斑噪声
+    def add_speckle_noisy(self):
+        img = self.image
+        speckle = np.random.randn(*img.shape)
+        #给图片添加speckle噪声
+        noisy_img = img + img * speckle
+        #归一化图像的像素值
+        noisy_img = np.uint8(np.clip(noisy_img,a_min=0,a_max=255))
+        # 展示
+        win_name = "speckle_noisy"
+        UIFunctions.wait_key(self,noisy_img,win_name)
 
     # 灰度化
     def gray_image(self):
@@ -488,18 +545,18 @@ class UIFunctions(MainWindow):
             layer = np.copy(img)
             era1 = 2**i
             era2 = 2 ** (i+1)
-            for row in range(layer.shape[0]):
-                for col in range(layer.shape[1]):
-                    layer[row][col]=np.where((layer[row][col]>=era1) and (layer[row][col]<era2),255,0)
-            # layer = np.where((layer>=era1) and (layer<era2),255,0)
-            layer = cv2.resize(layer,size)
+            # for row in range(layer.shape[0]):
+            #     for col in range(layer.shape[1]):
+            #         layer[row][col]=np.where((layer[row][col]>=era1) and (layer[row][col]<era2),255,0)
+            layer = np.where((layer>=era1) * (layer<era2),255,0)
+            # layer = cv2.resize(layer,size)
             blls.append(layer)
         for i in range(3):
             for j in range(2):
                 vs1 = np.hstack((blls[0],blls[1],blls[2]))
                 vs2 = np.hstack((blls[3],blls[4],blls[5]))
                 vs3 = np.hstack((blls[6],blls[7],blls[8]))
-            bl = np.vstack((vs1,vs2,vs3))
+            bl = np.uint8(np.vstack((vs1,vs2,vs3)))
         win_name = "8bitslayering"
         UIFunctions.wait_key(self,bl,win_name)
 
@@ -515,8 +572,15 @@ class UIFunctions(MainWindow):
 
     # 设置页面初始化展示
     def show_settings(self):
+        # 设置界面
         self.ui.set_file_svae_path.setText(self.config.get('General','file_save_path'))
         self.ui.set_file_open_path.setText(self.config.get('General','file_open_path'))
+        # 噪声页面
+        self.ui.set_noisy_ratio.setText(self.config.get("Noisy","noise_ratio"))
+        self.ui.set_pepper_vs_salt.setText(self.config.get("Noisy","pepper_vs_salt"))
+        self.ui.set_guass_mean.setText(self.config.get("Noisy","guass_mean"))
+        self.ui.set_guass_sigma.setText(self.config.get("Noisy","guass_sigma"))
+        self.ui.set_poisson_lambda.setText(self.config.get("Noisy","poisson_lambda"))
 
     # 保存
     def save_settings(self):
@@ -524,6 +588,11 @@ class UIFunctions(MainWindow):
         self.config.set("General","file_save_path",self.ui.set_file_svae_path.text())
         self.config.set("General","file_open_path",self.ui.set_file_open_path.text())
 
+        self.config.set("Noisy","noise_ratio",self.ui.set_noisy_ratio.text())
+        self.config.set("Noisy","pepper_vs_salt",self.ui.set_pepper_vs_salt.text())
+        self.config.set("Noisy","guass_mean",self.ui.set_guass_mean.text())
+        self.config.set("Noisy","guass_sigma",self.ui.set_guass_sigma.text())
+        self.config.set("Noisy","poisson_lambda",self.ui.set_guass_sigma.text())
 
         # 写入
         self.config.set("General","init","True")

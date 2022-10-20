@@ -108,6 +108,12 @@ class MainWindow(QMainWindow):
         widgets.btn_widgets_hist.clicked.connect(self.widgets_buttonClick) # 直方图 完成
         widgets.btn_widgets_histequal.clicked.connect(self.widgets_buttonClick) # 直方图均衡化 未完成
 
+        # 加噪
+        widgets.btn_widgets_pepper_and_salt.clicked.connect(self.widgets_buttonClick) # 椒盐噪声 未完成
+        widgets.btn_widgets_gauss_noisy.clicked.connect(self.widgets_buttonClick) # 高斯噪声 未完成
+        widgets.btn_widgets_speckle_noisy.clicked.connect(self.widgets_buttonClick) # 散斑噪声 未完成
+        widgets.btn_widgets_poisson_noisy.clicked.connect(self.widgets_buttonClick) # 泊松噪声 未完成
+
         # 灰度变换
         widgets.btn_widgets_gray.clicked.connect(self.widgets_buttonClick) # 灰度化 完成
         widgets.btn_widgets_Thresholding.clicked.connect(self.widgets_buttonClick) # 二值化 完成
@@ -121,10 +127,13 @@ class MainWindow(QMainWindow):
         widgets.btn_widgets_mean_filtering.clicked.connect(self.widgets_buttonClick) # 均值 未完成
         widgets.btn_widgets_gauss_filtering.clicked.connect(self.widgets_buttonClick)   # 高斯 未完成
         widgets.btn_widgets_median_filtering.clicked.connect(self.widgets_buttonClick) # 中值 未完成
-        widgets.btn_widgets_add_noise.clicked.connect(self.widgets_buttonClick) # 加噪 未完成 
+        
 
         # Setting page(new page) Button
         widgets.btn_settings_save.clicked.connect(self.buttonClick)
+        widgets.btn_settings_save_2.clicked.connect(self.buttonClick)
+        widgets.btn_settings_reset_1.clicked.connect(self.buttonClick)
+        widgets.btn_settings_reset_2.clicked.connect(self.buttonClick)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -200,15 +209,21 @@ class MainWindow(QMainWindow):
         if btnName == "btn_home_show":
             UIFunctions.home_page_show(self)
 
-        if btnName == "btn_settings_save":
+        if "btn_settings_save" in btnName:
             UIFunctions.save_settings(self)
 
+        if btnName == "btn_settings_reset_1":
+            AppFunctions.set_general(self)
+            UIFunctions.show_settings(self)
+
+        if btnName == "btn_settings_reset_2":
+            AppFunctions.set_nosiy(self)
+            UIFunctions.show_settings(self)
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
 
     # widgets page button clicked
-    # 
     def widgets_buttonClick(self):
         # GET BUTTON CLICKED
         btn = self.sender()
@@ -231,7 +246,25 @@ class MainWindow(QMainWindow):
         if btnName == "btn_widgets_histequal":
             UIFunctions.histequal_image(self)
 
+        # 加噪
+        # 椒盐噪声
+        if btnName == "btn_widgets_pepper_and_salt":
+            UIFunctions.add_pepper_and_salt(self)
 
+        # 高斯噪声
+        if btnName == "btn_widgets_gauss_noisy":
+            UIFunctions.add_gauss_noisy(self)
+
+        # 泊松噪声
+        if btnName == "btn_widgets_poisson_noisy":
+            UIFunctions.add_poisson_noisy(self)
+
+        # 散斑噪声
+        if btnName == "btn_widgets_speckle_noisy":
+            UIFunctions.add_speckle_noisy(self)
+
+
+        # 灰度变化
         # 灰度化
         if btnName == "btn_widgets_gray":
             UIFunctions.gray_image(self)
@@ -259,6 +292,11 @@ class MainWindow(QMainWindow):
         # 8比特分层
         if btnName == "btn_widgets_8bits_layering":
             UIFunctions.bits_layering_image(self)
+
+        # 空间滤波
+        # 空间均值滤波
+        if btnName == "btn_widgets_mean_filtering":
+            pass
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
