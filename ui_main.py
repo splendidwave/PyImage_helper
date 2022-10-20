@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QGroupBox,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow,
     QPushButton, QScrollArea, QSizePolicy, QStackedWidget,
     QTabWidget, QTextBrowser, QVBoxLayout, QWidget)
-from . resources_rc import *
+import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1375,7 +1375,7 @@ class Ui_MainWindow(object):
 "border: 0px;")
         self.verticalLayout_25 = QVBoxLayout(self.tab_general)
         self.verticalLayout_25.setObjectName(u"verticalLayout_25")
-        self.verticalLayout_25.setContentsMargins(15, 20, 15, 0)
+        self.verticalLayout_25.setContentsMargins(9, 30, 10, 0)
         self.frame = QFrame(self.tab_general)
         self.frame.setObjectName(u"frame")
         self.frame.setStyleSheet(u"background: transparent")
@@ -1848,7 +1848,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget.setCurrentIndex(2)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

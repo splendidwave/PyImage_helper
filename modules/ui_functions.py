@@ -561,6 +561,27 @@ class UIFunctions(MainWindow):
         UIFunctions.wait_key(self,bl,win_name)
 
 
+    # 空间滤波
+    # 均值滤波
+    def mean_filtering_image(self):
+        img = self.image
+        mean_f = cv2.blur(img,(3,3))
+        win_name = "mean_filtering"
+        UIFunctions.wait_key(self,mean_f,win_name)
+
+    # 高斯滤波
+    def gauss_filtering_image(self):
+        img = self.image
+        gauss_f = result=cv2.GaussianBlur(img,(3,3),0,0)
+        win_name = "gauss_filtering"
+        UIFunctions.wait_key(self,gauss_f,win_name)
+
+    # 中值滤波
+    def median_filtering_image(self):
+        img = self.image
+        median_f = cv2.medianBlur(img,3)
+        win_name = "median_filtering"
+        UIFunctions.wait_key(self,median_f,win_name)
 
     # ///////////////////////////////////////////////////////////////
     # END  功能页面按钮功能实现

@@ -106,13 +106,13 @@ class MainWindow(QMainWindow):
         # 基础操作
         widgets.btn_widgets_resize.clicked.connect(self.widgets_buttonClick) # 缩放 完成
         widgets.btn_widgets_hist.clicked.connect(self.widgets_buttonClick) # 直方图 完成
-        widgets.btn_widgets_histequal.clicked.connect(self.widgets_buttonClick) # 直方图均衡化 未完成
+        widgets.btn_widgets_histequal.clicked.connect(self.widgets_buttonClick) # 直方图均衡化 完成
 
         # 加噪
-        widgets.btn_widgets_pepper_and_salt.clicked.connect(self.widgets_buttonClick) # 椒盐噪声 未完成
-        widgets.btn_widgets_gauss_noisy.clicked.connect(self.widgets_buttonClick) # 高斯噪声 未完成
-        widgets.btn_widgets_speckle_noisy.clicked.connect(self.widgets_buttonClick) # 散斑噪声 未完成
-        widgets.btn_widgets_poisson_noisy.clicked.connect(self.widgets_buttonClick) # 泊松噪声 未完成
+        widgets.btn_widgets_pepper_and_salt.clicked.connect(self.widgets_buttonClick) # 椒盐噪声 完成
+        widgets.btn_widgets_gauss_noisy.clicked.connect(self.widgets_buttonClick) # 高斯噪声 完成
+        widgets.btn_widgets_speckle_noisy.clicked.connect(self.widgets_buttonClick) # 散斑噪声 完成
+        widgets.btn_widgets_poisson_noisy.clicked.connect(self.widgets_buttonClick) # 泊松噪声 完成
 
         # 灰度变换
         widgets.btn_widgets_gray.clicked.connect(self.widgets_buttonClick) # 灰度化 完成
@@ -124,9 +124,9 @@ class MainWindow(QMainWindow):
         widgets.btn_widgets_8bits_layering.clicked.connect(self.widgets_buttonClick) # 8bit 完成
 
         # 滤波
-        widgets.btn_widgets_mean_filtering.clicked.connect(self.widgets_buttonClick) # 均值 未完成
-        widgets.btn_widgets_gauss_filtering.clicked.connect(self.widgets_buttonClick)   # 高斯 未完成
-        widgets.btn_widgets_median_filtering.clicked.connect(self.widgets_buttonClick) # 中值 未完成
+        widgets.btn_widgets_mean_filtering.clicked.connect(self.widgets_buttonClick) # 均值 完成
+        widgets.btn_widgets_gauss_filtering.clicked.connect(self.widgets_buttonClick)   # 高斯 完成
+        widgets.btn_widgets_median_filtering.clicked.connect(self.widgets_buttonClick) # 中值 完成
         
 
         # Setting page(new page) Button
@@ -296,7 +296,16 @@ class MainWindow(QMainWindow):
         # 空间滤波
         # 空间均值滤波
         if btnName == "btn_widgets_mean_filtering":
-            pass
+            UIFunctions.mean_filtering_image(self)
+
+        # 空间高斯滤波
+        if btnName == "btn_widgets_gauss_filtering":
+            UIFunctions.gauss_filtering_image(self)
+
+        # 空间中值滤波
+        if btnName == "btn_widgets_median_filtering":
+            UIFunctions.median_filtering_image(self)
+
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
