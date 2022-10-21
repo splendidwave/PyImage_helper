@@ -613,8 +613,40 @@ class UIFunctions(MainWindow):
         cv2.namedWindow(win_name)
         cv2.createTrackbar('Min threshold', 'canny', 0, 160, CannyThreshold)
         CannyThreshold(0)
-        
 
+    # 形态学处理
+    # 腐蚀        
+    def erode_image(self):
+        k = np.ones((3, 3), np.uint8)
+        items = ('1', '2', '3', '4')
+        item,ok = QInputDialog.getItem(self,"迭代次数","选择迭代次数",items,0,False)
+        if ok:
+            win_name = "erode" + item
+            item = int(item)
+            img = cv2.erode(self.image, k, iterations=item)
+            UIFunctions.wait_key(self,img,win_name)
+
+    def dilate_image(self):
+        k = np.ones((3, 3), np.uint8)
+        items = ('1', '2', '3', '4')
+        item,ok = QInputDialog.getItem(self,"迭代次数","选择迭代次数",items,0,False)
+        if ok:
+            win_name = "dilate" + item
+            item = int(item)
+            img = cv2.dilate(self.image, k, iterations=item)
+            UIFunctions.wait_key(self,img,win_name)
+
+    def open_image(self):
+        k = np.ones((3, 3), np.uint8)
+        img = cv2.morphologyEx(self.image,cv2.MORPH_OPEN,k)
+        win_name = "open"
+        UIFunctions.wait_key(self,img,win_name)
+
+    def close_image(self):
+        k = np.ones((3, 3), np.uint8)
+        img = cv2.morphologyEx(self.image,cv2.MORPH_CLOSE,k)
+        win_name = "close"
+        UIFunctions.wait_key(self,img,win_name)
     # ///////////////////////////////////////////////////////////////
     # END  功能页面按钮功能实现
 

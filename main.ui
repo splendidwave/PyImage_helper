@@ -2521,6 +2521,75 @@ background-color: rgb(52, 59, 72);
                         </item>
                        </layout>
                       </widget>
+                      <widget class="QGroupBox" name="groupBox_8">
+                       <property name="geometry">
+                        <rect>
+                         <x>460</x>
+                         <y>10</y>
+                         <width>111</width>
+                         <height>231</height>
+                        </rect>
+                       </property>
+                       <property name="title">
+                        <string>形态学处理</string>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_26">
+                        <property name="spacing">
+                         <number>15</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>9</number>
+                        </property>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_erode">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>腐蚀</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_dilate">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>膨胀</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_open">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>开运算</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_close">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>闭运算</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
                      </widget>
                      <widget class="QWidget" name="new_page">
                       <layout class="QHBoxLayout" name="horizontalLayout_9">

@@ -1391,6 +1391,45 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_27.addWidget(self.btn_widgets_canny)
 
+        self.groupBox_8 = QGroupBox(self.widgets)
+        self.groupBox_8.setObjectName(u"groupBox_8")
+        self.groupBox_8.setGeometry(QRect(460, 10, 111, 231))
+        self.verticalLayout_26 = QVBoxLayout(self.groupBox_8)
+        self.verticalLayout_26.setSpacing(15)
+        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
+        self.verticalLayout_26.setContentsMargins(-1, -1, -1, 9)
+        self.btn_widgets_erode = QPushButton(self.groupBox_8)
+        self.btn_widgets_erode.setObjectName(u"btn_widgets_erode")
+        self.btn_widgets_erode.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_26.addWidget(self.btn_widgets_erode)
+
+        self.btn_widgets_dilate = QPushButton(self.groupBox_8)
+        self.btn_widgets_dilate.setObjectName(u"btn_widgets_dilate")
+        self.btn_widgets_dilate.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_26.addWidget(self.btn_widgets_dilate)
+
+        self.btn_widgets_open = QPushButton(self.groupBox_8)
+        self.btn_widgets_open.setObjectName(u"btn_widgets_open")
+        self.btn_widgets_open.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_26.addWidget(self.btn_widgets_open)
+
+        self.btn_widgets_close = QPushButton(self.groupBox_8)
+        self.btn_widgets_close.setObjectName(u"btn_widgets_close")
+        self.btn_widgets_close.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_26.addWidget(self.btn_widgets_close)
+
         self.stackedWidget.addWidget(self.widgets)
         self.new_page = QWidget()
         self.new_page.setObjectName(u"new_page")
@@ -1978,6 +2017,11 @@ class Ui_MainWindow(object):
         self.btn_widgets_laplace.setText(QCoreApplication.translate("MainWindow", u"Laplace ", None))
         self.btn_widgets_scharr.setText(QCoreApplication.translate("MainWindow", u"Scharr", None))
         self.btn_widgets_canny.setText(QCoreApplication.translate("MainWindow", u"Canny", None))
+        self.groupBox_8.setTitle(QCoreApplication.translate("MainWindow", u"\u5f62\u6001\u5b66\u5904\u7406", None))
+        self.btn_widgets_erode.setText(QCoreApplication.translate("MainWindow", u"\u8150\u8680", None))
+        self.btn_widgets_dilate.setText(QCoreApplication.translate("MainWindow", u"\u81a8\u80c0", None))
+        self.btn_widgets_open.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u8fd0\u7b97", None))
+        self.btn_widgets_close.setText(QCoreApplication.translate("MainWindow", u"\u95ed\u8fd0\u7b97", None))
         self.set_label_1.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u9ed8\u8ba4\u4fdd\u5b58\u8def\u5f84\uff1a", None))
         self.set_file_svae_path.setText("")
         self.set_file_svae_path.setPlaceholderText("")

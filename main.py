@@ -129,10 +129,16 @@ class MainWindow(QMainWindow):
         widgets.btn_widgets_median_filtering.clicked.connect(self.widgets_buttonClick) # 中值 完成
         
         # 锐化/边缘检测
-        widgets.btn_widgets_sobel.clicked.connect(self.widgets_buttonClick) # sobel 未完成
-        widgets.btn_widgets_laplace.clicked.connect(self.widgets_buttonClick) # laplace 未完成
-        widgets.btn_widgets_scharr.clicked.connect(self.widgets_buttonClick) # scharr 未完成
-        widgets.btn_widgets_canny.clicked.connect(self.widgets_buttonClick) # canny 未完成
+        widgets.btn_widgets_sobel.clicked.connect(self.widgets_buttonClick) # sobel 完成
+        widgets.btn_widgets_laplace.clicked.connect(self.widgets_buttonClick) # laplace 完成
+        widgets.btn_widgets_scharr.clicked.connect(self.widgets_buttonClick) # scharr 完成
+        widgets.btn_widgets_canny.clicked.connect(self.widgets_buttonClick) # canny 完成
+
+        # 形态学处理
+        widgets.btn_widgets_erode.clicked.connect(self.widgets_buttonClick) # 腐蚀 未完成
+        widgets.btn_widgets_dilate.clicked.connect(self.widgets_buttonClick) # 膨胀 未完成
+        widgets.btn_widgets_open.clicked.connect(self.widgets_buttonClick) # 开运算 未完成
+        widgets.btn_widgets_close.clicked.connect(self.widgets_buttonClick) # 闭运算 未完成
 
         # Setting page(new page) Button
         widgets.btn_settings_save.clicked.connect(self.buttonClick)
@@ -327,6 +333,23 @@ class MainWindow(QMainWindow):
         # canny
         if btnName == "btn_widgets_canny":
             UIFunctions.canny_image(self)
+
+        # 形态学运算
+        # 腐蚀
+        if btnName == "btn_widgets_erode":
+            UIFunctions.erode_image(self)
+
+        # 膨胀
+        if btnName == "btn_widgets_dilate":
+            UIFunctions.dilate_image(self)
+
+        # 开运算
+        if btnName == "btn_widgets_open":
+            UIFunctions.open_image(self)
+
+        # 闭运算
+        if btnName == "btn_widgets_close":
+            UIFunctions.close_image(self)
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
