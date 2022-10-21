@@ -1220,7 +1220,7 @@ class Ui_MainWindow(object):
 
         self.groupBox_2 = QGroupBox(self.widgets)
         self.groupBox_2.setObjectName(u"groupBox_2")
-        self.groupBox_2.setGeometry(QRect(340, 10, 111, 201))
+        self.groupBox_2.setGeometry(QRect(320, 10, 111, 201))
         self.verticalLayout_16 = QVBoxLayout(self.groupBox_2)
         self.verticalLayout_16.setSpacing(15)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
@@ -1354,6 +1354,43 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_18.addWidget(self.btn_widgets_speckle_noisy)
 
+        self.groupBox_9 = QGroupBox(self.widgets)
+        self.groupBox_9.setObjectName(u"groupBox_9")
+        self.groupBox_9.setGeometry(QRect(320, 220, 111, 211))
+        self.verticalLayout_27 = QVBoxLayout(self.groupBox_9)
+        self.verticalLayout_27.setObjectName(u"verticalLayout_27")
+        self.btn_widgets_sobel = QPushButton(self.groupBox_9)
+        self.btn_widgets_sobel.setObjectName(u"btn_widgets_sobel")
+        self.btn_widgets_sobel.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_27.addWidget(self.btn_widgets_sobel)
+
+        self.btn_widgets_laplace = QPushButton(self.groupBox_9)
+        self.btn_widgets_laplace.setObjectName(u"btn_widgets_laplace")
+        self.btn_widgets_laplace.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_27.addWidget(self.btn_widgets_laplace)
+
+        self.btn_widgets_scharr = QPushButton(self.groupBox_9)
+        self.btn_widgets_scharr.setObjectName(u"btn_widgets_scharr")
+        self.btn_widgets_scharr.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_27.addWidget(self.btn_widgets_scharr)
+
+        self.btn_widgets_canny = QPushButton(self.groupBox_9)
+        self.btn_widgets_canny.setObjectName(u"btn_widgets_canny")
+        self.btn_widgets_canny.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_27.addWidget(self.btn_widgets_canny)
+
         self.stackedWidget.addWidget(self.widgets)
         self.new_page = QWidget()
         self.new_page.setObjectName(u"new_page")
@@ -1375,7 +1412,7 @@ class Ui_MainWindow(object):
 "border: 0px;")
         self.verticalLayout_25 = QVBoxLayout(self.tab_general)
         self.verticalLayout_25.setObjectName(u"verticalLayout_25")
-        self.verticalLayout_25.setContentsMargins(15, 20, 15, 0)
+        self.verticalLayout_25.setContentsMargins(9, 30, 10, 0)
         self.frame = QFrame(self.tab_general)
         self.frame.setObjectName(u"frame")
         self.frame.setStyleSheet(u"background: transparent")
@@ -1847,8 +1884,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
-        self.tabWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1936,6 +1973,11 @@ class Ui_MainWindow(object):
         self.btn_widgets_gauss_noisy.setText(QCoreApplication.translate("MainWindow", u"\u9ad8\u65af\u566a\u58f0", None))
         self.btn_widgets_poisson_noisy.setText(QCoreApplication.translate("MainWindow", u"\u6cca\u677e\u566a\u58f0", None))
         self.btn_widgets_speckle_noisy.setText(QCoreApplication.translate("MainWindow", u"\u6563\u6591\u566a\u58f0", None))
+        self.groupBox_9.setTitle(QCoreApplication.translate("MainWindow", u"\u9510\u5316/\u8fb9\u7f18\u68c0\u6d4b", None))
+        self.btn_widgets_sobel.setText(QCoreApplication.translate("MainWindow", u"Sobel", None))
+        self.btn_widgets_laplace.setText(QCoreApplication.translate("MainWindow", u"Laplace ", None))
+        self.btn_widgets_scharr.setText(QCoreApplication.translate("MainWindow", u"Scharr", None))
+        self.btn_widgets_canny.setText(QCoreApplication.translate("MainWindow", u"Canny", None))
         self.set_label_1.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u9ed8\u8ba4\u4fdd\u5b58\u8def\u5f84\uff1a", None))
         self.set_file_svae_path.setText("")
         self.set_file_svae_path.setPlaceholderText("")

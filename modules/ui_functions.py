@@ -348,9 +348,10 @@ class UIFunctions(MainWindow):
     # 功能页面按钮功能实现
     # ///////////////////////////////////////////////////////////////
     # 通用:等待函数
-    def wait_key(self,img,win_name):
-        cv2.namedWindow(win_name,cv2.WINDOW_AUTOSIZE)
-        cv2.imshow(win_name,img)
+    def wait_key(self,img,win_name,show=True):
+        if show:
+            cv2.namedWindow(win_name,cv2.WINDOW_AUTOSIZE)
+            cv2.imshow(win_name,img)
         k = cv2.waitKey(0)
         if k == 27: #esc
             cv2.destroyAllWindows()
@@ -582,6 +583,37 @@ class UIFunctions(MainWindow):
         median_f = cv2.medianBlur(img,3)
         win_name = "median_filtering"
         UIFunctions.wait_key(self,median_f,win_name)
+
+    # 锐化
+    # sobel
+    def sobel_image(self):
+        img = cv2.Sobel(self.image, cv2.CV_64F, 0, 1, ksize=5)
+        win_name = "sobel"
+        UIFunctions.wait_key(self,img,win_name)
+
+    # laplace
+    def laplace_image(self):
+        img = cv2.Laplacian(self.image, cv2.CV_64F)
+        win_name = "laplace"
+        UIFunctions.wait_key(self,img,win_name)
+
+    # Scharr 
+    def scharr_image(self):
+        img = cv2.Scharr(self.image, cv2.CV_64F, 0, 1)
+        win_name = "scharr"
+        UIFunctions.wait_key(self,img,win_name)
+
+    # canny
+    def canny_image(self):
+        def CannyThreshold(lowThreshold):
+            img = cv2.Canny(self.image, lowThreshold, 200)
+            cv2.imshow(win_name,img)
+            UIFunctions.wait_key(self,img,win_name,show=False)
+        win_name = "canny"
+        cv2.namedWindow(win_name)
+        cv2.createTrackbar('Min threshold', 'canny', 0, 160, CannyThreshold)
+        CannyThreshold(0)
+        
 
     # ///////////////////////////////////////////////////////////////
     # END  功能页面按钮功能实现

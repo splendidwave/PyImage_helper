@@ -1821,7 +1821,7 @@ hr { height: 1px; border-width: 0; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="layoutDirection">
@@ -2221,7 +2221,7 @@ background-color: rgb(52, 59, 72);
                       <widget class="QGroupBox" name="groupBox_2">
                        <property name="geometry">
                         <rect>
-                         <x>340</x>
+                         <x>320</x>
                          <y>10</y>
                          <width>111</width>
                          <height>201</height>
@@ -2453,6 +2453,69 @@ background-color: rgb(52, 59, 72);
                           </property>
                           <property name="text">
                            <string>散斑噪声</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                      <widget class="QGroupBox" name="groupBox_9">
+                       <property name="geometry">
+                        <rect>
+                         <x>320</x>
+                         <y>220</y>
+                         <width>111</width>
+                         <height>211</height>
+                        </rect>
+                       </property>
+                       <property name="title">
+                        <string>锐化/边缘检测</string>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_27">
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_sobel">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>Sobel</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_laplace">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>Laplace </string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_scharr">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>Scharr</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_canny">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>Canny</string>
                           </property>
                          </widget>
                         </item>

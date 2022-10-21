@@ -128,6 +128,11 @@ class MainWindow(QMainWindow):
         widgets.btn_widgets_gauss_filtering.clicked.connect(self.widgets_buttonClick)   # 高斯 完成
         widgets.btn_widgets_median_filtering.clicked.connect(self.widgets_buttonClick) # 中值 完成
         
+        # 锐化/边缘检测
+        widgets.btn_widgets_sobel.clicked.connect(self.widgets_buttonClick) # sobel 未完成
+        widgets.btn_widgets_laplace.clicked.connect(self.widgets_buttonClick) # laplace 未完成
+        widgets.btn_widgets_scharr.clicked.connect(self.widgets_buttonClick) # scharr 未完成
+        widgets.btn_widgets_canny.clicked.connect(self.widgets_buttonClick) # canny 未完成
 
         # Setting page(new page) Button
         widgets.btn_settings_save.clicked.connect(self.buttonClick)
@@ -306,6 +311,22 @@ class MainWindow(QMainWindow):
         if btnName == "btn_widgets_median_filtering":
             UIFunctions.median_filtering_image(self)
 
+        # 锐化核边缘检测
+        # sobel
+        if btnName == "btn_widgets_sobel":
+            UIFunctions.sobel_image(self)
+
+        # laplace
+        if btnName == "btn_widgets_laplace":
+            UIFunctions.laplace_image(self)
+
+        # scharr
+        if btnName == "btn_widgets_scharr":
+            UIFunctions.scharr_image(self)
+        
+        # canny
+        if btnName == "btn_widgets_canny":
+            UIFunctions.canny_image(self)
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
