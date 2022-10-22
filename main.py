@@ -135,10 +135,21 @@ class MainWindow(QMainWindow):
         widgets.btn_widgets_canny.clicked.connect(self.widgets_buttonClick) # canny 完成
 
         # 形态学处理
-        widgets.btn_widgets_erode.clicked.connect(self.widgets_buttonClick) # 腐蚀 未完成
-        widgets.btn_widgets_dilate.clicked.connect(self.widgets_buttonClick) # 膨胀 未完成
-        widgets.btn_widgets_open.clicked.connect(self.widgets_buttonClick) # 开运算 未完成
-        widgets.btn_widgets_close.clicked.connect(self.widgets_buttonClick) # 闭运算 未完成
+        widgets.btn_widgets_erode.clicked.connect(self.widgets_buttonClick) # 腐蚀 完成
+        widgets.btn_widgets_dilate.clicked.connect(self.widgets_buttonClick) # 膨胀 完成
+        widgets.btn_widgets_open.clicked.connect(self.widgets_buttonClick) # 开运算 完成
+        widgets.btn_widgets_close.clicked.connect(self.widgets_buttonClick) # 闭运算 完成
+
+        # 图像分割
+        # k聚类
+        widgets.btn_widgets_kmean.clicked.connect(self.widgets_buttonClick)
+
+        # 机器学习
+        # 人脸识别
+        widgets.btn_widgets_facefind.clicked.connect(self.widgets_buttonClick)
+
+        # 测试
+        widgets.btn_widgets_test.clicked.connect(self.widgets_buttonClick)
 
         # Setting page(new page) Button
         widgets.btn_settings_save.clicked.connect(self.buttonClick)
@@ -350,6 +361,17 @@ class MainWindow(QMainWindow):
         # 闭运算
         if btnName == "btn_widgets_close":
             UIFunctions.close_image(self)
+
+        # k-聚类分割
+        if btnName == "btn_widgets_kmean":
+            UIFunctions.kmean(self)
+
+        if btnName == "btn_widgets_facefind":
+            UIFunctions.facefind(self)
+
+        # 测试
+        if btnName == "btn_widgets_test":
+            UIFunctions.test(self)
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')

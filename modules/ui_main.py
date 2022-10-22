@@ -1393,7 +1393,7 @@ class Ui_MainWindow(object):
 
         self.groupBox_8 = QGroupBox(self.widgets)
         self.groupBox_8.setObjectName(u"groupBox_8")
-        self.groupBox_8.setGeometry(QRect(460, 10, 111, 231))
+        self.groupBox_8.setGeometry(QRect(460, 220, 111, 211))
         self.verticalLayout_26 = QVBoxLayout(self.groupBox_8)
         self.verticalLayout_26.setSpacing(15)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
@@ -1429,6 +1429,37 @@ class Ui_MainWindow(object):
 "")
 
         self.verticalLayout_26.addWidget(self.btn_widgets_close)
+
+        self.groupBox_10 = QGroupBox(self.widgets)
+        self.groupBox_10.setObjectName(u"groupBox_10")
+        self.groupBox_10.setGeometry(QRect(460, 10, 111, 201))
+        self.verticalLayout_28 = QVBoxLayout(self.groupBox_10)
+        self.verticalLayout_28.setSpacing(15)
+        self.verticalLayout_28.setObjectName(u"verticalLayout_28")
+        self.verticalLayout_28.setContentsMargins(-1, -1, -1, 9)
+        self.btn_widgets_kmean = QPushButton(self.groupBox_10)
+        self.btn_widgets_kmean.setObjectName(u"btn_widgets_kmean")
+        self.btn_widgets_kmean.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_28.addWidget(self.btn_widgets_kmean)
+
+        self.btn_widgets_facefind = QPushButton(self.groupBox_10)
+        self.btn_widgets_facefind.setObjectName(u"btn_widgets_facefind")
+        self.btn_widgets_facefind.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_28.addWidget(self.btn_widgets_facefind)
+
+        self.btn_widgets_median_filtering_2 = QPushButton(self.groupBox_10)
+        self.btn_widgets_median_filtering_2.setObjectName(u"btn_widgets_median_filtering_2")
+        self.btn_widgets_median_filtering_2.setStyleSheet(u"border-radius:7px;\n"
+"background-color: rgb(52, 59, 72);\n"
+"")
+
+        self.verticalLayout_28.addWidget(self.btn_widgets_median_filtering_2)
 
         self.stackedWidget.addWidget(self.widgets)
         self.new_page = QWidget()
@@ -2022,6 +2053,10 @@ class Ui_MainWindow(object):
         self.btn_widgets_dilate.setText(QCoreApplication.translate("MainWindow", u"\u81a8\u80c0", None))
         self.btn_widgets_open.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u8fd0\u7b97", None))
         self.btn_widgets_close.setText(QCoreApplication.translate("MainWindow", u"\u95ed\u8fd0\u7b97", None))
+        self.groupBox_10.setTitle(QCoreApplication.translate("MainWindow", u"\u673a\u5668\u5b66\u4e60", None))
+        self.btn_widgets_kmean.setText(QCoreApplication.translate("MainWindow", u"k\u805a\u7c7b\u533a\u57df\u5206\u5272", None))
+        self.btn_widgets_facefind.setText(QCoreApplication.translate("MainWindow", u"\u4eba\u8138\u8bc6\u522b", None))
+        self.btn_widgets_median_filtering_2.setText(QCoreApplication.translate("MainWindow", u"\u5f85\u5b9a", None))
         self.set_label_1.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u9ed8\u8ba4\u4fdd\u5b58\u8def\u5f84\uff1a", None))
         self.set_file_svae_path.setText("")
         self.set_file_svae_path.setPlaceholderText("")

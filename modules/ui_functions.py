@@ -338,8 +338,6 @@ class UIFunctions(MainWindow):
     # 打开一个窗口展示当前预览
     def home_page_show(self):
         win_name = "home_preview"
-        cv2.namedWindow(win_name,cv2.WINDOW_AUTOSIZE)
-        cv2.imshow(win_name,self.image)
         UIFunctions.wait_key(self,self.image,win_name)
     # ///////////////////////////////////////////////////////////////
     # END - 主界面按钮功能实现
@@ -626,6 +624,7 @@ class UIFunctions(MainWindow):
             img = cv2.erode(self.image, k, iterations=item)
             UIFunctions.wait_key(self,img,win_name)
 
+    # 膨胀
     def dilate_image(self):
         k = np.ones((3, 3), np.uint8)
         items = ('1', '2', '3', '4')
@@ -636,17 +635,49 @@ class UIFunctions(MainWindow):
             img = cv2.dilate(self.image, k, iterations=item)
             UIFunctions.wait_key(self,img,win_name)
 
+    # 开操作
     def open_image(self):
         k = np.ones((3, 3), np.uint8)
         img = cv2.morphologyEx(self.image,cv2.MORPH_OPEN,k)
         win_name = "open"
         UIFunctions.wait_key(self,img,win_name)
 
+    # 闭操作
     def close_image(self):
         k = np.ones((3, 3), np.uint8)
         img = cv2.morphologyEx(self.image,cv2.MORPH_CLOSE,k)
         win_name = "close"
         UIFunctions.wait_key(self,img,win_name)
+
+    # 机器学习
+    # k-mean
+    def kmean(self):
+        img = self.image
+        items = ('2', '3', '4', '5', '6', '7')
+        item,ok = QInputDialog.getItem(self,"区域分割","选择需要分成几块",items,2,False)
+        if ok:
+            Z = img.reshape((-1,3))      
+            Z = np.float32(Z)
+            c = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
+            ret, label, center = cv2.kmeans(Z, int(item), None, c, 10, cv2.KMEANS_RANDOM_CENTERS)
+            center = np.uint8(center)
+            res = center[label.flatten()]
+            img = res.reshape((img.shape))
+            win_name = "test"
+            UIFunctions.wait_key(self,img,win_name)
+
+    # 人脸识别
+    def facefind(self):
+        img = self.image
+        gray = UIFunctions.trun_gray(self,img)
+        # 加载人脸特征，该文件在 python安装目录\Lib\site-packages\cv2\data 下
+        face_cascade = cv2.CascadeClassifier(r'modules\haarcascade_frontalface_default.xml')
+        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=4, minSize=(20, 20))
+        for (x, y, w, h) in faces:
+            cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        win_name = "face"
+        UIFunctions.wait_key(self,img,win_name)
+
     # ///////////////////////////////////////////////////////////////
     # END  功能页面按钮功能实现
 
@@ -726,5 +757,8 @@ class UIFunctions(MainWindow):
         result = result[..., :3]
 
         return result
+
+    def test(self):
+        pass
 
     # END 其他功能

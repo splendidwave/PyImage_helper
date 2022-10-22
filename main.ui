@@ -2525,9 +2525,9 @@ background-color: rgb(52, 59, 72);
                        <property name="geometry">
                         <rect>
                          <x>460</x>
-                         <y>10</y>
+                         <y>220</y>
                          <width>111</width>
-                         <height>231</height>
+                         <height>211</height>
                         </rect>
                        </property>
                        <property name="title">
@@ -2585,6 +2585,63 @@ background-color: rgb(52, 59, 72);
                           </property>
                           <property name="text">
                            <string>闭运算</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                      <widget class="QGroupBox" name="groupBox_10">
+                       <property name="geometry">
+                        <rect>
+                         <x>460</x>
+                         <y>10</y>
+                         <width>111</width>
+                         <height>201</height>
+                        </rect>
+                       </property>
+                       <property name="title">
+                        <string>机器学习</string>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_28">
+                        <property name="spacing">
+                         <number>15</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>9</number>
+                        </property>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_kmean">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>k聚类区域分割</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_facefind">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>人脸识别</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_widgets_median_filtering_2">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                          </property>
+                          <property name="text">
+                           <string>待定</string>
                           </property>
                          </widget>
                         </item>
