@@ -50,6 +50,8 @@ class AppFunctions(MainWindow):
     def set_general(self):
         self.config.set("General","file_save_path",os.getcwd()+'\\save')
         self.config.set("General","file_open_path",os.getcwd())
+        self.config.set("General","file_character_list","$B8&WM*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|1?-_+~<>i!lI,^`. ")
+        self.config.set("General","file_montage_path",os.getcwd()+'\\montage')
 
     # 噪声设置初始值
     def set_nosiy(self):

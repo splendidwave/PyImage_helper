@@ -563,21 +563,21 @@ class UIFunctions(MainWindow):
     # 空间滤波
     # 均值滤波
     def mean_filtering_image(self):
-        img = self.image
+        img = self.image.copy()
         mean_f = cv2.blur(img,(3,3))
         win_name = "mean_filtering"
         UIFunctions.wait_key(self,mean_f,win_name)
 
     # 高斯滤波
     def gauss_filtering_image(self):
-        img = self.image
+        img = self.image.copy()
         gauss_f = result=cv2.GaussianBlur(img,(3,3),0,0)
         win_name = "gauss_filtering"
         UIFunctions.wait_key(self,gauss_f,win_name)
 
     # 中值滤波
     def median_filtering_image(self):
-        img = self.image
+        img = self.image.copy()
         median_f = cv2.medianBlur(img,3)
         win_name = "median_filtering"
         UIFunctions.wait_key(self,median_f,win_name)
@@ -652,7 +652,7 @@ class UIFunctions(MainWindow):
     # 机器学习
     # k-mean
     def kmean(self):
-        img = self.image
+        img = self.image.copy()
         items = ('2', '3', '4', '5', '6', '7')
         item,ok = QInputDialog.getItem(self,"区域分割","选择需要分成几块",items,2,False)
         if ok:
@@ -668,7 +668,7 @@ class UIFunctions(MainWindow):
 
     # 人脸识别
     def facefind(self):
-        img = self.image
+        img = self.image.copy()
         gray = UIFunctions.trun_gray(self,img)
         # 加载人脸特征，该文件在 python安装目录\Lib\site-packages\cv2\data 下
         face_cascade = cv2.CascadeClassifier(r'modules\haarcascade_frontalface_default.xml')
@@ -678,6 +678,250 @@ class UIFunctions(MainWindow):
         win_name = "face"
         UIFunctions.wait_key(self,img,win_name)
 
+    # 傅里叶变换
+    # 频谱展示
+    def fre_spectrum(self):
+        img = UIFunctions.trun_gray(self,self.image)
+        # 进行傅里叶变换，时域变频域
+        img_float32 = np.float32(img)
+        dft = cv2.dft(img_float32,flags = cv2.DFT_COMPLEX_OUTPUT)
+        # 将零零频率分量移动到频谱的中心
+        dft_shift = np.fft.fftshift(dft)
+        # 数值映射
+        magnitude_spectrum = 20*np.log(cv2.magnitude(dft_shift[:,:,0],dft_shift[:,:,1]))
+        magnitude_spectrum = np.uint8(UIFunctions.normImg(self,magnitude_spectrum))
+
+        win_name = "magnitude_spectrum"
+        UIFunctions.wait_key(self,magnitude_spectrum,win_name)
+        # plt.imshow(magnitude_spectrum,cmap="gray")
+        # plt.title("magnitude_spectrum")
+        # plt.xticks([]),plt.yticks([])
+        # plt.show()
+
+
+
+
+    # 高通滤波
+    def hf_filtering(self):
+        img = UIFunctions.trun_gray(self,self.image)            
+        # 得到中心像素
+        rows, cols = img.shape[:2]
+        mid_row, mid_col = int(rows / 2), int(cols / 2)
+        radius, ok = QInputDialog.getInt(self, "输入窗口", "请输入滤波半径(值越小滤波越少):", int(mid_col/2), 0, 9999, 10)
+        if ok:
+            # 进行傅里叶变换，时域变频域
+            dft = cv2.dft(np.float32(img),flags = cv2.DFT_COMPLEX_OUTPUT)
+            dft_shift = np.fft.fftshift(dft)
+
+            # 构建掩模,两个通道,初始值为1
+            mask = np.ones((rows, cols, 2), np.uint8)
+            mask[mid_row - radius:mid_row + radius, mid_col - radius:mid_col + radius] = 0
+
+            # 滤波并反变换回去
+            fshift = dft_shift*mask
+            ishift = np.fft.ifftshift(fshift)
+            iimg = cv2.idft(ishift)
+            iimg= cv2.magnitude(iimg[:, :,0], iimg[:, :,1])
+            iimg = np.uint8(UIFunctions.normImg(self,iimg))
+            
+            win_name = "hf"
+            UIFunctions.wait_key(self,iimg,win_name)
+
+    # 低通滤波
+    def lf_filtering(self):
+        img = UIFunctions.trun_gray(self,self.image)            
+        # 得到中心像素
+        rows, cols = img.shape[:2]
+        mid_row, mid_col = int(rows / 2), int(cols / 2)
+
+        radius, ok = QInputDialog.getInt(self, "输入窗口", "请输入滤波半径(值越大滤波越少):", int(mid_col/2), 0, 9999, 10)
+        if ok:
+            # 进行傅里叶变换，时域变频域
+            dft = cv2.dft(np.float32(img),flags = cv2.DFT_COMPLEX_OUTPUT)
+            dft_shift = np.fft.fftshift(dft)
+
+            # 构建掩模,两个通道,初始值为0
+            mask = np.zeros((rows, cols, 2), np.uint8)
+            mask[mid_row - radius:mid_row + radius, mid_col - radius:mid_col + radius] = 1
+            
+            # 滤波并反变换回去
+            fshift = dft_shift*mask
+            ishift = np.fft.ifftshift(fshift)
+            iimg = cv2.idft(ishift)
+            iimg= cv2.magnitude(iimg[:, :,0], iimg[:, :,1])
+            iimg = np.uint8(UIFunctions.normImg(self,iimg))
+            win_name = "lf"
+            UIFunctions.wait_key(self,iimg,win_name)
+
+
+    # 其他功能
+    # 转为字符画
+    def character_image(self):
+        img = UIFunctions.trun_gray(self,self.image)
+        rows, cols = img.shape[:2]
+        rows = rows//2
+        img = cv2.resize(img,(cols,rows))
+        lstChars = self.config.get('General','file_character_list')
+        output = self.config.get('General','file_save_path') + "\\character.txt"
+        g2c = 256/len(lstChars)
+        
+        txt = ""
+        for i in range(rows):
+            for j in range(cols):
+                txt += lstChars[int(img[i,j]/g2c)]
+            txt += '\n'
+
+        with open(output, 'w') as f:
+            f.write(txt)
+        QMessageBox.information(None, '提示', 'character.txt输出成功',QMessageBox.Ok)
+
+    # 九宫格
+    def ninegrid_image(self):
+        # 切片函数
+        def cut_image(img,width):
+            box_list = []
+            if len(img.shape) == 2:
+                for i in range(0, 3):
+                    for j in range(0, 3):
+                        box = img[i * width:(i+1) * width, j * width : (j + 1) * width]
+                        box_list.append(box)
+            elif len(img.shape) == 3:
+                for i in range(0, 3):
+                    for j in range(0, 3):
+                        box = img[i * width:(i+1) * width, j * width : (j + 1) * width,:]
+                        box_list.append(box)
+            return box_list
+
+        img = self.image.copy()
+        value, ok = QInputDialog.getInt(self, "输入窗口", "请输入裁剪后的边值像素(正方形):", 300, 0, 2000, 100)
+        if ok:
+            value = int(value)*3
+            img = cv2.resize(img,(value,value))
+            box_list = cut_image(img,value//3)
+            for i,box in enumerate(box_list):
+                save_name = self.config.get('General','file_save_path') + '\\ninegrid_image\\' + str(i+1)+'.png'
+                cv2.imwrite(save_name,box)
+            QMessageBox.information(None, '提示', 'ninegrid_image输出成功',QMessageBox.Ok)
+
+    # 图片蒙太奇
+    def montage_image(self):
+        # 小图片路径
+        smallPicPath = str(self.config.get('General','file_montage_path'))
+        small_pic_files = os.listdir(smallPicPath)
+        # 查看小图片demo 给出建议的缩放
+        demo_path = smallPicPath + "\\" + small_pic_files[0]
+        demo = cv2.imread(demo_path)
+        h, w = demo.shape[:2]
+        s = str(w)+'*'+str(h)
+
+        size,ok = QInputDialog.getText(self,"输入窗口","请输入小图的宽高，使用*分隔",QLineEdit.Normal,s)
+        if ok:
+            w,h = map(int,size.split("*"))
+
+            # 原图像处理
+            img = self.image.copy()
+            img = cv2.resize(img, (w*50, h*50))
+            cv2.imwrite("v1.jpg", img)
+            # 新图片处理
+            big_pic = np.zeros((h*50, w*50, 3))
+            # 建立字典存放每个小图片的直方图
+            small_Pic_hist_Dic = {}
+            n = 0
+            
+            # 预处理图片 
+            print("正在预处理图片")
+            for file in small_pic_files:
+                picPath = smallPicPath + "\\" + file
+                small_img = cv2.imread(picPath)
+                small_img = cv2.resize(small_img, (w, h))
+                hist = []
+                for i in range(3):
+                    ht = cv2.calcHist([small_img],[i],None,[256],[0,256])
+                    hist.append(ht)
+                small_Pic_hist_Dic[picPath] = hist
+                # 更改之后写入文件
+                cv2.imwrite(picPath, small_img)
+                n += 1
+                print(n)
+
+            # 遍历找到最匹配值并替代
+            for i in range(0, h*50, h):
+                for j in range(0, w*50, w):        
+                    part_img = img[i:i+h,j:j+w,:]
+                    hist = []
+                    for k in range(3):
+                        ht = cv2.calcHist([part_img],[k],None,[256],[0,256])
+                        hist.append(ht)
+
+                    sim = 0.0
+                    for key in small_Pic_hist_Dic:
+                        match0 = cv2.compareHist(hist[0],small_Pic_hist_Dic[key][0],cv2.HISTCMP_CORREL)
+                        match1 = cv2.compareHist(hist[1],small_Pic_hist_Dic[key][1],cv2.HISTCMP_CORREL)
+                        match2 = cv2.compareHist(hist[2],small_Pic_hist_Dic[key][2],cv2.HISTCMP_CORREL)
+                        match = match0 + match1 + match2
+                        if match > sim:
+                            sim = match
+                            rename = key
+
+                    big_pic[i:i+h,j:j+w,:] = cv2.imread(rename)
+            cv2.imwrite("v2.jpg", big_pic)
+
+            # 融合两图，结果更好看
+            image1 = cv2.imread('v1.jpg')
+            image2 = cv2.imread('v2.jpg')
+            dst = cv2.addWeighted(image1,0.2,image2,0.8,3)
+            # dst = cv2.addWeighted(img,0.2,big_pic,0.8,3)
+            os.remove("v1.jpg")
+            os.remove("v2.jpg")
+            win_name = "montage"
+            UIFunctions.wait_key(self,dst,win_name)
+        
+
+    # 图片像素化
+    def pixel_image(self):
+        img = self.image.copy()
+        rows, cols = img.shape[:2]
+        img = cv2.resize(img,(cols//10,rows//10))
+        img = cv2.resize(img,(cols,rows),interpolation=cv2.INTER_NEAREST)
+        win_name = "pixel"
+        UIFunctions.wait_key(self,img,win_name)
+
+    # 幻影坦克
+    def mirage_tank_image(self):
+        inside_pic = np.uint8(self.image.copy() * 0.35)
+        h,w = inside_pic.shape[:2]
+        get_filename_path, ok = QFileDialog.getOpenFileName(self,"选取表图",self.config.get('General','file_open_path'))
+        if ok:
+            out_pic = cv2.imread(get_filename_path)
+            # 调整表图大小 与里图一致
+            out_pic = cv2.resize(out_pic,(w,h))
+            # 如果强度小于100 拉到100
+            out_pic[out_pic<100] = 100
+            # 转变为灰度图
+            inside_pic = UIFunctions.trun_gray(self,inside_pic)
+            out_pic = UIFunctions.trun_gray(self,out_pic)
+            # 建立新的画布 
+            new_pic = np.zeros((h,w,4), np.uint8)
+            # print(new_pic.shape)
+            # 遍历图片 套用公式
+            for i in range(h):
+                for j in range(w):
+                    alpha = 255 - (out_pic[i,j]-inside_pic[i,j])
+                    if alpha == 0:
+                        alpha = 1
+                    p_new = np.uint8(255*inside_pic[i,j]/alpha)
+                    new_pic[i,j,0] = p_new
+                    new_pic[i,j,1] = p_new
+                    new_pic[i,j,2] = p_new
+                    new_pic[i,j,3] = alpha
+            # 统一有点问题
+            # alpha = 255 - (out_pic - inside_pic)
+            # alpha[alpha==0] = 1
+            # p_new = np.uint8(255*inside_pic/alpha)
+            # new_pic = cv2.merge((p_new,p_new,p_new,alpha))
+
+            win_name = "tank"
+            UIFunctions.wait_key(self,new_pic,win_name)
     # ///////////////////////////////////////////////////////////////
     # END  功能页面按钮功能实现
 
@@ -691,6 +935,8 @@ class UIFunctions(MainWindow):
         # 设置界面
         self.ui.set_file_svae_path.setText(self.config.get('General','file_save_path'))
         self.ui.set_file_open_path.setText(self.config.get('General','file_open_path'))
+        self.ui.set_file_character_list.setText(self.config.get('General','file_character_list'))
+        self.ui.set_file_montage_path.setText(self.config.get('General','file_montage_path'))
         # 噪声页面
         self.ui.set_noisy_ratio.setText(self.config.get("Noisy","noise_ratio"))
         self.ui.set_pepper_vs_salt.setText(self.config.get("Noisy","pepper_vs_salt"))
@@ -703,6 +949,8 @@ class UIFunctions(MainWindow):
         # 读取
         self.config.set("General","file_save_path",self.ui.set_file_svae_path.text())
         self.config.set("General","file_open_path",self.ui.set_file_open_path.text())
+        self.config.set("General","file_character_list",self.ui.set_file_character_list.text())
+        self.config.set("General","file_montage_path",self.ui.set_file_montage_path.text())
 
         self.config.set("Noisy","noise_ratio",self.ui.set_noisy_ratio.text())
         self.config.set("Noisy","pepper_vs_salt",self.ui.set_pepper_vs_salt.text())

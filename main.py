@@ -148,6 +148,18 @@ class MainWindow(QMainWindow):
         # 人脸识别
         widgets.btn_widgets_facefind.clicked.connect(self.widgets_buttonClick)
 
+        # 傅里叶变换
+        widgets.btn_widgets_fre_spectrum.clicked.connect(self.widgets_buttonClick)
+        widgets.btn_widgets_hf_filtering.clicked.connect(self.widgets_buttonClick)
+        widgets.btn_widgets_lf_filtering.clicked.connect(self.widgets_buttonClick)
+
+        # 其他功能
+        widgets.btn_widgets_character.clicked.connect(self.widgets_buttonClick)
+        widgets.btn_widgets_pixel.clicked.connect(self.widgets_buttonClick)
+        widgets.btn_widgets_ninegrid.clicked.connect(self.widgets_buttonClick)
+        widgets.btn_widgets_montage.clicked.connect(self.widgets_buttonClick)
+        widgets.btn_widgets_mirage_tank.clicked.connect(self.widgets_buttonClick)
+
         # 测试
         widgets.btn_widgets_test.clicked.connect(self.widgets_buttonClick)
 
@@ -366,8 +378,43 @@ class MainWindow(QMainWindow):
         if btnName == "btn_widgets_kmean":
             UIFunctions.kmean(self)
 
+        # 人脸检测
         if btnName == "btn_widgets_facefind":
             UIFunctions.facefind(self)
+
+        # 傅里叶变换
+        # 频谱展示
+        if btnName == "btn_widgets_fre_spectrum":
+            UIFunctions.fre_spectrum(self)
+
+        # 高通滤波
+        if btnName == "btn_widgets_hf_filtering":
+            UIFunctions.hf_filtering(self)      
+
+        # 低通滤波
+        if btnName == "btn_widgets_lf_filtering":
+            UIFunctions.lf_filtering(self)
+
+        # 其他功能
+        # 字符画
+        if btnName == "btn_widgets_character":
+            UIFunctions.character_image(self)
+
+        # 像素画
+        if btnName == "btn_widgets_pixel":
+            UIFunctions.pixel_image(self)
+
+        # 九宫格
+        if btnName == "btn_widgets_ninegrid":
+            UIFunctions.ninegrid_image(self)
+
+        # 蒙太奇
+        if btnName == "btn_widgets_montage":
+            UIFunctions.montage_image(self)
+
+        # 幻影坦克
+        if btnName == "btn_widgets_mirage_tank":
+            UIFunctions.mirage_tank_image(self)
 
         # 测试
         if btnName == "btn_widgets_test":
@@ -375,7 +422,6 @@ class MainWindow(QMainWindow):
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
-
 
 
 

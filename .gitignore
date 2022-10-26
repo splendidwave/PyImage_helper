@@ -3,3 +3,5 @@ __pycache__/
 .pyc
 settings_start.ini
 .vscode/
+images/test/montage1/
+images/test/montage2/

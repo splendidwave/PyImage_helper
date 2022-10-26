@@ -1821,7 +1821,7 @@ hr { height: 1px; border-width: 0; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="layoutDirection">
@@ -2167,486 +2167,755 @@ hr { height: 1px; border-width: 0; }
                       <property name="styleSheet">
                        <string notr="true">b</string>
                       </property>
-                      <widget class="QGroupBox" name="groupBox">
-                       <property name="geometry">
-                        <rect>
-                         <x>20</x>
-                         <y>10</y>
-                         <width>111</width>
-                         <height>201</height>
-                        </rect>
-                       </property>
-                       <property name="title">
-                        <string>基础操作</string>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_17">
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_resize">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                      <layout class="QHBoxLayout" name="horizontalLayout_25">
+                       <item>
+                        <widget class="QFrame" name="frame_14">
+                         <property name="styleSheet">
+                          <string notr="true">background: transparent</string>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_32" stretch="3,4">
+                          <property name="leftMargin">
+                           <number>6</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>6</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QGroupBox" name="groupBox">
+                            <property name="title">
+                             <string>基础操作</string>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_17">
+                             <property name="spacing">
+                              <number>15</number>
+                             </property>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_resize">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>缩放</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_hist">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>缩放</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_hist">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>查看直方图</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_histequal">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>查看直方图</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_histequal">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>直方图均衡化</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                      <widget class="QGroupBox" name="groupBox_2">
-                       <property name="geometry">
-                        <rect>
-                         <x>320</x>
-                         <y>10</y>
-                         <width>111</width>
-                         <height>201</height>
-                        </rect>
-                       </property>
-                       <property name="title">
-                        <string>空间滤波</string>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_16">
-                        <property name="spacing">
-                         <number>15</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>9</number>
-                        </property>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_mean_filtering">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>直方图均衡化</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QGroupBox" name="groupBox_4">
+                            <property name="title">
+                             <string>添加噪声</string>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_18">
+                             <property name="spacing">
+                              <number>15</number>
+                             </property>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_pepper_and_salt">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>均值滤波</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_gauss_filtering">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>椒盐噪声</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_gauss_noisy">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>高斯滤波</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_median_filtering">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>高斯噪声</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_poisson_noisy">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>中值滤波</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                      <widget class="QGroupBox" name="groupBox_3">
-                       <property name="geometry">
-                        <rect>
-                         <x>160</x>
-                         <y>10</y>
-                         <width>131</width>
-                         <height>421</height>
-                        </rect>
-                       </property>
-                       <property name="title">
-                        <string>灰度变换</string>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_10">
-                        <property name="spacing">
-                         <number>15</number>
-                        </property>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_gray">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>泊松噪声</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_speckle_noisy">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
+                               </property>
+                               <property name="text">
+                                <string>散斑噪声</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QGroupBox" name="groupBox_3">
+                         <property name="title">
+                          <string>灰度变换</string>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_10">
+                          <property name="spacing">
+                           <number>15</number>
                           </property>
-                          <property name="text">
-                           <string>灰度化</string>
+                          <property name="leftMargin">
+                           <number>9</number>
                           </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_Thresholding">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_gray">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>二值化</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_flip">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                            </property>
+                            <property name="text">
+                             <string>灰度化</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_Thresholding">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>灰度反转</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_log">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                            </property>
+                            <property name="text">
+                             <string>二值化</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_flip">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>对数变换</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_gamma">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                            </property>
+                            <property name="text">
+                             <string>灰度反转</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_log">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>伽马矫正</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_contrast_stretch">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                            </property>
+                            <property name="text">
+                             <string>对数变换</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_gamma">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>对比度拉伸</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_8bits_layering">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                            </property>
+                            <property name="text">
+                             <string>伽马矫正</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_contrast_stretch">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>8比特分层</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                      <widget class="QPushButton" name="btn_widgets_test">
-                       <property name="geometry">
-                        <rect>
-                         <x>730</x>
-                         <y>370</y>
-                         <width>91</width>
-                         <height>31</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">border-radius:7px;
+                            </property>
+                            <property name="text">
+                             <string>对比度拉伸</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_8bits_layering">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                       </property>
-                       <property name="text">
-                        <string>测试按钮</string>
-                       </property>
-                      </widget>
-                      <widget class="QGroupBox" name="groupBox_4">
-                       <property name="geometry">
-                        <rect>
-                         <x>20</x>
-                         <y>220</y>
-                         <width>111</width>
-                         <height>211</height>
-                        </rect>
-                       </property>
-                       <property name="title">
-                        <string>添加噪声</string>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_18">
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_pepper_and_salt">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                            </property>
+                            <property name="text">
+                             <string>8比特分层</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_15">
+                         <property name="styleSheet">
+                          <string notr="true">background: transparent</string>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_33" stretch="3,4">
+                          <property name="leftMargin">
+                           <number>6</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>6</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QGroupBox" name="groupBox_2">
+                            <property name="title">
+                             <string>空间滤波</string>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_16">
+                             <property name="spacing">
+                              <number>15</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>9</number>
+                             </property>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_mean_filtering">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>椒盐噪声</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_gauss_noisy">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>均值滤波</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_gauss_filtering">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>高斯噪声</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_poisson_noisy">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>高斯滤波</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_median_filtering">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>泊松噪声</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_speckle_noisy">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>中值滤波</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QGroupBox" name="groupBox_9">
+                            <property name="title">
+                             <string>锐化/边缘检测</string>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_27">
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_sobel">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>散斑噪声</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                      <widget class="QGroupBox" name="groupBox_9">
-                       <property name="geometry">
-                        <rect>
-                         <x>320</x>
-                         <y>220</y>
-                         <width>111</width>
-                         <height>211</height>
-                        </rect>
-                       </property>
-                       <property name="title">
-                        <string>锐化/边缘检测</string>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_27">
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_sobel">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>Sobel</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_laplace">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>Sobel</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_laplace">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>Laplace </string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_scharr">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>Laplace </string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_scharr">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>Scharr</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_canny">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
+                               </property>
+                               <property name="text">
+                                <string>Canny</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_16">
+                         <property name="styleSheet">
+                          <string notr="true">background: transparent</string>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_34" stretch="3,4">
+                          <property name="leftMargin">
+                           <number>0</number>
                           </property>
-                          <property name="text">
-                           <string>Scharr</string>
+                          <property name="topMargin">
+                           <number>0</number>
                           </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_canny">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                          <property name="rightMargin">
+                           <number>6</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QGroupBox" name="groupBox_10">
+                            <property name="title">
+                             <string>机器学习</string>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_28">
+                             <property name="spacing">
+                              <number>15</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>9</number>
+                             </property>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_kmean">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>Canny</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                      <widget class="QGroupBox" name="groupBox_8">
-                       <property name="geometry">
-                        <rect>
-                         <x>460</x>
-                         <y>220</y>
-                         <width>111</width>
-                         <height>211</height>
-                        </rect>
-                       </property>
-                       <property name="title">
-                        <string>形态学处理</string>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_26">
-                        <property name="spacing">
-                         <number>15</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>9</number>
-                        </property>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_erode">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>k聚类区域分割</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_facefind">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>腐蚀</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_dilate">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>人脸识别</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_wait3">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>膨胀</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_open">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>待定</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QGroupBox" name="groupBox_8">
+                            <property name="title">
+                             <string>形态学处理</string>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_26">
+                             <property name="spacing">
+                              <number>15</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>9</number>
+                             </property>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_erode">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>开运算</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_close">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>腐蚀</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_dilate">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>闭运算</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                      <widget class="QGroupBox" name="groupBox_10">
-                       <property name="geometry">
-                        <rect>
-                         <x>460</x>
-                         <y>10</y>
-                         <width>111</width>
-                         <height>201</height>
-                        </rect>
-                       </property>
-                       <property name="title">
-                        <string>机器学习</string>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_28">
-                        <property name="spacing">
-                         <number>15</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>9</number>
-                        </property>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_kmean">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>膨胀</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_open">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
-                          </property>
-                          <property name="text">
-                           <string>k聚类区域分割</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_facefind">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                               </property>
+                               <property name="text">
+                                <string>开运算</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_close">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
+                               </property>
+                               <property name="text">
+                                <string>闭运算</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_17">
+                         <property name="styleSheet">
+                          <string notr="true">background: transparent</string>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_35" stretch="3,4">
+                          <property name="leftMargin">
+                           <number>0</number>
                           </property>
-                          <property name="text">
-                           <string>人脸识别</string>
+                          <property name="topMargin">
+                           <number>0</number>
                           </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btn_widgets_median_filtering_2">
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:7px;
+                          <property name="rightMargin">
+                           <number>6</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QGroupBox" name="groupBox_11">
+                            <property name="title">
+                             <string>傅里叶</string>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_29">
+                             <property name="spacing">
+                              <number>15</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>9</number>
+                             </property>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_fre_spectrum">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
 background-color: rgb(52, 59, 72);
 </string>
+                               </property>
+                               <property name="text">
+                                <string>查看频谱</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_hf_filtering">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                               </property>
+                               <property name="text">
+                                <string>高通滤波</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_lf_filtering">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                               </property>
+                               <property name="text">
+                                <string>低通滤波</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QGroupBox" name="groupBox_13">
+                            <property name="title">
+                             <string>待定</string>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_31">
+                             <property name="spacing">
+                              <number>15</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>9</number>
+                             </property>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_erode_2">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                               </property>
+                               <property name="text">
+                                <string>待定</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_dilate_2">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                               </property>
+                               <property name="text">
+                                <string>待定</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_open_2">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                               </property>
+                               <property name="text">
+                                <string>待定</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_widgets_wait_2">
+                               <property name="styleSheet">
+                                <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                               </property>
+                               <property name="text">
+                                <string>待定</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QGroupBox" name="groupBox_12">
+                         <property name="title">
+                          <string>其他功能</string>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_30">
+                          <property name="spacing">
+                           <number>15</number>
                           </property>
-                          <property name="text">
-                           <string>待定</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_character">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                            </property>
+                            <property name="text">
+                             <string>变为字符画</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_pixel">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                            </property>
+                            <property name="text">
+                             <string>变为像素画</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_ninegrid">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                            </property>
+                            <property name="text">
+                             <string>图片九宫格</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_montage">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                            </property>
+                            <property name="text">
+                             <string>图片蒙太奇</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_mirage_tank">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                            </property>
+                            <property name="text">
+                             <string>幻影坦克</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_wait">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                            </property>
+                            <property name="text">
+                             <string>待定</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_widgets_test">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:7px;
+background-color: rgb(52, 59, 72);
+</string>
+                            </property>
+                            <property name="text">
+                             <string>测试按钮</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
                      </widget>
                      <widget class="QWidget" name="new_page">
                       <layout class="QHBoxLayout" name="horizontalLayout_9">
@@ -2660,7 +2929,7 @@ border: 0px;</string>
                           <enum>QTabWidget::Triangular</enum>
                          </property>
                          <property name="currentIndex">
-                          <number>1</number>
+                          <number>0</number>
                          </property>
                          <property name="usesScrollButtons">
                           <bool>false</bool>
@@ -2685,7 +2954,7 @@ border: 0px;</string>
                           <attribute name="title">
                            <string>通用设置</string>
                           </attribute>
-                          <layout class="QVBoxLayout" name="verticalLayout_25" stretch="4,4,1">
+                          <layout class="QVBoxLayout" name="verticalLayout_25" stretch="0,4,4,4,1">
                            <property name="leftMargin">
                             <number>9</number>
                            </property>
@@ -2698,6 +2967,67 @@ border: 0px;</string>
                            <property name="bottomMargin">
                             <number>0</number>
                            </property>
+                           <item>
+                            <widget class="QFrame" name="frame_2">
+                             <property name="styleSheet">
+                              <string notr="true">background: transparent</string>
+                             </property>
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_13">
+                              <property name="spacing">
+                               <number>12</number>
+                              </property>
+                              <property name="leftMargin">
+                               <number>20</number>
+                              </property>
+                              <property name="rightMargin">
+                               <number>20</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="set_label_2">
+                                <property name="font">
+                                 <font>
+                                  <family>Segoe UI</family>
+                                  <pointsize>-1</pointsize>
+                                  <italic>false</italic>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">font: bold 15px;</string>
+                                </property>
+                                <property name="text">
+                                 <string>图片默认打开路径：</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QLineEdit" name="set_file_open_path">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>30</height>
+                                 </size>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">background-color: rgb(33, 37, 43);</string>
+                                </property>
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="placeholderText">
+                                 <string/>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
                            <item>
                             <widget class="QFrame" name="frame">
                              <property name="styleSheet">
@@ -2760,7 +3090,7 @@ border: 0px;</string>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_2">
+                            <widget class="QFrame" name="frame_18">
                              <property name="styleSheet">
                               <string notr="true">background: transparent</string>
                              </property>
@@ -2770,7 +3100,7 @@ border: 0px;</string>
                              <property name="frameShadow">
                               <enum>QFrame::Raised</enum>
                              </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_13">
+                             <layout class="QHBoxLayout" name="horizontalLayout_26">
                               <property name="spacing">
                                <number>12</number>
                               </property>
@@ -2781,7 +3111,7 @@ border: 0px;</string>
                                <number>20</number>
                               </property>
                               <item>
-                               <widget class="QLabel" name="set_label_2">
+                               <widget class="QLabel" name="set_label_3">
                                 <property name="font">
                                  <font>
                                   <family>Segoe UI</family>
@@ -2794,12 +3124,73 @@ border: 0px;</string>
                                  <string notr="true">font: bold 15px;</string>
                                 </property>
                                 <property name="text">
-                                 <string>图片默认打开路径：</string>
+                                 <string>字符画列表：</string>
                                 </property>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QLineEdit" name="set_file_open_path">
+                               <widget class="QLineEdit" name="set_file_character_list">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>30</height>
+                                 </size>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">background-color: rgb(33, 37, 43);</string>
+                                </property>
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="placeholderText">
+                                 <string/>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_19">
+                             <property name="styleSheet">
+                              <string notr="true">background: transparent</string>
+                             </property>
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_27">
+                              <property name="spacing">
+                               <number>12</number>
+                              </property>
+                              <property name="leftMargin">
+                               <number>20</number>
+                              </property>
+                              <property name="rightMargin">
+                               <number>20</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="set_label_4">
+                                <property name="font">
+                                 <font>
+                                  <family>Segoe UI</family>
+                                  <pointsize>-1</pointsize>
+                                  <italic>false</italic>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">font: bold 15px;</string>
+                                </property>
+                                <property name="text">
+                                 <string>蒙太奇路径：</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QLineEdit" name="set_file_montage_path">
                                 <property name="minimumSize">
                                  <size>
                                   <width>0</width>
