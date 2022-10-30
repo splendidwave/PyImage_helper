@@ -1456,13 +1456,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_28.addWidget(self.btn_widgets_facefind)
 
-        self.btn_widgets_wait3 = QPushButton(self.groupBox_10)
-        self.btn_widgets_wait3.setObjectName(u"btn_widgets_wait3")
-        self.btn_widgets_wait3.setStyleSheet(u"border-radius:7px;\n"
+        self.btn_widgets_catfind = QPushButton(self.groupBox_10)
+        self.btn_widgets_catfind.setObjectName(u"btn_widgets_catfind")
+        self.btn_widgets_catfind.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
 
-        self.verticalLayout_28.addWidget(self.btn_widgets_wait3)
+        self.verticalLayout_28.addWidget(self.btn_widgets_catfind)
 
 
         self.verticalLayout_34.addWidget(self.groupBox_10)
@@ -1645,13 +1645,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_30.addWidget(self.btn_widgets_mirage_tank)
 
-        self.btn_widgets_wait = QPushButton(self.groupBox_12)
-        self.btn_widgets_wait.setObjectName(u"btn_widgets_wait")
-        self.btn_widgets_wait.setStyleSheet(u"border-radius:7px;\n"
+        self.btn_widgets_certificate = QPushButton(self.groupBox_12)
+        self.btn_widgets_certificate.setObjectName(u"btn_widgets_certificate")
+        self.btn_widgets_certificate.setStyleSheet(u"border-radius:7px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "")
 
-        self.verticalLayout_30.addWidget(self.btn_widgets_wait)
+        self.verticalLayout_30.addWidget(self.btn_widgets_certificate)
 
         self.btn_widgets_test = QPushButton(self.groupBox_12)
         self.btn_widgets_test.setObjectName(u"btn_widgets_test")
@@ -2210,7 +2210,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(0)
 
 
@@ -2305,8 +2305,8 @@ class Ui_MainWindow(object):
         self.btn_widgets_canny.setText(QCoreApplication.translate("MainWindow", u"Canny", None))
         self.groupBox_10.setTitle(QCoreApplication.translate("MainWindow", u"\u673a\u5668\u5b66\u4e60", None))
         self.btn_widgets_kmean.setText(QCoreApplication.translate("MainWindow", u"k\u805a\u7c7b\u533a\u57df\u5206\u5272", None))
-        self.btn_widgets_facefind.setText(QCoreApplication.translate("MainWindow", u"\u4eba\u8138\u8bc6\u522b", None))
-        self.btn_widgets_wait3.setText(QCoreApplication.translate("MainWindow", u"\u5f85\u5b9a", None))
+        self.btn_widgets_facefind.setText(QCoreApplication.translate("MainWindow", u"\u4eba\u8138\u68c0\u6d4b", None))
+        self.btn_widgets_catfind.setText(QCoreApplication.translate("MainWindow", u"\u732b\u8138\u68c0\u6d4b", None))
         self.groupBox_8.setTitle(QCoreApplication.translate("MainWindow", u"\u5f62\u6001\u5b66\u5904\u7406", None))
         self.btn_widgets_erode.setText(QCoreApplication.translate("MainWindow", u"\u8150\u8680", None))
         self.btn_widgets_dilate.setText(QCoreApplication.translate("MainWindow", u"\u81a8\u80c0", None))
@@ -2327,7 +2327,7 @@ class Ui_MainWindow(object):
         self.btn_widgets_ninegrid.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u4e5d\u5bab\u683c", None))
         self.btn_widgets_montage.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u8499\u592a\u5947", None))
         self.btn_widgets_mirage_tank.setText(QCoreApplication.translate("MainWindow", u"\u5e7b\u5f71\u5766\u514b", None))
-        self.btn_widgets_wait.setText(QCoreApplication.translate("MainWindow", u"\u5f85\u5b9a", None))
+        self.btn_widgets_certificate.setText(QCoreApplication.translate("MainWindow", u"\u8bc1\u4ef6\u7167\u88c1\u526a", None))
         self.btn_widgets_test.setText(QCoreApplication.translate("MainWindow", u"\u6d4b\u8bd5\u6309\u94ae", None))
         self.set_label_2.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u9ed8\u8ba4\u6253\u5f00\u8def\u5f84\uff1a", None))
         self.set_file_open_path.setText("")

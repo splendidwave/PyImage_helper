@@ -678,6 +678,18 @@ class UIFunctions(MainWindow):
         win_name = "face"
         UIFunctions.wait_key(self,img,win_name)
 
+    # 猫脸检测
+    def catfind(self):
+        img = self.image.copy()
+        gray = UIFunctions.trun_gray(self,img)
+        # 加载人脸特征，该文件在 python安装目录\Lib\site-packages\cv2\data 下
+        face_cascade = cv2.CascadeClassifier(r'modules\haarcascade_frontalcatface.xml')
+        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=4, minSize=(20, 20))
+        for (x, y, w, h) in faces:
+            cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        win_name = "cat"
+        UIFunctions.wait_key(self,img,win_name)
+
     # 傅里叶变换
     # 频谱展示
     def fre_spectrum(self):
@@ -922,6 +934,134 @@ class UIFunctions(MainWindow):
 
             win_name = "tank"
             UIFunctions.wait_key(self,new_pic,win_name)
+
+    # 证件照处理
+    def certificate_image(self):
+        # 1寸大小
+        WIDTH_1IN = 295
+        HEIGHT_1IN = 413
+        # 2寸大小
+        WIDTH_2IN = 413
+        HEIGHT_2IN = 626
+        # 5寸大小
+        WIDTH_5IN = 1500
+        HEIGHT_5IN = 1050
+        # 非全景6寸照片
+        WIDTH_6IN = 1950
+        HEIGHT_6IN = 1300
+        def cut_photo(photo,choice):
+            """
+            将照片按照比例进行裁剪并缩放成1寸、2寸
+            :param photo: 待处理的照片
+            :param choice: <int> 1代表1寸，2代表2寸
+            :return: 处理后的照片
+            """
+            h,w = photo.shape[:2]
+            rate = h / w
+            if choice == 1:
+                if rate < (HEIGHT_1IN/WIDTH_1IN):
+                    cut = int((w - int(h / HEIGHT_1IN * WIDTH_1IN)) / 2)
+                    cut_p = photo[:,cut:w-cut,:]
+                else:
+                    cut = int((h - int(w / WIDTH_1IN * HEIGHT_1IN)) / 2)
+                    cut_p = photo[cut:w-cut,:,:]
+                return cv2.resize(cut_p, (WIDTH_1IN, HEIGHT_1IN))
+            if choice == 2:
+                if rate < (HEIGHT_2IN/WIDTH_2IN):
+                    cut = int((w - int(h / HEIGHT_2IN * WIDTH_2IN)) / 2)
+                    cut_p = photo[:,cut:w-cut,:]
+                else:
+                    cut = int((h - int(w / WIDTH_2IN * HEIGHT_2IN)) / 2)
+                    cut_p = photo[cut:w-cut,:,:]
+                return cv2.resize(cut_p, (WIDTH_2IN, HEIGHT_2IN))
+
+        # 5寸照排版1
+        def layout_photo_5_1(photo):
+            photo = cut_photo(photo,1)
+            img = np.ones((HEIGHT_5IN,WIDTH_5IN, 3), np.uint8)*255
+            img[HEIGHT_5IN//2,:,:] = 128            # 横线
+            img[:,int(WIDTH_5IN*0.25),:] = 128      # 竖线1
+            img[:,int(WIDTH_5IN*0.5),:] = 128      # 竖线2
+            img[:,int(WIDTH_5IN*0.75),:] = 128      # 竖线3
+            # 确定位置放上图片
+            focus_point = [0.125 * WIDTH_5IN,0.25 * HEIGHT_5IN]
+            start_point = [focus_point[0] - 0.5 * WIDTH_1IN, focus_point[1] - 0.5 * HEIGHT_1IN]
+            end_point = [focus_point[0] + 0.5 * WIDTH_1IN, focus_point[1] + 0.5 * HEIGHT_1IN]
+            for i in range(0,2):
+                for j in range(0,4):
+                    img[int(start_point[1]+0.5*i*HEIGHT_5IN):int(end_point[1]+0.5*i*HEIGHT_5IN),int(start_point[0]+j*WIDTH_5IN/4):int(end_point[0]+j*WIDTH_5IN/4),:] = photo
+            return img
+        # 5寸混合排版2
+        def layout_photo_5_mix(photo):
+            photo1 = cut_photo(photo,1)
+            photo2 = cut_photo(photo,2)
+            photo2 = np.rot90(photo2)
+            img = np.ones((HEIGHT_5IN,WIDTH_5IN, 3), np.uint8)*255
+            img[HEIGHT_5IN//2,:,:] = 128            # 横线
+            img[:,int(WIDTH_5IN*0.25),:] = 128      # 竖线1
+            img[:,int(WIDTH_5IN*0.5),:] = 128      # 竖线2
+            # 确定位置放上1寸图片
+            focus_point = [0.125 * WIDTH_5IN,0.25 * HEIGHT_5IN]
+            start_point = [focus_point[0] - 0.5 * WIDTH_1IN, focus_point[1] - 0.5 * HEIGHT_1IN]
+            end_point = [focus_point[0] + 0.5 * WIDTH_1IN, focus_point[1] + 0.5 * HEIGHT_1IN]
+            for i in range(0,2):
+                for j in range(0,2):
+                    img[int(start_point[1]+0.5*i*HEIGHT_5IN):int(end_point[1]+0.5*i*HEIGHT_5IN),int(start_point[0]+j*WIDTH_5IN/4):int(end_point[0]+j*WIDTH_5IN/4),:] = photo1
+            # 确定位置放上2寸图片
+            focus_point2 = [0.75 * WIDTH_5IN, 0.25 * HEIGHT_5IN]
+            start_point2 = [focus_point2[0] - 0.5 * HEIGHT_2IN, focus_point2[1] - 0.5 * WIDTH_2IN]
+            end_point2 = [focus_point2[0] + 0.5 * HEIGHT_2IN, focus_point2[1] + 0.5 * WIDTH_2IN]
+            img[int(start_point2[1]):int(end_point2[1]),int(start_point2[0]):int(end_point2[0]),:] = photo2
+            img[int(start_point2[1]+ 0.5 * HEIGHT_5IN):int(end_point2[1]+ 0.5 * HEIGHT_5IN),int(start_point2[0]):int(end_point2[0]),:] = photo2
+            return img
+        # 6寸混合排版1
+        def layout_photo_6_mix(photo):
+            photo1 = cut_photo(photo,1)
+            photo2 = cut_photo(photo,2)
+            photo1 = np.rot90(photo1)
+            img = np.ones((HEIGHT_6IN,WIDTH_6IN, 3), np.uint8)*255
+            img[HEIGHT_6IN//2,:,:] = 128            # 横线1
+            img[HEIGHT_6IN//4,:WIDTH_6IN//2,:] = 128 # 横线2
+            img[int(HEIGHT_6IN*0.75),:WIDTH_6IN//2,:] = 128 # 横线2
+            img[:,int(WIDTH_6IN*0.25),:] = 128      # 竖线1
+            img[:,int(WIDTH_6IN*0.5),:] = 128      # 竖线2
+            img[:,int(WIDTH_6IN*0.75),:] = 128      # 竖线3
+            # 确定位置放上1寸图片
+            focus_point = [0.125 * WIDTH_6IN, 0.125 * HEIGHT_6IN]
+            start_point = [focus_point[0] - 0.5 * HEIGHT_1IN, focus_point[1] - 0.5 * WIDTH_1IN]
+            end_point = [focus_point[0] + 0.5 * HEIGHT_1IN, focus_point[1] + 0.5 * WIDTH_1IN]
+            for i in range(0,4):
+                for j in range(0,2):
+                    img[int(start_point[1]+0.25*i*HEIGHT_6IN):int(end_point[1]+0.25*i*HEIGHT_6IN),int(start_point[0]+j*WIDTH_6IN/4):int(end_point[0]+j*WIDTH_6IN/4),:] = photo1
+            # 确定位置放上2寸图片
+            focus_point2 = [0.625 * WIDTH_6IN, 0.25 * HEIGHT_6IN]
+            start_point2 = [focus_point2[0] - 0.5 * WIDTH_2IN, focus_point2[1] - 0.5 * HEIGHT_2IN]
+            end_point2 = [focus_point2[0] + 0.5 * WIDTH_2IN, focus_point2[1] + 0.5 * HEIGHT_2IN]
+            for i in range(0,2):
+                for j in range(0,2):
+                    img[int(start_point2[1]+0.5*i*HEIGHT_6IN):int(end_point2[1]+0.5*i*HEIGHT_6IN),int(start_point2[0]+j*WIDTH_6IN/4):int(end_point2[0]+j*WIDTH_6IN/4),:] = photo2
+
+            return img
+
+        img = self.image.copy()
+        items = ('1寸', '2寸', '5寸(8*1寸)', '5寸(4*1寸+2*2寸)', '6寸(8*1寸+4*2寸)')
+        item,ok = QInputDialog.getItem(self,"区域分割","选择需要分成几块",items,3,False)
+        if ok:
+            if item == '1寸':
+                img = cut_photo(img,1)
+            elif item == '2寸':
+                img = cut_photo(img,2)
+            elif item == '5寸(8*1寸)':
+                img = layout_photo_5_1(img)
+            elif item == '5寸(4*1寸+2*2寸)':
+                img = layout_photo_5_mix(img)
+            elif item == '6寸(8*1寸+4*2寸)':
+                img = layout_photo_6_mix(img)
+
+            win_name = "ID photo"
+            UIFunctions.wait_key(self,img,win_name)
+
+
     # ///////////////////////////////////////////////////////////////
     # END  功能页面按钮功能实现
 

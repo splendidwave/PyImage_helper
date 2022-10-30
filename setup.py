@@ -14,10 +14,10 @@ target = Executable(
 
 # SETUP CX FREEZE
 setup(
-    name = "PyDracula",
+    name = "PyImage Helper",
     version = "1.0",
-    description = "Modern GUI for Python applications",
-    author = "Wanderson M. Pimenta",
+    description = "测试",
+    author = "SplendidWave",
     options = {'build_exe' : {'include_files' : files}},
     executables = [target]
     

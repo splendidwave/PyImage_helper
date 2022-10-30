@@ -141,12 +141,13 @@ class MainWindow(QMainWindow):
         widgets.btn_widgets_close.clicked.connect(self.widgets_buttonClick) # 闭运算 完成
 
         # 图像分割
-        # k聚类
-        widgets.btn_widgets_kmean.clicked.connect(self.widgets_buttonClick)
-
         # 机器学习
-        # 人脸识别
+        # k聚类
+        widgets.btn_widgets_kmean.clicked.connect(self.widgets_buttonClick)        
+        # 人脸检测
         widgets.btn_widgets_facefind.clicked.connect(self.widgets_buttonClick)
+        # 猫脸检测
+        widgets.btn_widgets_catfind.clicked.connect(self.widgets_buttonClick)
 
         # 傅里叶变换
         widgets.btn_widgets_fre_spectrum.clicked.connect(self.widgets_buttonClick)
@@ -159,6 +160,7 @@ class MainWindow(QMainWindow):
         widgets.btn_widgets_ninegrid.clicked.connect(self.widgets_buttonClick)
         widgets.btn_widgets_montage.clicked.connect(self.widgets_buttonClick)
         widgets.btn_widgets_mirage_tank.clicked.connect(self.widgets_buttonClick)
+        widgets.btn_widgets_certificate.clicked.connect(self.widgets_buttonClick)
 
         # 测试
         widgets.btn_widgets_test.clicked.connect(self.widgets_buttonClick)
@@ -382,6 +384,10 @@ class MainWindow(QMainWindow):
         if btnName == "btn_widgets_facefind":
             UIFunctions.facefind(self)
 
+        # 猫脸检测
+        if btnName == "btn_widgets_catfind":
+            UIFunctions.catfind(self)
+
         # 傅里叶变换
         # 频谱展示
         if btnName == "btn_widgets_fre_spectrum":
@@ -415,6 +421,10 @@ class MainWindow(QMainWindow):
         # 幻影坦克
         if btnName == "btn_widgets_mirage_tank":
             UIFunctions.mirage_tank_image(self)
+
+        # 证件照裁剪
+        if btnName == "btn_widgets_certificate":
+            UIFunctions.certificate_image(self)
 
         # 测试
         if btnName == "btn_widgets_test":
